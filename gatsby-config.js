@@ -12,42 +12,36 @@ module.exports = {
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     // Content of the About Me section
-    about: `I am Nezar, and I enjoy long-distance running, drawing, problem solving, spending time with my family, and traveling.
+    about: `I'm Nezar, a long-distance runner, artist, and problem solver. Currently studying Applied Mathematics and Computer Science at Sorbonne University, my fascination with numbers and data science led me to explore complex datasets, uncover patterns, and apply statistical theories.
 
-​
+I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now, I'm diving into the technical side as a Data Engineer intern at Launchmetrics. I enjoy sharing my journey through projects and discoveries, always eager to learn, grow, and contribute to the data science community.`,
 
-Currently, I am pursuing an Engineering Cycle in Applied Mathematics and Computer Science at Sorbonne University. My fascination with numbers and statistics has always driven me, and the prospect of applying these concepts through data science felt like a natural progression.
-
- 
-
-Before I knew it, I had become a fervent "data enthusiast," delving into complex datasets, searching for patterns, and reveling in the elegance of statistical theories.
-
-Through this portfolio, I aim to share my journey, discoveries, and the joy of exploration with others who are similarly intrigued.
-
-​
-
-The path to data science has been intellectually stimulating, challenging me to apply mathematical principles in innovative ways. The projects I've undertaken have not only refined my technical skills but also deepened my appreciation for the discipline's potential to solve real-world problems.
-
-As I continue to navigate this exciting field, I remain committed to learning, growing, and contributing to the broader community of data enthusiasts.`,
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
       {
-        name: 'Implementing a Recommender System for Efficient Driver Selection',
+        name: 'Recommender System for Optimized Driver Selection in Vehicle Transfer Services',
         description:
-          'A zero-config and blazing fast personal site + blog built with GatsbyJs and TailwindCSS',
-        link: 'https://github.com/RyanFitzgerald/devfolio',
+          'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.',
       },
       {
-        name: 'Enhancing Fast Fourier Transform Performance through Parallelization and Vectorization',
+      name: "Traffic Modeling and Forecasting Using Sensor Data in Paris",
         description:
-          'Kit to jump-start your Chrome extension projects with a variety of battle-tested starter templates',
-        link: 'https://chromeextensionkit.com/?ref=devfolio',
+          ' Analyzed traffic patterns from 3,500 sensors in Paris to identify congestion trends and relationships between vehicle flow and road occupancy, with plans to build forecasting models and account for geographical dependencies.',
       },
       {
-        name: "Heat Dissipation in Microprocessors: A Parallelized Simulation Study of the AMD EPYC 'Rome' CPU Heatsink Dynamics",
+        name: "Parallelized Simulation of Heat Dissipation in AMD EPYC 'Rome' CPU Heatsink",
+          description:
+            'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.',
+        },
+      {
+        name: 'Optimizing FFT Performance through Parallelization and Vectorization',
         description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit ducimus perferendis',
-        link: 'https://github.com/RyanFitzgerald/devfolio',
+          'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.',
+      },
+      {
+        name: "Ride-Hailing Trends in New York City: Uber, Lyft, and Via Operations Analysis",
+        description:
+          'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.',
       },
     ],
     // Optional: List your experience, they must have `name` and `description`. `link` is optional.
