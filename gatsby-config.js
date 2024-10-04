@@ -53,9 +53,8 @@ As I continue to navigate this exciting field, I remain committed to learning, g
     // Optional: List your experience, they must have `name` and `description`. `link` is optional.
     experience: [
       {
-        name: 'Acme Corp',
-        description: 'Full-Stack Developer, February 2020 - Present',
-        link: 'https://github.com/RyanFitzgerald/devfolio',
+        name: 'Launchmetrics',
+        description: 'Data Engineer, June 2024 - Present'
       },
       {
         name: 'Globex Corp',
