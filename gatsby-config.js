@@ -32,19 +32,19 @@ As I continue to navigate this exciting field, I remain committed to learning, g
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
       {
-        name: 'Devfolio',
+        name: 'Implementing a Recommender System for Efficient Driver Selection',
         description:
           'A zero-config and blazing fast personal site + blog built with GatsbyJs and TailwindCSS',
         link: 'https://github.com/RyanFitzgerald/devfolio',
       },
       {
-        name: 'ChromeExtensionKit',
+        name: 'Enhancing Fast Fourier Transform Performance through Parallelization and Vectorization',
         description:
           'Kit to jump-start your Chrome extension projects with a variety of battle-tested starter templates',
         link: 'https://chromeextensionkit.com/?ref=devfolio',
       },
       {
-        name: 'Another Cool Project',
+        name: "Heat Dissipation in Microprocessors: A Parallelized Simulation Study of the AMD EPYC 'Rome' CPU Heatsink Dynamics",
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit ducimus perferendis',
         link: 'https://github.com/RyanFitzgerald/devfolio',
@@ -90,7 +90,7 @@ As I continue to navigate this exciting field, I remain committed to learning, g
       {
         name: 'Soft Skills',
         description:
-          'Presentation, Planning, Organized, Creative Problem-Solving, Teamwork, Active Listening, Adaptability, Analytical Thinking, Research and Analysis, Critical Thinking, Time Management, Creative Problem Solving',
+          'Presentation, Planning, Organized, Creative Problem-Solving, Teamwork,  Adaptability, Research and Analysis, Critical Thinking, Time Management, Creative Problem Solving',
       },
     ],
   },
