@@ -10,7 +10,7 @@ module.exports = {
     description: `Welcome to my blog`,
 
     // Optional: Github account URL
-    github: `https://github.com/nezarbr.github.io`,
+    github: `https://github.com/Nezarbr`,
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/ryanafitzgerald/`,
     // Content of the About Me section

@@ -1,9 +1,9 @@
 {
-  "name": "devfolio",
+  "name": "nezar-portfolio",
   "private": true,
-  "description": "A modern and production-ready personal portfolio + blog template built with GatsbyJs and TailwindCSS",
+  "description": "A personal portfolio + blog built with GatsbyJs and TailwindCSS",
   "version": "0.1.0",
-  "author": "Ryan Fitzgerald",
+  "author": "Nezar Boujida",
   "dependencies": {
     "gatsby": "^2.24.67",
     "gatsby-image": "^2.4.20",
@@ -32,26 +32,26 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "prettier": "2.1.2",
     "tailwindcss": "^1.8.13"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RyanFitzgerald/devfolio"
+    "url": "https://github.com/Nezarbr/Nezarbr.github.io"
   },
   "bugs": {
-    "url": "https://github.com/RyanFitzgerald/devfolio/issues"
-  }
+    "url": "https://github.com/Nezarbr/Nezarbr.github.io/issues"
+  },
+  "license": "MIT"
 }
