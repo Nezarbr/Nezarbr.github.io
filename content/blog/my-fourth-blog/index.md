@@ -1,6 +1,6 @@
 # Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services
 
-**Authors**: Nezar Boujida, Amine Boujida  
+**Authors**: Nezar Boujida
 **Date**: 11/04/2024  
 
 ---
@@ -50,9 +50,6 @@ The two-tower recommender system automates and optimizes the matching of drivers
 - **Request Tower**: It processes transfer request details, such as pickup and drop-off locations, converting these into embeddings that represent the request’s characteristics.
 
 The similarity between these embeddings is computed using cosine similarity, which ranks drivers based on their compatibility with the request.
-
-```math
-\text{cosine}(\mathbf{E}, \mathbf{E'}) = \frac{\mathbf{E} \cdot \mathbf{E'}}{\|\mathbf{E}\| \|\mathbf{E'}\|}
 
 
 This Markdown article contains the introduction, problem statement, achieved results, and approach sections. For the full details, a link is provided at the end. You can replace `#` in the link with the actual URL to the full paper.
