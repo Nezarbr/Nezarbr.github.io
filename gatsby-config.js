@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     // Site URL for when it goes live
-    siteUrl: `https://hello`,
+    siteUrl: `https://elastic-meninsky-aa7c74.nety.app/`,
     // Your Name
     name: 'Nezar Boujida',
     // Main Site Title
