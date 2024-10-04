@@ -1,68 +1,130 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 04 Oct 2024 20:19:01 GMT</lastBuildDate><item><title><![CDATA[My Fourth Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Mon, 12 Oct 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 04 Oct 2024 20:38:36 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services Authors: Nezar Boujida, Amine Boujida Date: 11/0…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><content:encoded>&lt;h1&gt;Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Authors&lt;/strong&gt;: Nezar Boujida, Amine Boujida&lt;br&gt;
+&lt;strong&gt;Date&lt;/strong&gt;: 11/04/2024  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Vehicle transportation services face an increasingly complex logistics environment, with a growing need to move single vehicles across various destinations efficiently. Operating with a network of over 7,000 independent drivers, these services rely on drivers who are not direct employees but are integral to the system. A major challenge for these services is matching the right drivers to the right transportation requests while minimizing manual intervention.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Problem Statement&lt;/h2&gt;
+&lt;p&gt;Customers use the platform to post vehicle transfer requests, and drivers apply for these transfers. When the transfer date approaches without a driver assignment, manual intervention becomes necessary. This reliance on a limited pool of drivers has led to several issues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Narrow Driver Pool&lt;/strong&gt;: The existing system focuses on high precision, limiting the driver pool. This reduces flexibility, increases operational costs, and grants disproportionate bargaining power to a small group of drivers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual Processes&lt;/strong&gt;: As deadlines approach without an assigned driver, the process requires manual effort, which hinders scalability and efficiency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Achieved Results&lt;/h2&gt;
+&lt;p&gt;We developed a two-tower recommender system that ranks drivers by their suitability for a given transfer. This system narrows the search space to approximately 100 drivers, around 2% of the original pool. The system ensures that in 93% of cases, unsuitable drivers are ranked beyond the top 100.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Engagement&lt;/strong&gt;: The recommender system doubled driver engagement, reaching 40% of drivers compared to the 20% in the previous system.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost Reduction&lt;/strong&gt;: By expanding the driver pool and increasing competition, costs are reduced by up to 19%. This is a significant improvement over the baseline 18% reduction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3&gt;Figures:&lt;/h3&gt;
+&lt;h4&gt;Driver’s Diversity vs. Number of Transfers&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/c08c5/mountain.jpg&quot;
+    href=&quot;/static/5436e61de6ac29f74e72356afd79697f/39a20/compar.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.89189189189189%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYCBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABtxwC4YBfE//EABgQAAMBAQAAAAAAAAAAAAAAAAABERIi/9oACAEBAAEFAojmcmmaZT//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/Abhj/8QAFhEAAwAAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/AYyM/8QAFxABAQEBAAAAAAAAAAAAAAAAADEBEP/aAAgBAQAGPwJcVV5//8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERMVEhkf/aAAgBAQABPyHjB7eAqWC619K6xfT/2gAMAwEAAgADAAAAEOAP/8QAGBEAAgMAAAAAAAAAAAAAAAAAABEhMVH/2gAIAQMBAT8QhoeD/8QAFREBAQAAAAAAAAAAAAAAAAAAAGH/2gAIAQIBAT8Qoo//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhYTFxkYH/2gAIAQEAAT8QACiQttuMYfSZg94XHxtHmDtm17P/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 60.810810810810814%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABa0lEQVQoz42T246DMAxE+f+vrNqXCnEppNCEpPbOOCRFdFdaJAvI5Xg8ThrF81q9du2kl8vF4nq96jiOum2bhhBqbFvQGHMsS9DnM6hzQYchYP2GsVUb772Ow6DJY/DxwOSg67qqiOj5SQnJX6rzrNisWJf/3+88z6RN13XI9NTzdgIzVKBMdJoEagQAASCP19iTU1xzv9+Rca6AD8iwpmSexdQdISfkB9i2bVZoIK2qYqQqlvUHBHUKShRAhFnxNiBLds7tZeyq4A1LTEn0qIsyDULzGPiGH7UiA/Z9XxVizkBZ1Y6n4ztE2AFCShcOfldg1/UALDD7bV6VtUI1BKAcU3XuukiNL4UOTSnlWVlLViMxfjw7Ne23JhqQh3ei+9yGAfPmVNJ/HzuHlLwAEuCjR4RyOwDnm1kjlPI7QX25Nf4wX8bYi6aYmqDKEYgFC3zjbeEingCehNvtprSHx4xgXk3O8wwTynWMH88+rbqbWl+nAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Mountain&quot;
-        title=&quot;Mountain&quot;
-        src=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/1c72d/mountain.jpg&quot;
-        srcset=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/a80bd/mountain.jpg 148w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/1c91a/mountain.jpg 295w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/1c72d/mountain.jpg 590w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/c08c5/mountain.jpg 640w&quot;
+        alt=&quot;Driver&amp;#39;s Diversity vs. Number of Transfers&quot;
+        title=&quot;Driver&amp;#39;s Diversity vs. Number of Transfers&quot;
+        src=&quot;/static/5436e61de6ac29f74e72356afd79697f/fcda8/compar.png&quot;
+        srcset=&quot;/static/5436e61de6ac29f74e72356afd79697f/12f09/compar.png 148w,
+/static/5436e61de6ac29f74e72356afd79697f/e4a3f/compar.png 295w,
+/static/5436e61de6ac29f74e72356afd79697f/fcda8/compar.png 590w,
+/static/5436e61de6ac29f74e72356afd79697f/39a20/compar.png 859w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Aliquam aliquid rem facere dolorum consectetur consequatur distinctio &lt;a href=&quot;https://github.com/RyanFitzgerald/devfolio&quot;&gt;mollitia id modi repellendus&lt;/a&gt; vero quae dolorem commodi soluta voluptates iusto nobis est dolore provident, porro veritatis placeat nemo impedit! Asperiores culpa delectus hic qui saepe, ipsum quia, exercitationem repellendus magni soluta sit suscipit laborum ducimus.&lt;/p&gt;
-&lt;h2&gt;Asperiores culpa delectus hic qui saepe&lt;/h2&gt;
-&lt;h3&gt;Facere labore velit ad autem&lt;/h3&gt;
-&lt;p&gt;Vitae veritatis quae eius quis vel soluta cumque? Facere labore velit ad autem. Nisi recusandae ducimus molestiae error ipsa quaerat, dignissimos suscipit similique itaque sunt provident quasi minus ut porro. Optio modi harum &lt;em&gt;dolore necessitatibus exercitationem&lt;/em&gt; blanditiis magni error ipsum, odit deleniti eligendi facilis, nesciunt delectus sit nostrum porro quam accusamus excepturi labore sequi maiores soluta?&lt;/p&gt;
-&lt;h3&gt;Porro veritatis placeat nemo impedit&lt;/h3&gt;
-&lt;p&gt;Veritatis et praesentium totam neque earum commodi nesciunt dolor quibusdam incidunt non, ex dicta molestias omnis maiores, maxime velit perferendis tenetur aut porro nostrum, suscipit soluta necessitatibus deserunt nobis. Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Repudiandae iusto et iure pariatur aliquid, quisquam, non sed culpa, dignissimos recusandae facilis. Debitis hic, quaerat recusandae ad id, quis nisi perspiciatis quo aliquid natus similique.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Illum esse recusandae facere ipsam fugiat est eaque ducimus facilis provident, distinctio cum aut corporis officiis quo fugit, similique temporibus inventore quidem tempora commodi saepe dicta! Numquam fugiat quibusdam aut ut, voluptatibus accusamus &lt;strong&gt;repellendus quas minus consequuntur&lt;/strong&gt; possimus! Est eaque nesciunt, reiciendis voluptate placeat aspernatur doloremque unde cum et architecto suscipit quam facere corrupti nihil odit eum minima voluptatem nobis.&lt;/p&gt;
-&lt;h2&gt;Voluptatibus accusamus repellendus quas minus&lt;/h2&gt;
-&lt;p&gt;Ipsum quod, ut animi mollitia ipsam repellat, dolore voluptate quibusdam quasi reiciendis necessitatibus odio ea nostrum illo explicabo? Ducimus, in repudiandae. Ratione dolore sequi in animi obcaecati incidunt reprehenderit illo repellat atque aperiam, praesentium eligendi! Sed voluptas voluptatem sunt distinctio pariatur ullam? Laudantium laboriosam.&lt;/p&gt;
+&lt;h4&gt;Precision at Different Recommendation Thresholds&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f3fde0ce3dcabc8775b072fbce44df45/ae694/precision.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.48648648648649%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAAB4ElEQVQoz61TS0oDQRAdg1dwnStE/ATjBdwIIt5CXBiQRMGFGl17iiBuxLWIEd1nFbLMBxwS0Tijk5n0Z/pZ3RWDQXTlQDPvVVW/qq7u8qRUECLEzU2Ek5MQw6FCmiq8vMR4fY2hlKIlAShakmIlpLR/PcHfl6c1xUGgWEzhecDbG9y3taWwuakcNga4uorRaDDnT0yQ9acpY08Ii0IcHGhkMlbQ2BAsLAC5nAtHHBtKZrC9zb563WBpKcbDgxlLpuMEFMfKAuWyHlfIQaurBvk84yQxmJkBnYIT3N7CxVarLFetplhbG+H5mexB8EGm9x+CKyvA8jILJAlchbu77Lu/54ovL7niw0NO0GqR3ff7ZNQoldQvghgLggSZ12rMWRA4PTWYnTXodMg+GLyTKfqjwr8EmVcqcC1xgtzD0f8JKmUFhtjfn77lQuHrUoy7FNuzYpF5rTbdw0rF0F57ZPMlGGNvj99hEHDWxUVgfn66wp0d5nd3zC8umB8dMf925BhnZwmyWUnTId1EbGwIrK8Lh6NIkU/h+Jin5fFRYm5O4PqaY8/PJfkF2m2aFEPPXGuFMBR4evqgMdP06jX6/Qi9XkQ4pQpHaDZ9+P6ApkITV7Q5oDGVjofhCN1uCDvGn0zUJgaDegHbAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Precision at Different Recommendation Thresholds&quot;
+        title=&quot;Precision at Different Recommendation Thresholds&quot;
+        src=&quot;/static/f3fde0ce3dcabc8775b072fbce44df45/fcda8/precision.png&quot;
+        srcset=&quot;/static/f3fde0ce3dcabc8775b072fbce44df45/12f09/precision.png 148w,
+/static/f3fde0ce3dcabc8775b072fbce44df45/e4a3f/precision.png 295w,
+/static/f3fde0ce3dcabc8775b072fbce44df45/fcda8/precision.png 590w,
+/static/f3fde0ce3dcabc8775b072fbce44df45/ae694/precision.png 850w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h4&gt;Price Variation Analysis: Booking vs. Minimum (%)&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/083efad76cc79784181394ec6d7380eb/77800/offic_margin.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.48648648648649%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABvElEQVQoz5WTy27jMAxF/f9/0o/orkCBbtpdW6CvIIAdxK/EsWNHEnV7rxUV09XMGCBESebhQ2ThnEPf95jnGcuycJWcUVULTqdlPV/vLhfMul8ucN6hqWdsNhU22w3KqsIwDDgejyi89zQ8IYSA9MVVf3+P2G65iwaLETCu5/MqINyGE4Z9jZawQ1li2O0SUNEJKLCM29YI9fj6Mry9RfTNBfHQETAgyDHFpglR8HEE0wIjQKRDZVjUdY2RF0qdYTAqw8eHx+OjMSXDNHkEpmg08JSgSPlnYNSOIK06U1YqTdF13S/g/b3h5ibg4cHQdSla53wCMguJXQGeNsbV/gQ2TbMCY/TY7SKengy3twHPz8aaGM9p6JlSTLUNV0B2kPUfYNu2K1CXd3eRr2t4ffUoS1trmiH/DNzzpZwb8fKSHiLV0WO/T7qi+y9g1/Us/IjPT0dwgvS9R13/BmajvwL1GMNwutYp9WHfB7ZPvPZkMsgRZj3vsy5Z20bAw6HHmX2lA+cWwibKQifLz7miSZOUJkoysR+zrv/0FoVi0s8aOXlUi6gEIfh1LyM9nKZAHaEhyOnmgdBeupx9AzO3pIUVZc2BAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Price Variation Analysis&quot;
+        title=&quot;Price Variation Analysis&quot;
+        src=&quot;/static/083efad76cc79784181394ec6d7380eb/fcda8/offic_margin.png&quot;
+        srcset=&quot;/static/083efad76cc79784181394ec6d7380eb/12f09/offic_margin.png 148w,
+/static/083efad76cc79784181394ec6d7380eb/e4a3f/offic_margin.png 295w,
+/static/083efad76cc79784181394ec6d7380eb/fcda8/offic_margin.png 590w,
+/static/083efad76cc79784181394ec6d7380eb/77800/offic_margin.png 855w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Approach&lt;/h2&gt;
+&lt;p&gt;The two-tower recommender system automates and optimizes the matching of drivers with vehicle transfer requests. This reduces the need for manual intervention and mitigates last-minute price adjustments. The system consists of two main components:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Numquam fugiat quibusdam aut ut&lt;/li&gt;
-&lt;li&gt;Soluta necessitatibus deserunt nobis&lt;/li&gt;
-&lt;li&gt;Illum esse recusandae facere ipsam&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Driver Tower&lt;/strong&gt;: This component processes driver attributes and converts them into high-dimensional embeddings that represent their preferences.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Request Tower&lt;/strong&gt;: It processes transfer request details, such as pickup and drop-off locations, converting these into embeddings that represent the request’s characteristics.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Numquam fugiat quibusdam aut ut&lt;/li&gt;
-&lt;li&gt;Soluta necessitatibus deserunt nobis&lt;/li&gt;
-&lt;li&gt;Illum esse recusandae facere ipsam&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
-&lt;h2&gt;Suscipit soluta necessitatibus deserunt nobi&lt;/h2&gt;
-&lt;p&gt;Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; helloWorld &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;World&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Hello &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;name&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;The similarity between these embeddings is computed using cosine similarity, which ranks drivers based on their compatibility with the request.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;math&quot;&gt;&lt;pre class=&quot;language-math&quot;&gt;&lt;code class=&quot;language-math&quot;&gt;\text{cosine}(\mathbf{E}, \mathbf{E&amp;#39;}) = \frac{\mathbf{E} \cdot \mathbf{E&amp;#39;}}{\|\mathbf{E}\| \|\mathbf{E&amp;#39;}\|}
 
-&lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;John Doe&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Numquam fugiat quibusdam aut ut, voluptatibus accusamus repellendus quas minus consequuntur possimus!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Third Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-third-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-third-blog/</guid><pubDate>Sat, 10 Oct 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
+
+This Markdown article contains the introduction, problem statement, achieved results, and approach sections. For the full details, a link is provided at the end. You can replace `#` in the link with the actual URL to the full paper.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[My Third Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-third-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-third-blog/</guid><pubDate>Sat, 10 Oct 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
