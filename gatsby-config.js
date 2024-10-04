@@ -6,13 +6,11 @@ module.exports = {
     name: 'Nezar Boujida',
     // Main Site Title
     title: `Nezar Boujida | Data Scientist`,
-    // Description that goes under your name in main bio
-    description: `Welcome to my blog`,
 
     // Optional: Github account URL
     github: `https://github.com/Nezarbr`,
     // Optional: LinkedIn account URL
-    linkedin: `https://www.linkedin.com/in/ryanafitzgerald/`,
+    linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     // Content of the About Me section
     about: `I am Nezar, and I enjoy long-distance running, drawing, problem solving, spending time with my family, and traveling.
 
