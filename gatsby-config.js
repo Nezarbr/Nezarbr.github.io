@@ -54,35 +54,43 @@ As I continue to navigate this exciting field, I remain committed to learning, g
     experience: [
       {
         name: 'Launchmetrics',
-        description: 'Data Engineer, June 2024 - Present',
-        link: 'https://github.com/RyanFitzgerald/devfolio',
+        description: 'Data Engineer Intern, June 2024 - Present',
+        link: 'https://www.launchmetrics.com/fr',
       },
       {
-        name: 'Globex Corp',
-        description: 'Full-Stack Developer, December 2017 - February 2020',
-        link: 'https://github.com/RyanFitzgerald/devfolio',
+        name: 'Hiflow',
+        description: 'Data Scientist Intern, September 2023 - March 2024',
+        link: 'https://www.hiflow.com/fr-fr',
       },
       {
-        name: 'Hooli',
-        description: 'Full-Stack Developer, May 2015 - December 2017',
-        link: 'https://github.com/RyanFitzgerald/devfolio',
+        name: 'Datategy',
+        description: 'Data Scientist Intern, June 2023 - August 2024',
+        link: 'https://www.datategy.net/',
       },
     ],
     // Optional: List your skills, they must have `name` and `description`.
     skills: [
       {
-        name: 'Languages & Frameworks',
+        name: 'Data Analytics, Machine Learning & Tools',
         description:
-          'JavaScript (ES6+), Golang, Node.js, Express.js, React, Ruby on Rails, PHP',
+          'Data Visualization / Analysis, Plotly, Pandas, Numpy, scikit-learn, seaborn, Folium, Machine Learning, Databricks, Databricks Unity Catalog, Apache Spark, PySpark, PostgreSQL, MySQL',
       },
       {
-        name: 'Databases',
-        description: 'MongoDB, PostreSQL, MySQL',
+        name: 'BI Tools',
+        description: 'Metabase, Apache Superset',
       },
       {
-        name: 'Other',
+        name: 'Programming & Tools',
+        description: 'Python, R, C, C++, SQL, Poetry, Python Wheel',
+      },
+      {
+        name: 'Version Control & CI/CD',
+        description: 'GitHub, GitHub Actions',
+      },
+      {
+        name: 'Soft Skills',
         description:
-          'Docker, Amazon Web Services (AWS), CI / CD, Microservices, API design, Agile / Scrum',
+          'Presentation, Planning, Organized, Creative Problem-Solving, Teamwork, Active Listening, Adaptability, Analytical Thinking, Research and Analysis, Critical Thinking, Time Management, Creative Problem Solving',
       },
     ],
   },
