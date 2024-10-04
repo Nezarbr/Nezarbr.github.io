@@ -1,8 +1,6 @@
-# Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services
-
-**Authors**: Nezar Boujida
-**Date**: 11/04/2024  
-
+---
+title: Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services
+date: '2024-04-11T12:00:00.00Z'
 ---
 
 ## Introduction
