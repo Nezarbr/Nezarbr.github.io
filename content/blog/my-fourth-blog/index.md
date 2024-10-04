@@ -1,58 +1,58 @@
+# Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services
+
+**Authors**: Nezar Boujida, Amine Boujida  
+**Date**: 11/04/2024  
+
 ---
-title: My Fourth Blog Post
-date: '2020-10-12T12:00:00.00Z'
-description: 'Unde reprehenderit inventore sunt, consequatur'
+
+## Introduction
+
+Vehicle transportation services face an increasingly complex logistics environment, with a growing need to move single vehicles across various destinations efficiently. Operating with a network of over 7,000 independent drivers, these services rely on drivers who are not direct employees but are integral to the system. A major challenge for these services is matching the right drivers to the right transportation requests while minimizing manual intervention.
+
 ---
 
-## Lorem ipsum dolor sit amet consectetur adipisicing elit
+## Problem Statement
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.
+Customers use the platform to post vehicle transfer requests, and drivers apply for these transfers. When the transfer date approaches without a driver assignment, manual intervention becomes necessary. This reliance on a limited pool of drivers has led to several issues:
 
-![Mountain](./mountain.jpg)
+- **Narrow Driver Pool**: The existing system focuses on high precision, limiting the driver pool. This reduces flexibility, increases operational costs, and grants disproportionate bargaining power to a small group of drivers.
+- **Manual Processes**: As deadlines approach without an assigned driver, the process requires manual effort, which hinders scalability and efficiency.
 
-Aliquam aliquid rem facere dolorum consectetur consequatur distinctio [mollitia id modi repellendus](https://github.com/RyanFitzgerald/devfolio) vero quae dolorem commodi soluta voluptates iusto nobis est dolore provident, porro veritatis placeat nemo impedit! Asperiores culpa delectus hic qui saepe, ipsum quia, exercitationem repellendus magni soluta sit suscipit laborum ducimus.
+---
 
-## Asperiores culpa delectus hic qui saepe
+## Achieved Results
 
-### Facere labore velit ad autem
+We developed a two-tower recommender system that ranks drivers by their suitability for a given transfer. This system narrows the search space to approximately 100 drivers, around 2% of the original pool. The system ensures that in 93% of cases, unsuitable drivers are ranked beyond the top 100.
 
-Vitae veritatis quae eius quis vel soluta cumque? Facere labore velit ad autem. Nisi recusandae ducimus molestiae error ipsa quaerat, dignissimos suscipit similique itaque sunt provident quasi minus ut porro. Optio modi harum _dolore necessitatibus exercitationem_ blanditiis magni error ipsum, odit deleniti eligendi facilis, nesciunt delectus sit nostrum porro quam accusamus excepturi labore sequi maiores soluta?
+- **Engagement**: The recommender system doubled driver engagement, reaching 40% of drivers compared to the 20% in the previous system.
+- **Cost Reduction**: By expanding the driver pool and increasing competition, costs are reduced by up to 19%. This is a significant improvement over the baseline 18% reduction.
 
-### Porro veritatis placeat nemo impedit
+---
 
-Veritatis et praesentium totam neque earum commodi nesciunt dolor quibusdam incidunt non, ex dicta molestias omnis maiores, maxime velit perferendis tenetur aut porro nostrum, suscipit soluta necessitatibus deserunt nobis. Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.
+### Figures:
 
-> Repudiandae iusto et iure pariatur aliquid, quisquam, non sed culpa, dignissimos recusandae facilis. Debitis hic, quaerat recusandae ad id, quis nisi perspiciatis quo aliquid natus similique.
+#### Driver's Diversity vs. Number of Transfers
+![Driver's Diversity vs. Number of Transfers](compar.png)
 
-Illum esse recusandae facere ipsam fugiat est eaque ducimus facilis provident, distinctio cum aut corporis officiis quo fugit, similique temporibus inventore quidem tempora commodi saepe dicta! Numquam fugiat quibusdam aut ut, voluptatibus accusamus **repellendus quas minus consequuntur** possimus! Est eaque nesciunt, reiciendis voluptate placeat aspernatur doloremque unde cum et architecto suscipit quam facere corrupti nihil odit eum minima voluptatem nobis.
+#### Precision at Different Recommendation Thresholds
+![Precision at Different Recommendation Thresholds](precision.png)
 
-## Voluptatibus accusamus repellendus quas minus
+#### Price Variation Analysis: Booking vs. Minimum (\%)
+![Price Variation Analysis](offic_margin.png)
 
-Ipsum quod, ut animi mollitia ipsam repellat, dolore voluptate quibusdam quasi reiciendis necessitatibus odio ea nostrum illo explicabo? Ducimus, in repudiandae. Ratione dolore sequi in animi obcaecati incidunt reprehenderit illo repellat atque aperiam, praesentium eligendi! Sed voluptas voluptatem sunt distinctio pariatur ullam? Laudantium laboriosam.
+---
 
-- Numquam fugiat quibusdam aut ut
-- Soluta necessitatibus deserunt nobis
-- Illum esse recusandae facere ipsam
+## Approach
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus.
+The two-tower recommender system automates and optimizes the matching of drivers with vehicle transfer requests. This reduces the need for manual intervention and mitigates last-minute price adjustments. The system consists of two main components:
 
-1. Numquam fugiat quibusdam aut ut
-2. Soluta necessitatibus deserunt nobis
-3. Illum esse recusandae facere ipsam
+- **Driver Tower**: This component processes driver attributes and converts them into high-dimensional embeddings that represent their preferences.
+- **Request Tower**: It processes transfer request details, such as pickup and drop-off locations, converting these into embeddings that represent the request’s characteristics.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.
+The similarity between these embeddings is computed using cosine similarity, which ranks drivers based on their compatibility with the request.
 
-## Suscipit soluta necessitatibus deserunt nobi
+```math
+\text{cosine}(\mathbf{E}, \mathbf{E'}) = \frac{\mathbf{E} \cdot \mathbf{E'}}{\|\mathbf{E}\| \|\mathbf{E'}\|}
 
-Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.
 
-```js
-const helloWorld = (name = 'World') => {
-  return `Hello ${name}!`;
-};
-
-helloWorld();
-helloWorld('John Doe');
-```
-
-Numquam fugiat quibusdam aut ut, voluptatibus accusamus repellendus quas minus consequuntur possimus!
+This Markdown article contains the introduction, problem statement, achieved results, and approach sections. For the full details, a link is provided at the end. You can replace `#` in the link with the actual URL to the full paper.
