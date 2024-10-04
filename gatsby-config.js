@@ -54,7 +54,8 @@ As I continue to navigate this exciting field, I remain committed to learning, g
     experience: [
       {
         name: 'Launchmetrics',
-        description: 'Data Engineer, June 2024 - Present'
+        description: 'Data Engineer, June 2024 - Present',
+        link: 'https://github.com/RyanFitzgerald/devfolio',
       },
       {
         name: 'Globex Corp',
