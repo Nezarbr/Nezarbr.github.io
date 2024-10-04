@@ -1,5 +1,5 @@
 ---
-title: Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services
+title: Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services
 date: '2024-04-11T12:00:00.00Z'
 ---
 
