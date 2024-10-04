@@ -14,7 +14,23 @@ module.exports = {
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/ryanafitzgerald/`,
     // Content of the About Me section
-    about: `Nezar Boujida.`,
+    about: `I am Nezar, and I enjoy long-distance running, drawing, problem solving, spending time with my family, and traveling.
+
+​
+
+Currently, I am pursuing an Engineering Cycle in Applied Mathematics and Computer Science at Sorbonne University. My fascination with numbers and statistics has always driven me, and the prospect of applying these concepts through data science felt like a natural progression.
+
+ 
+
+Before I knew it, I had become a fervent "data enthusiast," delving into complex datasets, searching for patterns, and reveling in the elegance of statistical theories.
+
+Through this portfolio, I aim to share my journey, discoveries, and the joy of exploration with others who are similarly intrigued.
+
+​
+
+The path to data science has been intellectually stimulating, challenging me to apply mathematical principles in innovative ways. The projects I've undertaken have not only refined my technical skills but also deepened my appreciation for the discipline's potential to solve real-world problems.
+
+As I continue to navigate this exciting field, I remain committed to learning, growing, and contributing to the broader community of data enthusiasts.`,
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
       {
