@@ -40,7 +40,7 @@ Our parallelization strategies produced significant performance improvements, as
 - Beyond 20 processors, performance began to degrade due to increased communication overhead between processors, showing that this method is more suited for smaller to medium-sized simulations.
 
 <div style="text-align: center;">
-    <img src="./heatsink_work3.png" alt="Driver's Diversity vs. Number of Transfers" style="max-width: 50%;">
+    <img src="./heatsink_work3.png" alt="Driver's Diversity vs. Number of Transfers" style="max-width: 30%;">
 </div>
 
 
@@ -50,7 +50,7 @@ Our parallelization strategies produced significant performance improvements, as
 - Unlike the 1D approach, 2D slicing showed minimal variance in performance with increasing processors, making it more scalable for larger simulations.
 
 <div style="text-align: center;">
-    <img src="./heatsink_work3.png" alt="Driver's Diversity vs. Number of Transfers" style="max-width: 50%;">
+    <img src="./heatsink_work3.png" alt="Driver's Diversity vs. Number of Transfers" style="max-width: 30%;">
 </div>
 
 By integrating non-blocking communication, we were able to further enhance the efficiency of our parallelized simulation. This technique allowed processors to continue computations while waiting for data exchanges, leading to improved execution times without compromising accuracy.
