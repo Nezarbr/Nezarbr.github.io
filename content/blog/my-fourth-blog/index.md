@@ -4,50 +4,73 @@ date: '2024-04-11T12:00:00.00Z'
 ---
 
 ## Introduction
+In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move vehicles across diverse destinations. These services, crucial to keeping automotive supply chains running smoothly, rely on a unique workforce—independent drivers who, although not full-time employees, are essential to the system’s operation. But what happens when these drivers become scarce or inefficiencies emerge in matching the right driver to the right transport?
 
-Vehicle transportation services face an increasingly complex logistics environment, with a growing need to move single vehicles across various destinations efficiently. Operating with a network of over 7,000 independent drivers, these services rely on drivers who are not direct employees but are integral to the system. A major challenge for these services is matching the right drivers to the right transportation requests while minimizing manual intervention.
+For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. Yet, with the growing complexity of logistics demands, old methods are proving insufficient.
 
 ---
 
 ## Problem Statement
 
-Customers use the platform to post vehicle transfer requests, and drivers apply for these transfers. When the transfer date approaches without a driver assignment, manual intervention becomes necessary. This reliance on a limited pool of drivers has led to several issues:
+Consider the platform where customers post vehicle transfer requests, waiting for drivers to step up and apply. Ideally, it should run smoothly: customer posts a request, driver picks it up, and the vehicle gets moved on time. But reality doesn’t always follow that script. When transfer deadlines loom without a driver assigned, service operators must step in manually—a process that drains time and resources.
 
-- **Narrow Driver Pool**: The existing system focuses on high precision, limiting the driver pool. This reduces flexibility, increases operational costs, and grants disproportionate bargaining power to a small group of drivers.
-- **Manual Processes**: As deadlines approach without an assigned driver, the process requires manual effort, which hinders scalability and efficiency.
+Two central issues have emerged from this model:
+
+- **A Narrow Driver Pool**: The focus on high-precision driver selection has inadvertently reduced the available pool of drivers, limiting flexibility and giving a small group too much leverage. This not only increases costs but also makes the entire system fragile when drivers are unavailable.
+  
+- **Manual Processes**: As deadlines approach, if no driver has been assigned, teams must manually match drivers to requests—an approach that doesn’t scale well, leading to inefficiency.
+
+These challenges called for an innovative solution—one that could optimize both the efficiency of driver matching and the cost-effectiveness of the system.
 
 ---
 
-## Achieved Results
+## The Solution: A Two-Tower Recommender System
 
-We developed a two-tower recommender system that ranks drivers by their suitability for a given transfer. This system narrows the search space to approximately 100 drivers, around 2% of the original pool. The system ensures that in 93% of cases, unsuitable drivers are ranked beyond the top 100.
+To address these problems, we developed a **two-tower recommender system**, designed to transform the way drivers are matched to transfer requests. This system evaluates drivers’ suitability for specific transfers, narrowing the search space to just 100 top-ranked drivers—representing only 2% of the total driver pool. Impressively, the system ranks unsuitable drivers beyond the top 100 in 93% of cases, ensuring precision without sacrificing speed.
 
-- **Engagement**: The recommender system doubled driver engagement, reaching 40% of drivers compared to the 20% in the previous system.
-- **Cost Reduction**: By expanding the driver pool and increasing competition, costs are reduced by up to 19%. This is a significant improvement over the baseline 18% reduction.
+The results speak for themselves:
+
+- **Increased Engagement**: Driver engagement soared, with 40% of drivers interacting with the system compared to just 20% previously.
+  
+- **Cost Efficiency**: By expanding the driver pool and encouraging healthy competition, operational costs dropped by up to 19%, a marked improvement over the baseline reduction of 18%.
+
+---
+
+**Expected Outcomes**:
+
+- **Increased Engagement**: Based on the model tests, we anticipate a significant boost in driver engagement, with up to 40% of drivers interacting with the system—doubling the engagement rate compared to the previous system's 20%.
+  
+- **Cost Efficiency**: The model also predicts notable cost savings. By expanding the driver pool and fostering competition, operational costs are expected to drop by as much as 19%, a slight improvement over the previously estimated 18% reduction.
+
 
 ---
 
 ### Figures:
 
-#### Driver's Diversity vs. Number of Transfers
-![Driver's Diversity vs. Number of Transfers](compar.png)
-
-#### Precision at Different Recommendation Thresholds
-![Precision at Different Recommendation Thresholds](precision.png)
-
-#### Price Variation Analysis: Booking vs. Minimum (\%)
-![Price Variation Analysis](offic_margin.png)
+<div style="display: flex; justify-content: space-between;">
+  <div style="flex: 1; text-align: center; margin-right: 10px;">
+    <h4>Driver's Diversity vs. Number of Transfers</h4>
+    <img src="./compar.png" alt="Driver's Diversity vs. Number of Transfers" style="max-width: 100%;">
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <h4>Price Variation Analysis: Booking vs. Minimum (%)</h4>
+    <img src="./offic_margin.png" alt="Price Variation Analysis" style="max-width: 100%;">
+  </div>
+</div>
 
 ---
 
-## Approach
+## How It Works
 
-The two-tower recommender system automates and optimizes the matching of drivers with vehicle transfer requests. This reduces the need for manual intervention and mitigates last-minute price adjustments. The system consists of two main components:
+At the heart of this solution lies the two-tower architecture:
 
-- **Driver Tower**: This component processes driver attributes and converts them into high-dimensional embeddings that represent their preferences.
-- **Request Tower**: It processes transfer request details, such as pickup and drop-off locations, converting these into embeddings that represent the request’s characteristics.
+- **The Driver Tower** processes driver attributes, converting them into high-dimensional embeddings that encapsulate their preferences and past performance.
+  
+- **The Request Tower** analyzes the specific details of each transfer request—such as pickup and drop-off locations—and similarly generates embeddings that represent the nature of the request.
 
-The similarity between these embeddings is computed using cosine similarity, which ranks drivers based on their compatibility with the request.
+These two towers work in harmony, calculating the cosine similarity between driver and request embeddings, effectively ranking drivers based on their fit for each transfer. This automated matching process dramatically reduces the need for manual interventions and mitigates the risk of last-minute price surges.
+
+---
 
 
-This Markdown article contains the introduction, problem statement, achieved results, and approach sections. For the full details, a link is provided at the end. You can replace `#` in the link with the actual URL to the full paper.
+Want to explore the details of this system further? [Download the full paper here](./paper.pdf).
