@@ -3,7 +3,6 @@ title: Enhancing Execution Speed of White Noise Generation through Parallelizati
 date: '2024-01-11T12:00:00.00Z'
 description: 'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.'
 ---
-# Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization
 
 ## Introduction
 
