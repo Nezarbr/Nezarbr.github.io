@@ -1,6 +1,6 @@
 ---
 title: Ride-Hailing Trends in New York City ( Uber, Lyft, and Via ) Operations Analysis
-date: '2024-06-01T12:00:00.00Z'
+date: '2024-06-01'
 description: 'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.'
 ---
 
