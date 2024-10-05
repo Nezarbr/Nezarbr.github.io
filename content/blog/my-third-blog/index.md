@@ -1,9 +1,8 @@
 ---
-title: Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization
+title: Ride-Hailing Trends in New York City ( Uber, Lyft, and Via ) Operations Analysis
 date: '2024-04-11T12:00:00.00Z'
-description: 'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.'
+description: 'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.'
 ---
-# Analysis of Ride-Hailing Services in NYC
 
 ## Explanatory Video
 
