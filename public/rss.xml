@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 22:00:36 GMT</lastBuildDate><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 22:25:42 GMT</lastBuildDate><item><title><![CDATA[Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization]]></title><description><![CDATA[Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization Introduction In modern computational tasks…]]></description><link>https://nezarbr.github.io/blog/my-second-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-second-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization&lt;/h1&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In modern computational tasks, white noise generation and processing are fundamental in various fields, from signal processing to cryptography. The process typically involves generating random noise, transforming it into the frequency domain using the Fast Fourier Transform (FFT), modifying the noise, and converting it back using the Inverse FFT (iFFT). However, such processes, especially when dealing with large datasets, can be computationally expensive and time-consuming.&lt;/p&gt;
+&lt;p&gt;This article presents a study aimed at optimizing the execution time of white noise generation and FFT processing through the use of &lt;strong&gt;parallelization&lt;/strong&gt; with OpenMP and &lt;strong&gt;vectorization&lt;/strong&gt; with AVX2 instructions. The goal is to significantly reduce the computational load and improve performance. The following sections outline the problem statement, approach, and the resulting improvements from our optimization techniques.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Problem Statement&lt;/h2&gt;
+&lt;p&gt;White noise generation and FFT operations involve significant computational effort, especially when processing large datasets like $2^{26}$ data points. In its raw form, white noise is inaudible but becomes more discernible after FFT and iFFT transformations. In applications that require real-time processing or frequent iterations over such large datasets, reducing the execution time is critical for performance.&lt;/p&gt;
+&lt;p&gt;The initial version of the sequential code took approximately 70 seconds to execute, which was not practical for high-performance needs. The goal of this study was to identify computational bottlenecks, apply parallelization and vectorization techniques, and achieve substantial improvements in execution time.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Approach&lt;/h2&gt;
+&lt;p&gt;We adopted a two-fold approach to optimize the execution time:&lt;/p&gt;
+&lt;h3&gt;1. Parallelization with OpenMP&lt;/h3&gt;
+&lt;p&gt;We identified key sections of the code for parallelization, primarily focusing on white noise generation, FFT calculations, and normalization.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using OpenMP directives, we distributed these tasks across multiple threads to exploit multi-core processors.&lt;/li&gt;
+&lt;li&gt;For instance, the &lt;code class=&quot;language-text&quot;&gt;#pragma omp parallel for&lt;/code&gt; directive was applied to parallelize loops, and &lt;code class=&quot;language-text&quot;&gt;#pragma omp task&lt;/code&gt; was used for concurrent FFT operations, ensuring that independent tasks could be processed simultaneously.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. Vectorization with AVX2&lt;/h3&gt;
+&lt;p&gt;We utilized AVX2 intrinsics to vectorize the FFT-related calculations, allowing the CPU to perform operations on multiple data points in a single instruction cycle.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code class=&quot;language-text&quot;&gt;FFT_rec()&lt;/code&gt; function and complex number multiplication operations were vectorized to handle 256-bit wide registers (i.e., four double-precision floating-point numbers at once), leading to significant speedups in the computational heavy parts of the code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3. Combining Parallelization and Vectorization&lt;/h3&gt;
+&lt;p&gt;The final optimized code combined both parallelization and vectorization, ensuring that multi-core and SIMD (Single Instruction, Multiple Data) optimizations were used in harmony to maximize performance.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;The results of the optimizations were promising. The execution time of the original sequential code was reduced from 70 seconds to 10 seconds using a combination of OpenMP parallelization and AVX2 vectorization. The following performance improvements were achieved:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Parallelization with OpenMP&lt;/strong&gt;: Reduced execution time from 70 seconds to 15 seconds, achieving a &lt;strong&gt;4.67x speedup&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vectorization&lt;/strong&gt;: Reduced execution time to 13.1 seconds, providing a &lt;strong&gt;5.34x speedup&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Combined Parallelization and Vectorization&lt;/strong&gt;: Achieved the best performance, reducing the execution time to 10 seconds, yielding a &lt;strong&gt;7x speedup&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These results highlight the effectiveness of applying both parallelization and vectorization techniques to reduce computational overhead in FFT-based white noise processing.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This study demonstrated how computational efficiency can be significantly improved through strategic parallelization and vectorization. By employing OpenMP and AVX2, we achieved a 7x improvement in execution time, making FFT-based white noise generation and processing more practical for high-performance applications.&lt;/p&gt;
+&lt;p&gt;If you’re interested in exploring the full methodology and detailed results, you can download the complete paper &lt;a href=&quot;/a731ae882d877ba58d5882cb89aa04d5/paper.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move vehicles across diverse destinations. These services, crucial to keeping automotive supply chains running smoothly, rely on a unique workforce—independent drivers who, although not full-time employees, are essential to the system’s operation. But what happens when these drivers become scarce or inefficiencies emerge in matching the right driver to the right transport?&lt;/p&gt;
 &lt;p&gt;For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. Yet, with the growing complexity of logistics demands, old methods are proving insufficient.&lt;/p&gt;
 &lt;hr&gt;
@@ -55,7 +91,7 @@
 &lt;/ul&gt;
 &lt;p&gt;These two towers work in harmony, calculating the cosine similarity between driver and request embeddings, effectively ranking drivers based on their fit for each transfer. This automated matching process dramatically reduces the need for manual interventions and mitigates the risk of last-minute price surges.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;Want to explore the details of this system further? &lt;a href=&quot;/6fdb28de7e43ec2cbe923f3cc51efc91/paper.pdf&quot;&gt;Download the full paper here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks]]></title><description><![CDATA[Introduction As computing technology advances, modern microprocessors are becoming more powerful, consuming up to 200 watts of power or more…]]></description><link>https://nezarbr.github.io/blog/my-first-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-first-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Want to explore the details of this system further? &lt;a href=&quot;/2e48a9cda5f30fa6c49fda687e22ef89/paper.pdf&quot;&gt;Download the full paper here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks]]></title><description><![CDATA[Introduction As computing technology advances, modern microprocessors are becoming more powerful, consuming up to 200 watts of power or more…]]></description><link>https://nezarbr.github.io/blog/my-first-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-first-blog/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;As computing technology advances, modern microprocessors are becoming more powerful, consuming up to 200 watts of power or more. This immense energy consumption generates significant heat, which, if not managed properly, can degrade the processor’s performance and reliability. To address this, heatsinks are crucial components designed to dissipate this heat, transferring it away from the processor into the heatsink itself, where it can be safely dispersed into the surrounding environment.&lt;/p&gt;
 &lt;p&gt;In this research, we focus on simulating the heat transfer dynamics within a CPU heatsink, specifically targeting the AMD EPYC “Rome” model. By parallelizing the simulation process, we aim to efficiently model the heat dissipation behavior across a complex grid structure, allowing for accurate predictions of temperature distributions within the heatsink. Through optimized computational strategies, we explore how to minimize simulation time while maintaining the accuracy of the thermal modeling.&lt;/p&gt;
 &lt;p&gt;In this article, we investigate several parallelization methods that distribute the workload across multiple processors, improving efficiency in large-scale simulations of heat transfer in CPU heatsinks.&lt;/p&gt;
@@ -110,71 +146,7 @@
 &lt;p&gt;You can watch the execution of the heat transfer simulation below. The video shows the simulation of heat dynamics across the heatsink, illustrating the temperature gradient between two key areas: the end of the heatsink connected to the CPU and the other end where heat is dissipated.&lt;/p&gt;
 &lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 48.61111111111111%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/a6JIAh20gbQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
 &lt;hr&gt;
-&lt;p&gt;If you’re interested in exploring the full methodology and results of our research, you can download the complete paper &lt;a href=&quot;/990fa1171bd01bfdd3421e5c40062f8c/work_adv.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Third Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-third-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-third-blog/</guid><pubDate>Sat, 10 Oct 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/c08c5/mountain.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.89189189189189%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYCBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABtxwC4YBfE//EABgQAAMBAQAAAAAAAAAAAAAAAAABERIi/9oACAEBAAEFAojmcmmaZT//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/Abhj/8QAFhEAAwAAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/AYyM/8QAFxABAQEBAAAAAAAAAAAAAAAAADEBEP/aAAgBAQAGPwJcVV5//8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERMVEhkf/aAAgBAQABPyHjB7eAqWC619K6xfT/2gAMAwEAAgADAAAAEOAP/8QAGBEAAgMAAAAAAAAAAAAAAAAAABEhMVH/2gAIAQMBAT8QhoeD/8QAFREBAQAAAAAAAAAAAAAAAAAAAGH/2gAIAQIBAT8Qoo//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhYTFxkYH/2gAIAQEAAT8QACiQttuMYfSZg94XHxtHmDtm17P/2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Mountain&quot;
-        title=&quot;Mountain&quot;
-        src=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/1c72d/mountain.jpg&quot;
-        srcset=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/a80bd/mountain.jpg 148w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/1c91a/mountain.jpg 295w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/1c72d/mountain.jpg 590w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/c08c5/mountain.jpg 640w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Aliquam aliquid rem facere dolorum consectetur consequatur distinctio &lt;a href=&quot;https://github.com/RyanFitzgerald/devfolio&quot;&gt;mollitia id modi repellendus&lt;/a&gt; vero quae dolorem commodi soluta voluptates iusto nobis est dolore provident, porro veritatis placeat nemo impedit! Asperiores culpa delectus hic qui saepe, ipsum quia, exercitationem repellendus magni soluta sit suscipit laborum ducimus.&lt;/p&gt;
-&lt;h2&gt;Asperiores culpa delectus hic qui saepe&lt;/h2&gt;
-&lt;h3&gt;Facere labore velit ad autem&lt;/h3&gt;
-&lt;p&gt;Vitae veritatis quae eius quis vel soluta cumque? Facere labore velit ad autem. Nisi recusandae ducimus molestiae error ipsa quaerat, dignissimos suscipit similique itaque sunt provident quasi minus ut porro. Optio modi harum &lt;em&gt;dolore necessitatibus exercitationem&lt;/em&gt; blanditiis magni error ipsum, odit deleniti eligendi facilis, nesciunt delectus sit nostrum porro quam accusamus excepturi labore sequi maiores soluta?&lt;/p&gt;
-&lt;h3&gt;Porro veritatis placeat nemo impedit&lt;/h3&gt;
-&lt;p&gt;Veritatis et praesentium totam neque earum commodi nesciunt dolor quibusdam incidunt non, ex dicta molestias omnis maiores, maxime velit perferendis tenetur aut porro nostrum, suscipit soluta necessitatibus deserunt nobis. Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Repudiandae iusto et iure pariatur aliquid, quisquam, non sed culpa, dignissimos recusandae facilis. Debitis hic, quaerat recusandae ad id, quis nisi perspiciatis quo aliquid natus similique.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Illum esse recusandae facere ipsam fugiat est eaque ducimus facilis provident, distinctio cum aut corporis officiis quo fugit, similique temporibus inventore quidem tempora commodi saepe dicta! Numquam fugiat quibusdam aut ut, voluptatibus accusamus &lt;strong&gt;repellendus quas minus consequuntur&lt;/strong&gt; possimus! Est eaque nesciunt, reiciendis voluptate placeat aspernatur doloremque unde cum et architecto suscipit quam facere corrupti nihil odit eum minima voluptatem nobis.&lt;/p&gt;
-&lt;h2&gt;Voluptatibus accusamus repellendus quas minus&lt;/h2&gt;
-&lt;p&gt;Ipsum quod, ut animi mollitia ipsam repellat, dolore voluptate quibusdam quasi reiciendis necessitatibus odio ea nostrum illo explicabo? Ducimus, in repudiandae. Ratione dolore sequi in animi obcaecati incidunt reprehenderit illo repellat atque aperiam, praesentium eligendi! Sed voluptas voluptatem sunt distinctio pariatur ullam? Laudantium laboriosam.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Numquam fugiat quibusdam aut ut&lt;/li&gt;
-&lt;li&gt;Soluta necessitatibus deserunt nobis&lt;/li&gt;
-&lt;li&gt;Illum esse recusandae facere ipsam&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Numquam fugiat quibusdam aut ut&lt;/li&gt;
-&lt;li&gt;Soluta necessitatibus deserunt nobis&lt;/li&gt;
-&lt;li&gt;Illum esse recusandae facere ipsam&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
-&lt;h2&gt;Suscipit soluta necessitatibus deserunt nobi&lt;/h2&gt;
-&lt;p&gt;Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; helloWorld &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;World&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Hello &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;name&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;John Doe&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Numquam fugiat quibusdam aut ut, voluptatibus accusamus repellendus quas minus consequuntur possimus!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Second Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-second-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-second-blog/</guid><pubDate>Fri, 02 Oct 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
+&lt;p&gt;If you’re interested in exploring the full methodology and results, you can download the complete paper &lt;a href=&quot;/990fa1171bd01bfdd3421e5c40062f8c/paper.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Third Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-third-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-third-blog/</guid><pubDate>Sat, 10 Oct 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
