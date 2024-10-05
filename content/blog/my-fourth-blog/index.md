@@ -28,11 +28,6 @@ These challenges called for an innovative solution—one that could optimize bot
 
 To address these problems, we developed a **two-tower recommender system**, designed to transform the way drivers are matched to transfer requests. This system evaluates drivers’ suitability for specific transfers, narrowing the search space to just 100 top-ranked drivers—representing only 2% of the total driver pool. Impressively, the system ranks unsuitable drivers beyond the top 100 in 93% of cases, ensuring precision without sacrificing speed.
 
-The results speak for themselves:
-
-- **Increased Engagement**: Driver engagement soared, with 40% of drivers interacting with the system compared to just 20% previously.
-  
-- **Cost Efficiency**: By expanding the driver pool and encouraging healthy competition, operational costs dropped by up to 19%, a marked improvement over the baseline reduction of 18%.
 
 ---
 
@@ -44,8 +39,6 @@ The results speak for themselves:
 
 
 ---
-
-### Figures:
 
 <div style="display: flex; justify-content: space-between;">
   <div style="flex: 1; text-align: center; margin-right: 10px;">

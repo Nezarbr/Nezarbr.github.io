@@ -12,9 +12,9 @@ module.exports = {
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     // Content of the About Me section
-    about: `I'm Nezar, a long-distance runner, artist, and problem solver. Currently studying Applied Mathematics and Computer Science at Sorbonne University, my fascination with numbers and data science led me to explore complex datasets, uncover patterns, and apply statistical theories.
+    about: `I'm Nezar, a long-distance runner with a passion for traveling, discovery, and problem-solving. I’m studying Applied Mathematics and Computer Science at Sorbonne University, where I dive into data science, explore complex datasets, and uncover patterns.
 
-I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now, I'm diving into the technical side as a Data Engineer intern at Launchmetrics. I enjoy sharing my journey through projects and discoveries, always eager to learn, grow, and contribute to the data science community.`,
+I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now, I'm diving into the technical side as a Data Engineer intern at Launchmetrics. I enjoy sharing my journey through projects and discoveries, always eager to learn, grow.`,
 
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
