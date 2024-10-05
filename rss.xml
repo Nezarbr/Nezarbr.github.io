@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 11:12:23 GMT</lastBuildDate><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 21:50:50 GMT</lastBuildDate><item><title><![CDATA[Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks]]></title><description><![CDATA[Introduction As computing technology advances, modern microprocessors are becoming more powerful, consuming up to 200 watts of power or more…]]></description><link>https://nezarbr.github.io/blog/my-first-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-first-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;As computing technology advances, modern microprocessors are becoming more powerful, consuming up to 200 watts of power or more. This immense energy consumption generates significant heat, which, if not managed properly, can degrade the processor’s performance and reliability. To address this, heatsinks are crucial components designed to dissipate this heat, transferring it away from the processor into the heatsink itself, where it can be safely dispersed into the surrounding environment.&lt;/p&gt;
+&lt;p&gt;In this research, we focus on simulating the heat transfer dynamics within a CPU heatsink, specifically targeting the AMD EPYC “Rome” model. By parallelizing the simulation process, we aim to efficiently model the heat dissipation behavior across a complex grid structure, allowing for accurate predictions of temperature distributions within the heatsink. Through optimized computational strategies, we explore how to minimize simulation time while maintaining the accuracy of the thermal modeling.&lt;/p&gt;
+&lt;p&gt;In this article, we investigate several parallelization methods that distribute the workload across multiple processors, improving efficiency in large-scale simulations of heat transfer in CPU heatsinks.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Approach&lt;/h2&gt;
+&lt;p&gt;In our study, we implemented a parallelized simulation to model the heat transfer within a CPU heatsink, focusing on the AMD EPYC “Rome” processor. The simulation’s core principle is to divide the heatsink into a 3D grid of cuboidal cells, each representing a discrete volume of the heatsink. This spatial discretization allows us to track temperature changes in each cell based on heat conduction between neighboring cells over time.&lt;/p&gt;
+&lt;p&gt;The key challenge is the computational cost of such simulations, especially when using finer grids for higher accuracy. To overcome this, we employed &lt;strong&gt;parallelization&lt;/strong&gt; by dividing the heatsink grid into smaller subdomains, each assigned to a different processor. These processors then handle the computation for their respective subdomains simultaneously, significantly speeding up the simulation.&lt;/p&gt;
+&lt;p&gt;We explored two main parallelization techniques:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;1D Slicing (Z-axis slicing)&lt;/strong&gt;: In this method, the heatsink is sliced along the Z-axis, and each slice is assigned to a processor. This method offers simplicity but requires careful management of communication between processors, as each slice needs to exchange temperature data with its neighbors to ensure accuracy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2D Slicing (Z and Y axes slicing)&lt;/strong&gt;: This more complex technique involves slicing the heatsink along both the Z and Y axes, breaking the heatsink into smaller parallelepipeds. Each of these sections is then assigned to a processor. While this approach increases communication overhead, it provides more granular control over the simulation and allows for better scalability in larger systems.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In both cases, we used &lt;strong&gt;Message Passing Interface (MPI)&lt;/strong&gt; to manage communication between processors. For edge cells, where neighboring cells belong to different subdomains, processors exchange temperature data via MPI. To ensure that all processors work in sync, we implemented non-blocking communication techniques, allowing processors to continue computations while waiting for data from neighboring processors, further improving efficiency.&lt;/p&gt;
+&lt;p&gt;Additionally, we implemented a &lt;strong&gt;checkpointing&lt;/strong&gt; system to periodically save the simulation’s state, enabling the process to resume from the last checkpoint in the event of a failure, ensuring robustness in long simulations.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;Our parallelization strategies produced significant performance improvements, as detailed below:&lt;/p&gt;
+&lt;h3&gt;1. &lt;strong&gt;1D Slicing (Z-axis)&lt;/strong&gt;:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;With 12 processors, this method reduced execution time from 760 seconds (sequential execution) to 168 seconds, achieving a speedup of approximately &lt;strong&gt;4.52x&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Beyond 20 processors, performance began to degrade due to increased communication overhead between processors, showing that this method is more suited for smaller to medium-sized simulations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 412px; margin: 0 0 30px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/923470de9ad80e8aa947dfb3aed2af30/9e32a/heatsink_work3.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 114.86486486486487%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAD10lEQVQ4y32UC1NaRxiG/cudTpuZZqbtxJipk3ZqMrYqXhKKEuSiBRGQq3jXRDSa1hpNq8YiKqgB5Vw45zzZc7ir7eF8s7uw++y7L9+3HYZhYABWa4aumwPqjzk2WsbU5jTm34oOarA2iAjt4gJlexspFEaKRlF2dtCurmhB34WLrzrqu1uQUgl1dxcpkaDs9lB2OCg7nZTHxiiPjlL2eJCSSTHnPVqxeBfeqlB9+xZpYqK60ASMjyMJQNntRrJC9F3jTbjPhzSbRt3fR7++bsCrQE1DSaeRAwGU6SCyAEsCaEFrwHJra27kciHV1EsCLs/NUTnPNxXqK6sQCKIJz5RIpAk2F9fAZXdzA9k8vlBt/i55RfgmqBwfNz3Mn34kE3RyOemFmRj6TBQ5NC3AIqYCDZBUU2hBzU0mJ1HFn6bGk+iSVAOKd7a4zY9rI3S//J6ArZv87z6IRNFDIZSZMGokTMXsC4AF83pFBkyjxxLciLb4916Lh7pBWvoDr7yKI5ugK97Lt/0PcPd1kfW6IBrHCAqlkRo4HkeamYFYkvOgn98iA7wrHVWB9SPvlLI4cosEtNdMVTIW+HGil2/6vmb0l0cce18JcAymhcpYFJJpdn1j9EX6cZylyWuldmBmp0yXM0NnLII9l8YvwCFtk9GTJF2pX3loe4BjoJNDnxNDeLzgGeR5ehhvaY2lkkgds8IsYC0pX+9W8C9I9I6/5ytbhM5EkLHCPNNk8CtveCVU/LQ8zBP3Y15O9GDb8DClZOhfX2Vpu2DBdDOx6wo/HMgEUhKpbfDPleh+sckXA36eLkUY/2Ra8UYANvAUFnBmU0TULfpWFhkKHnB0plm11gI0OF2X8fecYrfnmF5WSG2BJ3bBo8FVvhwJ0LMRw3O9TFCAQ9Imz2bnsYePWcgoyLJGPZ87qgINChmVA4/EbF+O4e59Rj1nRDM68YzBWPiU74aWeeiJMri3yPPUCq5kjmDsmk3/ZbWOm8DqkZWSxvmawklI5S9Xicmn/zDw8wfckSvimwaJjIY9mOOZZwfvfIGpZIkF2yk3fyoNde3XV+3OKR6qZGMy2aDKuj2P48keQ7aPTC1KJDZEvr7TCCQ+ke4/obgio2sGrYzm9WXtUMWqZaFWeJoVao8CsmXDyA+HeANFJqNF0gOnXImMaIdV13fUpTagelPt9b9CbVImF6qw570h1l9g5cUll7MSmqxTr7I7R76tsLWvqTqFLYVsWPgbVLgQqVW5uR/WqOX2i/c+tXBzViG/KiMXKi2wdv/uBf6fWqMFYH1u2fWfwHvV1q65O57fAn4G/Ep9XILJuD4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; title=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; src=&quot;/static/923470de9ad80e8aa947dfb3aed2af30/9e32a/heatsink_work3.png&quot; srcset=&quot;/static/923470de9ad80e8aa947dfb3aed2af30/12f09/heatsink_work3.png 148w,
+/static/923470de9ad80e8aa947dfb3aed2af30/e4a3f/heatsink_work3.png 295w,
+/static/923470de9ad80e8aa947dfb3aed2af30/9e32a/heatsink_work3.png 412w&quot; sizes=&quot;(max-width: 412px) 100vw, 412px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+&lt;h3&gt;2. &lt;strong&gt;2D Slicing (Z and Y axes)&lt;/strong&gt;:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;This method performed even better, achieving a speedup of &lt;strong&gt;4.94x&lt;/strong&gt; with 32 processors, reducing execution time to 154 seconds.&lt;/li&gt;
+&lt;li&gt;With further optimization through non-blocking communication, the execution time decreased to 135 seconds, resulting in a speedup of &lt;strong&gt;5.63x&lt;/strong&gt; compared to the sequential code.&lt;/li&gt;
+&lt;li&gt;Unlike the 1D approach, 2D slicing showed minimal variance in performance with increasing processors, making it more scalable for larger simulations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 412px; margin: 0 0 30px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/923470de9ad80e8aa947dfb3aed2af30/9e32a/heatsink_work3.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 114.86486486486487%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABYlAAAWJQFJUiTwAAAD10lEQVQ4y32UC1NaRxiG/cudTpuZZqbtxJipk3ZqMrYqXhKKEuSiBRGQq3jXRDSa1hpNq8YiKqgB5Vw45zzZc7ir7eF8s7uw++y7L9+3HYZhYABWa4aumwPqjzk2WsbU5jTm34oOarA2iAjt4gJlexspFEaKRlF2dtCurmhB34WLrzrqu1uQUgl1dxcpkaDs9lB2OCg7nZTHxiiPjlL2eJCSSTHnPVqxeBfeqlB9+xZpYqK60ASMjyMJQNntRrJC9F3jTbjPhzSbRt3fR7++bsCrQE1DSaeRAwGU6SCyAEsCaEFrwHJra27kciHV1EsCLs/NUTnPNxXqK6sQCKIJz5RIpAk2F9fAZXdzA9k8vlBt/i55RfgmqBwfNz3Mn34kE3RyOemFmRj6TBQ5NC3AIqYCDZBUU2hBzU0mJ1HFn6bGk+iSVAOKd7a4zY9rI3S//J6ArZv87z6IRNFDIZSZMGokTMXsC4AF83pFBkyjxxLciLb4916Lh7pBWvoDr7yKI5ugK97Lt/0PcPd1kfW6IBrHCAqlkRo4HkeamYFYkvOgn98iA7wrHVWB9SPvlLI4cosEtNdMVTIW+HGil2/6vmb0l0cce18JcAymhcpYFJJpdn1j9EX6cZylyWuldmBmp0yXM0NnLII9l8YvwCFtk9GTJF2pX3loe4BjoJNDnxNDeLzgGeR5ehhvaY2lkkgds8IsYC0pX+9W8C9I9I6/5ytbhM5EkLHCPNNk8CtveCVU/LQ8zBP3Y15O9GDb8DClZOhfX2Vpu2DBdDOx6wo/HMgEUhKpbfDPleh+sckXA36eLkUY/2Ra8UYANvAUFnBmU0TULfpWFhkKHnB0plm11gI0OF2X8fecYrfnmF5WSG2BJ3bBo8FVvhwJ0LMRw3O9TFCAQ9Imz2bnsYePWcgoyLJGPZ87qgINChmVA4/EbF+O4e59Rj1nRDM68YzBWPiU74aWeeiJMri3yPPUCq5kjmDsmk3/ZbWOm8DqkZWSxvmawklI5S9Xicmn/zDw8wfckSvimwaJjIY9mOOZZwfvfIGpZIkF2yk3fyoNde3XV+3OKR6qZGMy2aDKuj2P48keQ7aPTC1KJDZEvr7TCCQ+ke4/obgio2sGrYzm9WXtUMWqZaFWeJoVao8CsmXDyA+HeANFJqNF0gOnXImMaIdV13fUpTagelPt9b9CbVImF6qw570h1l9g5cUll7MSmqxTr7I7R76tsLWvqTqFLYVsWPgbVLgQqVW5uR/WqOX2i/c+tXBzViG/KiMXKi2wdv/uBf6fWqMFYH1u2fWfwHvV1q65O57fAn4G/Ep9XILJuD4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; title=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; src=&quot;/static/923470de9ad80e8aa947dfb3aed2af30/9e32a/heatsink_work3.png&quot; srcset=&quot;/static/923470de9ad80e8aa947dfb3aed2af30/12f09/heatsink_work3.png 148w,
+/static/923470de9ad80e8aa947dfb3aed2af30/e4a3f/heatsink_work3.png 295w,
+/static/923470de9ad80e8aa947dfb3aed2af30/9e32a/heatsink_work3.png 412w&quot; sizes=&quot;(max-width: 412px) 100vw, 412px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;By integrating non-blocking communication, we were able to further enhance the efficiency of our parallelized simulation. This technique allowed processors to continue computations while waiting for data exchanges, leading to improved execution times without compromising accuracy.&lt;/p&gt;
+&lt;p&gt;Our results clearly demonstrate the effectiveness of parallelization in reducing simulation time, particularly with more complex slicing techniques and optimized communication strategies.&lt;/p&gt;
+&lt;h2&gt;Watch the Video&lt;/h2&gt;
+&lt;p&gt;You can watch the execution of the heat transfer simulation below. The video shows the simulation of heat dynamics across the heatsink, illustrating the temperature gradient between two key areas: the end of the heatsink connected to the CPU and the other end where heat is dissipated.&lt;/p&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://youtu.be/a6JIAh20gbQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;If you’re interested in exploring the full methodology and results of our research, you can download the complete paper (./work_adv.pdf).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move vehicles across diverse destinations. These services, crucial to keeping automotive supply chains running smoothly, rely on a unique workforce—independent drivers who, although not full-time employees, are essential to the system’s operation. But what happens when these drivers become scarce or inefficiencies emerge in matching the right driver to the right transport?&lt;/p&gt;
 &lt;p&gt;For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. Yet, with the growing complexity of logistics demands, old methods are proving insufficient.&lt;/p&gt;
 &lt;hr&gt;
@@ -13,11 +68,6 @@
 &lt;hr&gt;
 &lt;h2&gt;The Solution: A Two-Tower Recommender System&lt;/h2&gt;
 &lt;p&gt;To address these problems, we developed a &lt;strong&gt;two-tower recommender system&lt;/strong&gt;, designed to transform the way drivers are matched to transfer requests. This system evaluates drivers’ suitability for specific transfers, narrowing the search space to just 100 top-ranked drivers—representing only 2% of the total driver pool. Impressively, the system ranks unsuitable drivers beyond the top 100 in 93% of cases, ensuring precision without sacrificing speed.&lt;/p&gt;
-&lt;p&gt;The results speak for themselves:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Increased Engagement&lt;/strong&gt;: Driver engagement soared, with 40% of drivers interacting with the system compared to just 20% previously.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cost Efficiency&lt;/strong&gt;: By expanding the driver pool and encouraging healthy competition, operational costs dropped by up to 19%, a marked improvement over the baseline reduction of 18%.&lt;/li&gt;
-&lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;Expected Outcomes&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
@@ -25,7 +75,6 @@
 &lt;li&gt;&lt;strong&gt;Cost Efficiency&lt;/strong&gt;: The model also predicts notable cost savings. By expanding the driver pool and fostering competition, operational costs are expected to drop by as much as 19%, a slight improvement over the previously estimated 18% reduction.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h3&gt;Figures:&lt;/h3&gt;
 &lt;div style=&quot;display: flex; justify-content: space-between;&quot;&gt;
   &lt;div style=&quot;flex: 1; text-align: center; margin-right: 10px;&quot;&gt;
     &lt;h4&gt;Driver&apos;s Diversity vs. Number of Transfers&lt;/h4&gt;
@@ -126,70 +175,6 @@
 &lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;John Doe&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Numquam fugiat quibusdam aut ut, voluptatibus accusamus repellendus quas minus consequuntur possimus!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Second Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-second-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-second-blog/</guid><pubDate>Fri, 02 Oct 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/c08c5/mountain.jpg&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.89189189189189%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYCBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABtxwC4YBfE//EABgQAAMBAQAAAAAAAAAAAAAAAAABERIi/9oACAEBAAEFAojmcmmaZT//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/Abhj/8QAFhEAAwAAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/AYyM/8QAFxABAQEBAAAAAAAAAAAAAAAAADEBEP/aAAgBAQAGPwJcVV5//8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERMVEhkf/aAAgBAQABPyHjB7eAqWC619K6xfT/2gAMAwEAAgADAAAAEOAP/8QAGBEAAgMAAAAAAAAAAAAAAAAAABEhMVH/2gAIAQMBAT8QhoeD/8QAFREBAQAAAAAAAAAAAAAAAAAAAGH/2gAIAQIBAT8Qoo//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhYTFxkYH/2gAIAQEAAT8QACiQttuMYfSZg94XHxtHmDtm17P/2Q==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Mountain&quot;
-        title=&quot;Mountain&quot;
-        src=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/1c72d/mountain.jpg&quot;
-        srcset=&quot;/static/04fd963e3e5a465c84a4c4d5014f320f/a80bd/mountain.jpg 148w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/1c91a/mountain.jpg 295w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/1c72d/mountain.jpg 590w,
-/static/04fd963e3e5a465c84a4c4d5014f320f/c08c5/mountain.jpg 640w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Aliquam aliquid rem facere dolorum consectetur consequatur distinctio &lt;a href=&quot;https://github.com/RyanFitzgerald/devfolio&quot;&gt;mollitia id modi repellendus&lt;/a&gt; vero quae dolorem commodi soluta voluptates iusto nobis est dolore provident, porro veritatis placeat nemo impedit! Asperiores culpa delectus hic qui saepe, ipsum quia, exercitationem repellendus magni soluta sit suscipit laborum ducimus.&lt;/p&gt;
-&lt;h2&gt;Asperiores culpa delectus hic qui saepe&lt;/h2&gt;
-&lt;h3&gt;Facere labore velit ad autem&lt;/h3&gt;
-&lt;p&gt;Vitae veritatis quae eius quis vel soluta cumque? Facere labore velit ad autem. Nisi recusandae ducimus molestiae error ipsa quaerat, dignissimos suscipit similique itaque sunt provident quasi minus ut porro. Optio modi harum &lt;em&gt;dolore necessitatibus exercitationem&lt;/em&gt; blanditiis magni error ipsum, odit deleniti eligendi facilis, nesciunt delectus sit nostrum porro quam accusamus excepturi labore sequi maiores soluta?&lt;/p&gt;
-&lt;h3&gt;Porro veritatis placeat nemo impedit&lt;/h3&gt;
-&lt;p&gt;Veritatis et praesentium totam neque earum commodi nesciunt dolor quibusdam incidunt non, ex dicta molestias omnis maiores, maxime velit perferendis tenetur aut porro nostrum, suscipit soluta necessitatibus deserunt nobis. Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Repudiandae iusto et iure pariatur aliquid, quisquam, non sed culpa, dignissimos recusandae facilis. Debitis hic, quaerat recusandae ad id, quis nisi perspiciatis quo aliquid natus similique.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Illum esse recusandae facere ipsam fugiat est eaque ducimus facilis provident, distinctio cum aut corporis officiis quo fugit, similique temporibus inventore quidem tempora commodi saepe dicta! Numquam fugiat quibusdam aut ut, voluptatibus accusamus &lt;strong&gt;repellendus quas minus consequuntur&lt;/strong&gt; possimus! Est eaque nesciunt, reiciendis voluptate placeat aspernatur doloremque unde cum et architecto suscipit quam facere corrupti nihil odit eum minima voluptatem nobis.&lt;/p&gt;
-&lt;h2&gt;Voluptatibus accusamus repellendus quas minus&lt;/h2&gt;
-&lt;p&gt;Ipsum quod, ut animi mollitia ipsam repellat, dolore voluptate quibusdam quasi reiciendis necessitatibus odio ea nostrum illo explicabo? Ducimus, in repudiandae. Ratione dolore sequi in animi obcaecati incidunt reprehenderit illo repellat atque aperiam, praesentium eligendi! Sed voluptas voluptatem sunt distinctio pariatur ullam? Laudantium laboriosam.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Numquam fugiat quibusdam aut ut&lt;/li&gt;
-&lt;li&gt;Soluta necessitatibus deserunt nobis&lt;/li&gt;
-&lt;li&gt;Illum esse recusandae facere ipsam&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Numquam fugiat quibusdam aut ut&lt;/li&gt;
-&lt;li&gt;Soluta necessitatibus deserunt nobis&lt;/li&gt;
-&lt;li&gt;Illum esse recusandae facere ipsam&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
-&lt;h2&gt;Suscipit soluta necessitatibus deserunt nobi&lt;/h2&gt;
-&lt;p&gt;Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; helloWorld &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;World&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Hello &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;name&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token function&quot;&gt;helloWorld&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;John Doe&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Numquam fugiat quibusdam aut ut, voluptatibus accusamus repellendus quas minus consequuntur possimus!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My First Blog Post]]></title><description><![CDATA[Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit…]]></description><link>https://nezarbr.github.io/blog/my-first-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-first-blog/</guid><pubDate>Sun, 20 Sep 2020 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
