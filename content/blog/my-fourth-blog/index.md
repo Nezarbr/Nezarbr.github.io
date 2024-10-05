@@ -1,6 +1,6 @@
 ---
 title: Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services
-date: '2024-04-11T12:00:00.00Z'
+date: '2024-04-11'
 description: 'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.'
 ---
 
