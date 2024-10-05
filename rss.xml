@@ -1,61 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 22:50:56 GMT</lastBuildDate><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move vehicles across diverse destinations. These services, crucial to keeping automotive supply chains running smoothly, rely on a unique workforce—independent drivers who, although not full-time employees, are essential to the system’s operation. But what happens when these drivers become scarce or inefficiencies emerge in matching the right driver to the right transport?&lt;/p&gt;
-&lt;p&gt;For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. Yet, with the growing complexity of logistics demands, old methods are proving insufficient.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2&gt;Problem Statement&lt;/h2&gt;
-&lt;p&gt;Consider the platform where customers post vehicle transfer requests, waiting for drivers to step up and apply. Ideally, it should run smoothly: customer posts a request, driver picks it up, and the vehicle gets moved on time. But reality doesn’t always follow that script. When transfer deadlines loom without a driver assigned, service operators must step in manually—a process that drains time and resources.&lt;/p&gt;
-&lt;p&gt;Two central issues have emerged from this model:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;A Narrow Driver Pool&lt;/strong&gt;: The focus on high-precision driver selection has inadvertently reduced the available pool of drivers, limiting flexibility and giving a small group too much leverage. This not only increases costs but also makes the entire system fragile when drivers are unavailable.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Manual Processes&lt;/strong&gt;: As deadlines approach, if no driver has been assigned, teams must manually match drivers to requests—an approach that doesn’t scale well, leading to inefficiency.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;These challenges called for an innovative solution—one that could optimize both the efficiency of driver matching and the cost-effectiveness of the system.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2&gt;The Solution: A Two-Tower Recommender System&lt;/h2&gt;
-&lt;p&gt;To address these problems, we developed a &lt;strong&gt;two-tower recommender system&lt;/strong&gt;, designed to transform the way drivers are matched to transfer requests. This system evaluates drivers’ suitability for specific transfers, narrowing the search space to just 100 top-ranked drivers—representing only 2% of the total driver pool. Impressively, the system ranks unsuitable drivers beyond the top 100 in 93% of cases, ensuring precision without sacrificing speed.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;Expected Outcomes&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Increased Engagement&lt;/strong&gt;: Based on the model tests, we anticipate a significant boost in driver engagement, with up to 40% of drivers interacting with the system—doubling the engagement rate compared to the previous system’s 20%.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cost Efficiency&lt;/strong&gt;: The model also predicts notable cost savings. By expanding the driver pool and fostering competition, operational costs are expected to drop by as much as 19%, a slight improvement over the previously estimated 18% reduction.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;div style=&quot;display: flex; justify-content: space-between;&quot;&gt;
-  &lt;div style=&quot;flex: 1; text-align: center; margin-right: 10px;&quot;&gt;
-    &lt;h4&gt;Driver&apos;s Diversity vs. Number of Transfers&lt;/h4&gt;
-    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;&gt;
-      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/5436e61de6ac29f74e72356afd79697f/39a20/compar.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 60.810810810810814%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABa0lEQVQoz42T246DMAxE+f+vrNqXCnEppNCEpPbOOCRFdFdaJAvI5Xg8ThrF81q9du2kl8vF4nq96jiOum2bhhBqbFvQGHMsS9DnM6hzQYchYP2GsVUb772Ow6DJY/DxwOSg67qqiOj5SQnJX6rzrNisWJf/3+88z6RN13XI9NTzdgIzVKBMdJoEagQAASCP19iTU1xzv9+Rca6AD8iwpmSexdQdISfkB9i2bVZoIK2qYqQqlvUHBHUKShRAhFnxNiBLds7tZeyq4A1LTEn0qIsyDULzGPiGH7UiA/Z9XxVizkBZ1Y6n4ztE2AFCShcOfldg1/UALDD7bV6VtUI1BKAcU3XuukiNL4UOTSnlWVlLViMxfjw7Ne23JhqQh3ei+9yGAfPmVNJ/HzuHlLwAEuCjR4RyOwDnm1kjlPI7QX25Nf4wX8bYi6aYmqDKEYgFC3zjbeEingCehNvtprSHx4xgXk3O8wwTynWMH88+rbqbWl+nAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; title=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; src=&quot;/static/5436e61de6ac29f74e72356afd79697f/fcda8/compar.png&quot; srcset=&quot;/static/5436e61de6ac29f74e72356afd79697f/12f09/compar.png 148w,
-/static/5436e61de6ac29f74e72356afd79697f/e4a3f/compar.png 295w,
-/static/5436e61de6ac29f74e72356afd79697f/fcda8/compar.png 590w,
-/static/5436e61de6ac29f74e72356afd79697f/39a20/compar.png 859w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div style=&quot;flex: 1; text-align: center;&quot;&gt;
-    &lt;h4&gt;Price Variation: Booking vs. Minimum (%)&lt;/h4&gt;
-    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;&gt;
-      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/083efad76cc79784181394ec6d7380eb/77800/offic_margin.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 61.48648648648649%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABvElEQVQoz5WTy27jMAxF/f9/0o/orkCBbtpdW6CvIIAdxK/EsWNHEnV7rxUV09XMGCBESebhQ2ThnEPf95jnGcuycJWcUVULTqdlPV/vLhfMul8ucN6hqWdsNhU22w3KqsIwDDgejyi89zQ8IYSA9MVVf3+P2G65iwaLETCu5/MqINyGE4Z9jZawQ1li2O0SUNEJKLCM29YI9fj6Mry9RfTNBfHQETAgyDHFpglR8HEE0wIjQKRDZVjUdY2RF0qdYTAqw8eHx+OjMSXDNHkEpmg08JSgSPlnYNSOIK06U1YqTdF13S/g/b3h5ibg4cHQdSla53wCMguJXQGeNsbV/gQ2TbMCY/TY7SKengy3twHPz8aaGM9p6JlSTLUNV0B2kPUfYNu2K1CXd3eRr2t4ffUoS1trmiH/DNzzpZwb8fKSHiLV0WO/T7qi+y9g1/Us/IjPT0dwgvS9R13/BmajvwL1GMNwutYp9WHfB7ZPvPZkMsgRZj3vsy5Z20bAw6HHmX2lA+cWwibKQifLz7miSZOUJkoysR+zrv/0FoVi0s8aOXlUi6gEIfh1LyM9nKZAHaEhyOnmgdBeupx9AzO3pIUVZc2BAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Price Variation Analysis&quot; title=&quot;Price Variation Analysis&quot; src=&quot;/static/083efad76cc79784181394ec6d7380eb/fcda8/offic_margin.png&quot; srcset=&quot;/static/083efad76cc79784181394ec6d7380eb/12f09/offic_margin.png 148w,
-/static/083efad76cc79784181394ec6d7380eb/e4a3f/offic_margin.png 295w,
-/static/083efad76cc79784181394ec6d7380eb/fcda8/offic_margin.png 590w,
-/static/083efad76cc79784181394ec6d7380eb/77800/offic_margin.png 855w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;hr&gt;
-&lt;h2&gt;How It Works&lt;/h2&gt;
-&lt;p&gt;At the heart of this solution lies the two-tower architecture:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;The Driver Tower&lt;/strong&gt; processes driver attributes, converting them into high-dimensional embeddings that encapsulate their preferences and past performance.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;The Request Tower&lt;/strong&gt; analyzes the specific details of each transfer request—such as pickup and drop-off locations—and similarly generates embeddings that represent the nature of the request.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;These two towers work in harmony, calculating the cosine similarity between driver and request embeddings, effectively ranking drivers based on their fit for each transfer. This automated matching process dramatically reduces the need for manual interventions and mitigates the risk of last-minute price surges.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Want to explore the details of this system further? &lt;a href=&quot;/2e48a9cda5f30fa6c49fda687e22ef89/paper.pdf&quot;&gt;Download the full paper here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Ride-Hailing Trends in New York City ( Uber, Lyft, and Via ) Operations Analysis]]></title><description><![CDATA[Explanatory Video Before diving into the details of this analysis, here’s a quick video overview explaining the key concepts and findings…]]></description><link>https://nezarbr.github.io/blog/my-third-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-third-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Explanatory Video&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Oct 2024 22:54:41 GMT</lastBuildDate><item><title><![CDATA[Ride-Hailing Trends in New York City ( Uber, Lyft, and Via ) Operations Analysis]]></title><description><![CDATA[Explanatory Video Before diving into the details of this analysis, here’s a quick video overview explaining the key concepts and findings…]]></description><link>https://nezarbr.github.io/blog/my-third-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-third-blog/</guid><pubDate>Sat, 01 Jun 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Explanatory Video&lt;/h2&gt;
 &lt;p&gt;Before diving into the details of this analysis, here’s a quick video overview explaining the key concepts and findings from the study on ride-hailing services in New York City:&lt;/p&gt;
 &lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/kRVfkAsUO8Y&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot; style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
 &lt;hr&gt;
@@ -263,8 +206,64 @@
 &lt;li&gt;Reliable demand forecasting using XGBoost.&lt;/li&gt;
 &lt;li&gt;Comparative analysis of ride-hailing platforms showing Uber’s competitive edge.&lt;/li&gt;
 &lt;li&gt;Borough classification offering actionable insights for resource management.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization]]></title><description><![CDATA[Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization Introduction In modern computational tasks…]]></description><link>https://nezarbr.github.io/blog/my-second-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-second-blog/</guid><pubDate>Thu, 11 Jan 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization&lt;/h1&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move vehicles across diverse destinations. These services, crucial to keeping automotive supply chains running smoothly, rely on a unique workforce—independent drivers who, although not full-time employees, are essential to the system’s operation. But what happens when these drivers become scarce or inefficiencies emerge in matching the right driver to the right transport?&lt;/p&gt;
+&lt;p&gt;For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. Yet, with the growing complexity of logistics demands, old methods are proving insufficient.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Problem Statement&lt;/h2&gt;
+&lt;p&gt;Consider the platform where customers post vehicle transfer requests, waiting for drivers to step up and apply. Ideally, it should run smoothly: customer posts a request, driver picks it up, and the vehicle gets moved on time. But reality doesn’t always follow that script. When transfer deadlines loom without a driver assigned, service operators must step in manually—a process that drains time and resources.&lt;/p&gt;
+&lt;p&gt;Two central issues have emerged from this model:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;A Narrow Driver Pool&lt;/strong&gt;: The focus on high-precision driver selection has inadvertently reduced the available pool of drivers, limiting flexibility and giving a small group too much leverage. This not only increases costs but also makes the entire system fragile when drivers are unavailable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual Processes&lt;/strong&gt;: As deadlines approach, if no driver has been assigned, teams must manually match drivers to requests—an approach that doesn’t scale well, leading to inefficiency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These challenges called for an innovative solution—one that could optimize both the efficiency of driver matching and the cost-effectiveness of the system.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;The Solution: A Two-Tower Recommender System&lt;/h2&gt;
+&lt;p&gt;To address these problems, we developed a &lt;strong&gt;two-tower recommender system&lt;/strong&gt;, designed to transform the way drivers are matched to transfer requests. This system evaluates drivers’ suitability for specific transfers, narrowing the search space to just 100 top-ranked drivers—representing only 2% of the total driver pool. Impressively, the system ranks unsuitable drivers beyond the top 100 in 93% of cases, ensuring precision without sacrificing speed.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Expected Outcomes&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Increased Engagement&lt;/strong&gt;: Based on the model tests, we anticipate a significant boost in driver engagement, with up to 40% of drivers interacting with the system—doubling the engagement rate compared to the previous system’s 20%.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost Efficiency&lt;/strong&gt;: The model also predicts notable cost savings. By expanding the driver pool and fostering competition, operational costs are expected to drop by as much as 19%, a slight improvement over the previously estimated 18% reduction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div style=&quot;display: flex; justify-content: space-between;&quot;&gt;
+  &lt;div style=&quot;flex: 1; text-align: center; margin-right: 10px;&quot;&gt;
+    &lt;h4&gt;Driver&apos;s Diversity vs. Number of Transfers&lt;/h4&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/5436e61de6ac29f74e72356afd79697f/39a20/compar.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 60.810810810810814%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABa0lEQVQoz42T246DMAxE+f+vrNqXCnEppNCEpPbOOCRFdFdaJAvI5Xg8ThrF81q9du2kl8vF4nq96jiOum2bhhBqbFvQGHMsS9DnM6hzQYchYP2GsVUb772Ow6DJY/DxwOSg67qqiOj5SQnJX6rzrNisWJf/3+88z6RN13XI9NTzdgIzVKBMdJoEagQAASCP19iTU1xzv9+Rca6AD8iwpmSexdQdISfkB9i2bVZoIK2qYqQqlvUHBHUKShRAhFnxNiBLds7tZeyq4A1LTEn0qIsyDULzGPiGH7UiA/Z9XxVizkBZ1Y6n4ztE2AFCShcOfldg1/UALDD7bV6VtUI1BKAcU3XuukiNL4UOTSnlWVlLViMxfjw7Ne23JhqQh3ei+9yGAfPmVNJ/HzuHlLwAEuCjR4RyOwDnm1kjlPI7QX25Nf4wX8bYi6aYmqDKEYgFC3zjbeEingCehNvtprSHx4xgXk3O8wwTynWMH88+rbqbWl+nAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; title=&quot;Driver&apos;s Diversity vs. Number of Transfers&quot; src=&quot;/static/5436e61de6ac29f74e72356afd79697f/fcda8/compar.png&quot; srcset=&quot;/static/5436e61de6ac29f74e72356afd79697f/12f09/compar.png 148w,
+/static/5436e61de6ac29f74e72356afd79697f/e4a3f/compar.png 295w,
+/static/5436e61de6ac29f74e72356afd79697f/fcda8/compar.png 590w,
+/static/5436e61de6ac29f74e72356afd79697f/39a20/compar.png 859w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;flex: 1; text-align: center;&quot;&gt;
+    &lt;h4&gt;Price Variation: Booking vs. Minimum (%)&lt;/h4&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/083efad76cc79784181394ec6d7380eb/77800/offic_margin.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 61.48648648648649%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABvElEQVQoz5WTy27jMAxF/f9/0o/orkCBbtpdW6CvIIAdxK/EsWNHEnV7rxUV09XMGCBESebhQ2ThnEPf95jnGcuycJWcUVULTqdlPV/vLhfMul8ucN6hqWdsNhU22w3KqsIwDDgejyi89zQ8IYSA9MVVf3+P2G65iwaLETCu5/MqINyGE4Z9jZawQ1li2O0SUNEJKLCM29YI9fj6Mry9RfTNBfHQETAgyDHFpglR8HEE0wIjQKRDZVjUdY2RF0qdYTAqw8eHx+OjMSXDNHkEpmg08JSgSPlnYNSOIK06U1YqTdF13S/g/b3h5ibg4cHQdSla53wCMguJXQGeNsbV/gQ2TbMCY/TY7SKengy3twHPz8aaGM9p6JlSTLUNV0B2kPUfYNu2K1CXd3eRr2t4ffUoS1trmiH/DNzzpZwb8fKSHiLV0WO/T7qi+y9g1/Us/IjPT0dwgvS9R13/BmajvwL1GMNwutYp9WHfB7ZPvPZkMsgRZj3vsy5Z20bAw6HHmX2lA+cWwibKQifLz7miSZOUJkoysR+zrv/0FoVi0s8aOXlUi6gEIfh1LyM9nKZAHaEhyOnmgdBeupx9AzO3pIUVZc2BAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Price Variation Analysis&quot; title=&quot;Price Variation Analysis&quot; src=&quot;/static/083efad76cc79784181394ec6d7380eb/fcda8/offic_margin.png&quot; srcset=&quot;/static/083efad76cc79784181394ec6d7380eb/12f09/offic_margin.png 148w,
+/static/083efad76cc79784181394ec6d7380eb/e4a3f/offic_margin.png 295w,
+/static/083efad76cc79784181394ec6d7380eb/fcda8/offic_margin.png 590w,
+/static/083efad76cc79784181394ec6d7380eb/77800/offic_margin.png 855w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2&gt;How It Works&lt;/h2&gt;
+&lt;p&gt;At the heart of this solution lies the two-tower architecture:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The Driver Tower&lt;/strong&gt; processes driver attributes, converting them into high-dimensional embeddings that encapsulate their preferences and past performance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Request Tower&lt;/strong&gt; analyzes the specific details of each transfer request—such as pickup and drop-off locations—and similarly generates embeddings that represent the nature of the request.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These two towers work in harmony, calculating the cosine similarity between driver and request embeddings, effectively ranking drivers based on their fit for each transfer. This automated matching process dramatically reduces the need for manual interventions and mitigates the risk of last-minute price surges.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Want to explore the details of this system further? &lt;a href=&quot;/2e48a9cda5f30fa6c49fda687e22ef89/paper.pdf&quot;&gt;Download the full paper here&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization]]></title><description><![CDATA[Introduction In modern computational tasks, white noise generation and processing are fundamental in various fields, from signal processing…]]></description><link>https://nezarbr.github.io/blog/my-second-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-second-blog/</guid><pubDate>Thu, 11 Jan 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In modern computational tasks, white noise generation and processing are fundamental in various fields, from signal processing to cryptography. The process typically involves generating random noise, transforming it into the frequency domain using the Fast Fourier Transform (FFT), modifying the noise, and converting it back using the Inverse FFT (iFFT). However, such processes, especially when dealing with large datasets, can be computationally expensive and time-consuming.&lt;/p&gt;
 &lt;p&gt;This article presents a study aimed at optimizing the execution time of white noise generation and FFT processing through the use of &lt;strong&gt;parallelization&lt;/strong&gt; with OpenMP and &lt;strong&gt;vectorization&lt;/strong&gt; with AVX2 instructions. The goal is to significantly reduce the computational load and improve performance. The following sections outline the problem statement, approach, and the resulting improvements from our optimization techniques.&lt;/p&gt;
 &lt;hr&gt;
