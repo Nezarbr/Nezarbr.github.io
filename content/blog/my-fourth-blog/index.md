@@ -49,11 +49,11 @@ The results speak for themselves:
 
 <div style="display: flex; justify-content: space-between;">
   <div style="flex: 1; text-align: center; margin-right: 10px;">
-    <h4>Driver's Diversity vs. Number of Transfers      </h4>
+    <h4>Driver's Diversity vs. Number of Transfers</h4>
     <img src="./compar.png" alt="Driver's Diversity vs. Number of Transfers" style="max-width: 100%;">
   </div>
   <div style="flex: 1; text-align: center;">
-    <h4>Price Variation Analysis: Booking vs. Minimum (%)</h4>
+    <h4>Price Variation: Booking vs. Minimum (%)</h4>
     <img src="./offic_margin.png" alt="Price Variation Analysis" style="max-width: 100%;">
   </div>
 </div>
