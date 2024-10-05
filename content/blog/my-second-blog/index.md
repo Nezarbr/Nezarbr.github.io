@@ -1,58 +1,58 @@
 ---
-title: My Second Blog Post
-date: '2020-10-02T12:00:00.00Z'
-description: 'Ratione dolore sequi in animi obcaecati incidunt reprehenderit illo repellat'
+title: Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization
+date: '2024-04-11T12:00:00.00Z'
+description: 'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.'
+---
+# Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization
+
+## Introduction
+
+In modern computational tasks, white noise generation and processing are fundamental in various fields, from signal processing to cryptography. The process typically involves generating random noise, transforming it into the frequency domain using the Fast Fourier Transform (FFT), modifying the noise, and converting it back using the Inverse FFT (iFFT). However, such processes, especially when dealing with large datasets, can be computationally expensive and time-consuming.
+
+This article presents a study aimed at optimizing the execution time of white noise generation and FFT processing through the use of **parallelization** with OpenMP and **vectorization** with AVX2 instructions. The goal is to significantly reduce the computational load and improve performance. The following sections outline the problem statement, approach, and the resulting improvements from our optimization techniques.
+
 ---
 
-## Lorem ipsum dolor sit amet consectetur adipisicing elit
+## Problem Statement
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.
+White noise generation and FFT operations involve significant computational effort, especially when processing large datasets like $2^{26}$ data points. In its raw form, white noise is inaudible but becomes more discernible after FFT and iFFT transformations. In applications that require real-time processing or frequent iterations over such large datasets, reducing the execution time is critical for performance.
 
-![Mountain](./mountain.jpg)
+The initial version of the sequential code took approximately 70 seconds to execute, which was not practical for high-performance needs. The goal of this study was to identify computational bottlenecks, apply parallelization and vectorization techniques, and achieve substantial improvements in execution time.
 
-Aliquam aliquid rem facere dolorum consectetur consequatur distinctio [mollitia id modi repellendus](https://github.com/RyanFitzgerald/devfolio) vero quae dolorem commodi soluta voluptates iusto nobis est dolore provident, porro veritatis placeat nemo impedit! Asperiores culpa delectus hic qui saepe, ipsum quia, exercitationem repellendus magni soluta sit suscipit laborum ducimus.
+---
 
-## Asperiores culpa delectus hic qui saepe
+## Approach
 
-### Facere labore velit ad autem
+We adopted a two-fold approach to optimize the execution time:
 
-Vitae veritatis quae eius quis vel soluta cumque? Facere labore velit ad autem. Nisi recusandae ducimus molestiae error ipsa quaerat, dignissimos suscipit similique itaque sunt provident quasi minus ut porro. Optio modi harum _dolore necessitatibus exercitationem_ blanditiis magni error ipsum, odit deleniti eligendi facilis, nesciunt delectus sit nostrum porro quam accusamus excepturi labore sequi maiores soluta?
+### 1. Parallelization with OpenMP
+We identified key sections of the code for parallelization, primarily focusing on white noise generation, FFT calculations, and normalization.
+- Using OpenMP directives, we distributed these tasks across multiple threads to exploit multi-core processors.
+- For instance, the `#pragma omp parallel for` directive was applied to parallelize loops, and `#pragma omp task` was used for concurrent FFT operations, ensuring that independent tasks could be processed simultaneously.
 
-### Porro veritatis placeat nemo impedit
+### 2. Vectorization with AVX2
+We utilized AVX2 intrinsics to vectorize the FFT-related calculations, allowing the CPU to perform operations on multiple data points in a single instruction cycle.
+- The `FFT_rec()` function and complex number multiplication operations were vectorized to handle 256-bit wide registers (i.e., four double-precision floating-point numbers at once), leading to significant speedups in the computational heavy parts of the code.
 
-Veritatis et praesentium totam neque earum commodi nesciunt dolor quibusdam incidunt non, ex dicta molestias omnis maiores, maxime velit perferendis tenetur aut porro nostrum, suscipit soluta necessitatibus deserunt nobis. Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.
+### 3. Combining Parallelization and Vectorization
+The final optimized code combined both parallelization and vectorization, ensuring that multi-core and SIMD (Single Instruction, Multiple Data) optimizations were used in harmony to maximize performance.
 
-> Repudiandae iusto et iure pariatur aliquid, quisquam, non sed culpa, dignissimos recusandae facilis. Debitis hic, quaerat recusandae ad id, quis nisi perspiciatis quo aliquid natus similique.
+---
 
-Illum esse recusandae facere ipsam fugiat est eaque ducimus facilis provident, distinctio cum aut corporis officiis quo fugit, similique temporibus inventore quidem tempora commodi saepe dicta! Numquam fugiat quibusdam aut ut, voluptatibus accusamus **repellendus quas minus consequuntur** possimus! Est eaque nesciunt, reiciendis voluptate placeat aspernatur doloremque unde cum et architecto suscipit quam facere corrupti nihil odit eum minima voluptatem nobis.
+## Results
 
-## Voluptatibus accusamus repellendus quas minus
+The results of the optimizations were promising. The execution time of the original sequential code was reduced from 70 seconds to 10 seconds using a combination of OpenMP parallelization and AVX2 vectorization. The following performance improvements were achieved:
 
-Ipsum quod, ut animi mollitia ipsam repellat, dolore voluptate quibusdam quasi reiciendis necessitatibus odio ea nostrum illo explicabo? Ducimus, in repudiandae. Ratione dolore sequi in animi obcaecati incidunt reprehenderit illo repellat atque aperiam, praesentium eligendi! Sed voluptas voluptatem sunt distinctio pariatur ullam? Laudantium laboriosam.
+- **Parallelization with OpenMP**: Reduced execution time from 70 seconds to 15 seconds, achieving a **4.67x speedup**.
+- **Vectorization**: Reduced execution time to 13.1 seconds, providing a **5.34x speedup**.
+- **Combined Parallelization and Vectorization**: Achieved the best performance, reducing the execution time to 10 seconds, yielding a **7x speedup**.
 
-- Numquam fugiat quibusdam aut ut
-- Soluta necessitatibus deserunt nobis
-- Illum esse recusandae facere ipsam
+These results highlight the effectiveness of applying both parallelization and vectorization techniques to reduce computational overhead in FFT-based white noise processing.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus.
+---
 
-1. Numquam fugiat quibusdam aut ut
-2. Soluta necessitatibus deserunt nobis
-3. Illum esse recusandae facere ipsam
+## Conclusion
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.
+This study demonstrated how computational efficiency can be significantly improved through strategic parallelization and vectorization. By employing OpenMP and AVX2, we achieved a 7x improvement in execution time, making FFT-based white noise generation and processing more practical for high-performance applications.
 
-## Suscipit soluta necessitatibus deserunt nobi
-
-Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.
-
-```js
-const helloWorld = (name = 'World') => {
-  return `Hello ${name}!`;
-};
-
-helloWorld();
-helloWorld('John Doe');
-```
-
-Numquam fugiat quibusdam aut ut, voluptatibus accusamus repellendus quas minus consequuntur possimus!
+If you're interested in exploring the full methodology and detailed results, you can download the complete paper [here](./paper.pdf).

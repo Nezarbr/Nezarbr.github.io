@@ -19,7 +19,7 @@ I've gained experience as a Data Scientist intern at Datategy and Hiflow, and no
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
       {
-        name: 'Recommender System for Optimized Driver Selection in Vehicle Transfer Services',
+        name: 'Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services',
         description:
           'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.',
       },
@@ -29,12 +29,12 @@ I've gained experience as a Data Scientist intern at Datategy and Hiflow, and no
           ' Analyzed traffic patterns from 3,500 sensors in Paris to identify congestion trends and relationships between vehicle flow and road occupancy, with plans to build forecasting models and account for geographical dependencies.',
       },
       {
-        name: "Parallelized Simulation of Heat Dissipation in AMD EPYC 'Rome' CPU Heatsink",
+        name: "Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks",
           description:
             'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.',
         },
       {
-        name: 'Optimizing FFT Performance through Parallelization and Vectorization',
+        name: 'Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization',
         description:
           'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.',
       },

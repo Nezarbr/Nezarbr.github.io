@@ -1,6 +1,7 @@
 ---
 title: Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks
-date: '2024-04-11T12:00:00.00Z'
+date: '2023-11-3T12:00:00.00Z'
+description: 'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.'
 ---
 
 ## Introduction
@@ -66,4 +67,4 @@ You can watch the execution of the heat transfer simulation below. The video sho
 
 ---
 
-If you're interested in exploring the full methodology and results of our research, you can download the complete paper [here](./work_adv.pdf).
+If you're interested in exploring the full methodology and results, you can download the complete paper [here](./paper.pdf).
