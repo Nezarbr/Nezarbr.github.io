@@ -1,6 +1,6 @@
 ---
 title: Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks
-date: '2023-11-3'
+date: '2023-11-23T12:00:00.00Z'
 description: 'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.'
 ---
 
