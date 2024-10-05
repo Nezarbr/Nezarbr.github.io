@@ -61,7 +61,7 @@ Our results clearly demonstrate the effectiveness of parallelization in reducing
 
 You can watch the execution of the heat transfer simulation below. The video shows the simulation of heat dynamics across the heatsink, illustrating the temperature gradient between two key areas: the end of the heatsink connected to the CPU and the other end where heat is dissipated.
 
-<iframe width="560" height="315" src="https://youtu.be/a6JIAh20gbQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="360" height="175" src="https://youtu.be/a6JIAh20gbQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ---
