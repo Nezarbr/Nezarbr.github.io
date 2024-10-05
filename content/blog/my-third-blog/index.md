@@ -67,7 +67,7 @@ To forecast demand, the **XGBoost algorithm** was used, with features such as:
 - Hour of the day
 - Trip history patterns
 
-The model achieved an **R-squared value of 0.93**, indicating a high level of accuracy in predicting demand surges.
+The model achieved an **RMSE value of 2100**, indicating a good level of accuracy in predicting demand surges.
 
 ---
 
