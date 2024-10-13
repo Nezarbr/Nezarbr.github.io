@@ -1,14 +1,14 @@
 ---
 title: Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks
 date: '2023-11-23T12:00:00.00Z'
-description: 'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.'
+description: 'In this post, I share insights from my research on parallelizing simulations for CPU heatsink heat transfer. I explored two parallelization techniques—1D slicing along the Z-axis and 2D slicing along the Z and Y axes—to efficiently model heat dissipation in a 3D grid structure. By leveraging MPI for communication between processors and implementing non-blocking communication, I significantly improved performance, achieving up to 5.63x speedup with 32 processors. This study highlights the effectiveness of optimized computational strategies in reducing simulation time while maintaining accuracy.'
 ---
 
 ## Introduction
 
 As computing technology advances, modern microprocessors are becoming more powerful, consuming up to 200 watts of power or more. This immense energy consumption generates significant heat, which, if not managed properly, can degrade the processor’s performance and reliability. To address this, heatsinks are crucial components designed to dissipate this heat, transferring it away from the processor into the heatsink itself, where it can be safely dispersed into the surrounding environment.
 
-In this research, we focus on simulating the heat transfer dynamics within a CPU heatsink, specifically targeting the AMD EPYC "Rome" model. By parallelizing the simulation process, we aim to efficiently model the heat dissipation behavior across a complex grid structure, allowing for accurate predictions of temperature distributions within the heatsink. Through optimized computational strategies, we explore how to minimize simulation time while maintaining the accuracy of the thermal modeling.
+In this research, we focus on simulating the heat transfer dynamics within a CPU heatsink. By parallelizing the simulation process, we aim to efficiently model the heat dissipation behavior across a complex grid structure, allowing for accurate predictions of temperature distributions within the heatsink. Through optimized computational strategies, we explore how to minimize simulation time while maintaining the accuracy of the thermal modeling.
 
 In this article, we investigate several parallelization methods that distribute the workload across multiple processors, improving efficiency in large-scale simulations of heat transfer in CPU heatsinks.
 
@@ -16,7 +16,7 @@ In this article, we investigate several parallelization methods that distribute 
 
 ## Approach
 
-In our study, we implemented a parallelized simulation to model the heat transfer within a CPU heatsink, focusing on the AMD EPYC "Rome" processor. The simulation's core principle is to divide the heatsink into a 3D grid of cuboidal cells, each representing a discrete volume of the heatsink. This spatial discretization allows us to track temperature changes in each cell based on heat conduction between neighboring cells over time.
+In our study, we implemented a parallelized simulation to model the heat transfer within a CPU heatsink. The simulation's core principle is to divide the heatsink into a 3D grid of cuboidal cells, each representing a discrete volume of the heatsink. This spatial discretization allows us to track temperature changes in each cell based on heat conduction between neighboring cells over time.
 
 The key challenge is the computational cost of such simulations, especially when using finer grids for higher accuracy. To overcome this, we employed **parallelization** by dividing the heatsink grid into smaller subdomains, each assigned to a different processor. These processors then handle the computation for their respective subdomains simultaneously, significantly speeding up the simulation.
 
@@ -60,7 +60,7 @@ Our results clearly demonstrate the effectiveness of parallelization in reducing
 
 ## Watch the Video
 
-You can watch the execution of the heat transfer simulation below. The video shows the simulation of heat dynamics across the heatsink, illustrating the temperature gradient between two key areas: the end of the heatsink connected to the CPU and the other end where heat is dissipated.
+You can watch the execution of the heat transfer simulation below. The video shows the temperature gradient between two key areas: the end of the heatsink connected to the CPU and the other end where heat is dissipated.
 
 <iframe width="360" height="175" src="https://www.youtube.com/embed/a6JIAh20gbQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

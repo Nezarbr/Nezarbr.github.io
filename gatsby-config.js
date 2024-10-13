@@ -12,9 +12,7 @@ module.exports = {
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     // Content of the About Me section
-    about: `I'm Nezar, a long-distance runner with a passion for traveling, discovery, and problem-solving. I’m studying Applied Mathematics and Computer Science at Sorbonne University, where I dive into data science, explore complex datasets, and uncover patterns.
-
-I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now, I'm diving into the technical side as a Data Engineer intern at Launchmetrics. I enjoy sharing my journey through projects and discoveries, always eager to learn, grow.`,
+    about: `Hello, I'm Nezar. I'm currently studying Applied Mathematics and Computer Science at Sorbonne University, where I dive into data science, explore datasets, and uncover meaningful patterns to solve real-world problems. I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now I'm working as an Applied Scientist at Launchmetrics. In my free time, I enjoy long-distance running, traveling, and discovering new places, always seeking out new challenges to grow and learn.`,
 
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
@@ -48,7 +46,7 @@ I've gained experience as a Data Scientist intern at Datategy and Hiflow, and no
     experience: [
       {
         name: 'Launchmetrics',
-        description: 'Data Engineer Intern, June 2024 - Present',
+        description: 'Applied Scientist Intern, June 2024 - Present',
         link: 'https://www.launchmetrics.com/fr',
       },
       {

@@ -1,7 +1,7 @@
 ---
 title: Ride-Hailing Trends in New York City ( Uber, Lyft, and Via ) Operations Analysis
 date: '2023-06-01'
-description: 'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.'
+description: 'In this post, I cover the analysis of ride-hailing services in New York City, focusing on fare pricing and demand trends. Using trip data from NYC’s Taxi and Limousine Commission, I built models to predict fare prices with a decision tree regressor and forecast demand surges using the XGBoost algorithm. The fare prediction model achieved an R-squared value of 0.81, while the demand forecasting model produced accurate results with an RMSE of 2100. The study also classified NYC boroughs based on ride-hailing characteristics, providing actionable insights for better resource management.'
 ---
 
 ## Explanatory Video

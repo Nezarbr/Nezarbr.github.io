@@ -1,13 +1,13 @@
 ---
 title: Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services
 date: '2024-04-11T12:00:00.00Z'
-description: 'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.'
+description: 'In this post, I discuss a solution to improve vehicle transportation logistics, particularly focusing on optimizing the driver assignment process. Logistics services face challenges such as a narrow driver pool and time-consuming manual matching when no drivers are available. To address these, I developed a two-tower recommender system that efficiently matches drivers to vehicle transfer requests by ranking drivers based on suitability. This approach is expected to increase driver engagement by 40% and reduce operational costs by 19%, streamlining the entire process while reducing manual interventions.'
 ---
 
 ## Introduction
 In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move vehicles across diverse destinations. These services, crucial to keeping automotive supply chains running smoothly, rely on a unique workforce—independent drivers who, although not full-time employees, are essential to the system’s operation. But what happens when these drivers become scarce or inefficiencies emerge in matching the right driver to the right transport?
 
-For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. Yet, with the growing complexity of logistics demands, old methods are proving insufficient.
+For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. 
 
 ---
 

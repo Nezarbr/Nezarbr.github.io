@@ -1,20 +1,20 @@
 ---
 title: Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization
 date: '2024-01-11T12:00:00.00Z'
-description: 'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.'
+description: 'In this post, I discuss the optimization of white noise generation and FFT processing using parallelization with OpenMP and vectorization with AVX2 instructions. White noise generation and FFT operations are computationally intensive, especially when processing large datasets. The initial sequential code took 70 seconds to execute. By applying parallelization and vectorization techniques, I reduced the execution time to 10 seconds, achieving a 7x speedup. This study demonstrates how combining multi-core and SIMD optimizations can significantly improve computational efficiency in FFT-based tasks.'
 ---
 
 ## Introduction
 
 In modern computational tasks, white noise generation and processing are fundamental in various fields, from signal processing to cryptography. The process typically involves generating random noise, transforming it into the frequency domain using the Fast Fourier Transform (FFT), modifying the noise, and converting it back using the Inverse FFT (iFFT). However, such processes, especially when dealing with large datasets, can be computationally expensive and time-consuming.
 
-This article presents a study aimed at optimizing the execution time of white noise generation and FFT processing through the use of **parallelization** with OpenMP and **vectorization** with AVX2 instructions. The goal is to significantly reduce the computational load and improve performance. The following sections outline the problem statement, approach, and the resulting improvements from our optimization techniques.
+This article presents a study aimed at optimizing the execution time of white noise generation and FFT processing through the use of **parallelization** with OpenMP and **vectorization** with AVX2 instructions. The goal is to significantly reduce the computational load and improve performance. 
 
 ---
 
 ## Problem Statement
 
-White noise generation and FFT operations involve significant computational effort, especially when processing large datasets like $2^{26}$ data points. In its raw form, white noise is inaudible but becomes more discernible after FFT and iFFT transformations. In applications that require real-time processing or frequent iterations over such large datasets, reducing the execution time is critical for performance.
+White noise generation and FFT operations involve significant computational effort, especially when processing large datasets like 2**26 data points. In its raw form, white noise is inaudible but becomes more discernible after FFT and iFFT transformations. In applications that require real-time processing or frequent iterations over such large datasets, reducing the execution time is critical for performance.
 
 The initial version of the sequential code took approximately 70 seconds to execute, which was not practical for high-performance needs. The goal of this study was to identify computational bottlenecks, apply parallelization and vectorization techniques, and achieve substantial improvements in execution time.
 
