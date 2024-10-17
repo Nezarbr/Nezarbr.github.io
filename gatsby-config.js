@@ -63,26 +63,26 @@ module.exports = {
     // Optional: List your skills, they must have `name` and `description`.
     skills: [
       {
-        name: 'Data Analytics, Machine Learning & Tools',
+        name: 'Programming Languages',
         description:
-          'Data Visualization / Analysis, Plotly, Pandas, Numpy, scikit-learn, seaborn, Folium, Machine Learning, Databricks, Databricks Unity Catalog, Apache Spark, PySpark, PostgreSQL, MySQL',
+          'Python, R, C, C++, SQL.',
       },
       {
-        name: 'BI Tools',
-        description: 'Metabase, Apache Superset',
+        name: 'Data Science and Machine Learning',
+        description: 'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. ( Scikit-learn, PyTorch)',
       },
       {
-        name: 'Programming & Tools',
-        description: 'Python, R, C, C++, SQL, Poetry, Python Wheel',
+        name: 'Data Engineering',
+        description: 'ETL Processes, Data Quality Checks, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, Pytest)',
       },
       {
-        name: 'Version Control & CI/CD',
-        description: 'GitHub, GitHub Actions',
+        name: 'Data Visualization and Dashboards:',
+        description: 'Plotly, Dash, Seaborn, Matplotlib, Folium, Superset, Metabase',
       },
       {
         name: 'Soft Skills',
         description:
-          'Presentation, Planning, Organized, Creative Problem-Solving, Teamwork,  Adaptability, Research and Analysis, Critical Thinking, Time Management, Creative Problem Solving',
+          'Problem Solving, Teamwork, Adaptability, Time Management, Communication, Research, Critical Thinking',
       },
     ],
   },
