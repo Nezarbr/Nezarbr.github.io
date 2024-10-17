@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     // Site URL for when it goes live
-    siteUrl: `https://nezarbr.github.io/`,
+    siteUrl: `https://nezar_boujida.github.io/`,
     // Your Name
     name: 'Nezar Boujida',
     // Main Site Title
