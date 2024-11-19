@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 Nov 2024 22:59:39 GMT</lastBuildDate><item><title><![CDATA[Maximum Likelihood and Loss Functions From Probability to Optimization]]></title><description><![CDATA[Maximum Likelihood and Loss Functions: From Probability to Optimization In machine learning, we often take loss functions for granted. Data…]]></description><link>https://nezarbr.github.io/blog/my-first-article/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-first-article/</guid><pubDate>Tue, 19 Nov 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Maximum Likelihood and Loss Functions: From Probability to Optimization&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Nezar Boujida | Data Scientist]]></title><description><![CDATA[Nezar Boujida | Data Scientist]]></description><link>https://nezarbr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 Nov 2024 23:07:19 GMT</lastBuildDate><item><title><![CDATA[Maximum Likelihood and Loss Functions From Probability to Optimization]]></title><description><![CDATA[Maximum Likelihood and Loss Functions: From Probability to Optimization In machine learning, we often take loss functions for granted. Data…]]></description><link>https://nezarbr.github.io/blog/my-first-article/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-first-article/</guid><pubDate>Tue, 19 Nov 2024 12:00:00 GMT</pubDate><content:encoded>&lt;script type=&quot;text/javascript&quot; async
+  src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;&gt;
+&lt;/script&gt;
+&lt;h2&gt;Maximum Likelihood and Loss Functions: From Probability to Optimization&lt;/h2&gt;
 &lt;p&gt;In machine learning, we often take loss functions for granted. Data scientists routinely use mean squared error for regression tasks and cross-entropy for classification problems, but have you ever wondered why these particular functions are chosen? Far from being arbitrary choices, these loss functions emerge naturally from fundamental principles of probability theory.&lt;/p&gt;
 &lt;p&gt;At the heart of this connection lies Maximum Likelihood Estimation (MLE), a powerful statistical principle that bridges the gap between probability theory and optimization. When we train a machine learning model by minimizing a loss function, we’re often unknowingly performing maximum likelihood estimation under specific probabilistic assumptions about our data.&lt;/p&gt;
 &lt;p&gt;Understanding this connection is more than just theoretical elegance. It provides practitioners with:&lt;/p&gt;
@@ -15,51 +18,20 @@
 &lt;p&gt;Think of it as “reverse engineering” the parameters: we see the data, we know the type of distribution that generated it, and we want to find the exact parameters that were most likely used to generate that data.&lt;/p&gt;
 &lt;h3&gt;Mathematical Foundation&lt;/h3&gt;
 &lt;h4&gt;Basic Formula&lt;/h4&gt;
-&lt;p&gt;Given independent observations (x&lt;em&gt;1, x&lt;/em&gt;2, \dots, x&lt;em&gt;n) from a known distribution type, the likelihood function is:
-[
-L(\theta) = P(x&lt;/em&gt;1, x&lt;em&gt;2, \dots, x&lt;/em&gt;n | \theta) = P(x&lt;em&gt;1 | \theta) \times P(x&lt;/em&gt;2 | \theta) \times \dots \times P(x_n | \theta)
-]
-where:&lt;/p&gt;
+&lt;p&gt;Given independent observations (x&lt;em&gt;1, x&lt;/em&gt;2, \dots, x_n) from a known distribution type, the likelihood function is:&lt;/p&gt;
+&lt;p&gt;[
+L(\theta) = P(x&lt;em&gt;1, x&lt;/em&gt;2, \dots, x&lt;em&gt;n | \theta) = P(x&lt;/em&gt;1 | \theta) \times P(x&lt;em&gt;2 | \theta) \times \dots \times P(x&lt;/em&gt;n | \theta)
+]&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;(\theta) represents the parameters we want to estimate.&lt;/li&gt;
 &lt;li&gt;The distribution type is known (e.g., normal, exponential).&lt;/li&gt;
 &lt;li&gt;(P(x&lt;em&gt;i | \theta)) is the probability of observing (x&lt;/em&gt;i) given parameters (\theta).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Understanding MLE Through Visualization&lt;/h3&gt;
-&lt;div style=&quot;text-align: center;&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; margin: 0 0 30px;&quot;&gt;
-      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/00bc6b9b81ed01658cf4d0d80f1ee739/e1250/distrib.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
-    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB4klEQVQoz22SW5OaQBCF+f+/J5cqI3JRcRU1WWuvyWpWlMvMMAwXZWF9OGlATSq1D81ATfc5X3ej1fU7jsf6g6gQhgJhwOEHDPt9RN/du1I5yrKrK8saaXFEkmSoqndozSOKUorsg5MiSPC82WLrCcS8AOc5GMuveYxlWP/yMZ/fkaGE9vZWt0lC5NezKdj7BdbrFMvVI3TXxuLHLcTGh9hxcBISovhbx1IEZJwkB2h1fWpdmkvOu3PrZZBxidXDM3TbxWSyQO/rZ9w9PkGKA9g2OpOe60i8gUjTElpB/f/r5gddxHGB6XKBgTGD/sXEUDcwns8RJ5QfSAg/boU6kE48TY/Q8vzQiZ1n4+1IjBKf1huYwwmcgQn9Ux99EnbdBV62O5qVurbOxX+Cl5YbuqZVzo949QJYjoPhcIpxT4dhjtDrzzCyHaL+jpfXPWIyZ150pWTRWfCyFD8oyJnakTmW9/ewbKLrmxhRWGMHunGDXu+G5ulivrpFEEkoAonPrXeE5eW3ybDbSSLzMaO5mQMLY92iudmwjBEMe9Qa6LqDb/0piRP91MXDz9/wPdaKhWHaEZ5OJzSUKpW0QYYkjKA4py1LxFJBJQoRY1RAdzKhZSVElLW/ScBiCKXa+iaqqsYfipTc3NrgPhAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;Distribution Comparison with Typical Observations&quot; title=&quot;Distribution Comparison with Typical Observations&quot; src=&quot;/static/00bc6b9b81ed01658cf4d0d80f1ee739/fcda8/distrib.png&quot; srcset=&quot;/static/00bc6b9b81ed01658cf4d0d80f1ee739/12f09/distrib.png 148w,
-/static/00bc6b9b81ed01658cf4d0d80f1ee739/e4a3f/distrib.png 295w,
-/static/00bc6b9b81ed01658cf4d0d80f1ee739/fcda8/distrib.png 590w,
-/static/00bc6b9b81ed01658cf4d0d80f1ee739/efc66/distrib.png 885w,
-/static/00bc6b9b81ed01658cf4d0d80f1ee739/c83ae/distrib.png 1180w,
-/static/00bc6b9b81ed01658cf4d0d80f1ee739/e1250/distrib.png 1786w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot; loading=&quot;lazy&quot;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-&lt;/div&gt;
-&lt;h4&gt;Example Setup&lt;/h4&gt;
-&lt;p&gt;In this example, we have data that follows a normal distribution with unknown parameters to be estimated. While the true parameters are (\mu=5) and (\sigma=1) (known here for demonstration), in practice these would be unknown. Let’s compare three possible parameter choices, (\mu=5), (\mu=4), and (\mu=6), all with the same standard deviation (\sigma=1).&lt;/p&gt;
-&lt;p&gt;The gray histogram displays our observed data, which follows a normal distribution with (\mu=5) and (\sigma=1). Let’s analyze the likelihood calculation for 5 representative points (4.3, 4.8, 5.0, 5.2, and 5.7):&lt;/p&gt;
-&lt;h5&gt;Likelihood Values:&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;(L(5) = 0.341 \times 0.391 \times 0.399 \times 0.391 \times 0.317 = 0.00532) (true parameters)&lt;/li&gt;
-&lt;li&gt;(L(4) = 0.386 \times 0.311 \times 0.242 \times 0.179 \times 0.066 = 0.00031)&lt;/li&gt;
-&lt;li&gt;(L(6) = 0.066 \times 0.179 \times 0.242 \times 0.311 \times 0.386 = 0.00031)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The maximum likelihood occurs at (\mu=5) because:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;For a normal distribution, 68.27% of data points fall between (\mu \pm \sigma) (4 to 6 in our case).&lt;/li&gt;
-&lt;li&gt;Our observed points mostly fall in this high-probability region.&lt;/li&gt;
-&lt;li&gt;The true distribution ((\mu=5)) assigns consistently high probabilities to these typical values.&lt;/li&gt;
-&lt;li&gt;Alternative distributions ((\mu=4) or (\mu=6)) must assign very low probabilities to some points, leading to much lower likelihood values.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;This demonstrates how MLE naturally recovers the true parameters by aligning the distribution’s high-probability region with the actual concentration of data points.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;From MLE to Loss Functions&lt;/h2&gt;
-&lt;p&gt;When we maximize likelihood, we can equivalently minimize its negative logarithm. This transformation turns our probability maximization into a minimization problem:
-[
+&lt;p&gt;When we maximize likelihood, we can equivalently minimize its negative logarithm. This transformation turns our probability maximization into a minimization problem:&lt;/p&gt;
+&lt;p&gt;[
 \arg\max&lt;em&gt;\theta L(\theta) = \arg\min&lt;/em&gt;\theta -\log(L(\theta))
 ]&lt;/p&gt;
 &lt;hr&gt;
@@ -71,20 +43,20 @@ where:&lt;/p&gt;
 &lt;li&gt;This means our errors (residuals) follow a normal distribution.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Probabilistic Interpretation:&lt;/h3&gt;
-&lt;p&gt;For each residual ((y&lt;em&gt;i - wx&lt;/em&gt;i - b)):
-[
+&lt;p&gt;For each residual ((y&lt;em&gt;i - wx&lt;/em&gt;i - b)):&lt;/p&gt;
+&lt;p&gt;[
 P(y&lt;em&gt;i - wx&lt;/em&gt;i - b) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y&lt;em&gt;i - wx&lt;/em&gt;i - b)^2}{2\sigma^2}\right)
 ]&lt;/p&gt;
-&lt;p&gt;For (n) independent observations:
-[
+&lt;p&gt;For (n) independent observations:&lt;/p&gt;
+&lt;p&gt;[
 L(w, b) = \prod&lt;em&gt;{i=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y&lt;/em&gt;i - wx_i - b)^2}{2\sigma^2}\right)
 ]&lt;/p&gt;
-&lt;p&gt;Taking the negative logarithm:
-[
+&lt;p&gt;Taking the negative logarithm:&lt;/p&gt;
+&lt;p&gt;[
 -\log(L) = \frac{n}{2} \log(2\pi\sigma^2) + \frac{1}{2\sigma^2} \sum (y&lt;em&gt;i - wx&lt;/em&gt;i - b)^2
 ]&lt;/p&gt;
-&lt;p&gt;Since constants ((\frac{n}{2} \log(2\pi\sigma^2)) and (\frac{1}{2\sigma^2})) do not affect optimization:
-[
+&lt;p&gt;Since constants ((\frac{n}{2} \log(2\pi\sigma^2)) and (\frac{1}{2\sigma^2})) do not affect optimization:&lt;/p&gt;
+&lt;p&gt;[
 -\log(L) \propto \sum (y&lt;em&gt;i - wx&lt;/em&gt;i - b)^2
 ]&lt;/p&gt;
 &lt;p&gt;This is the mean squared error (MSE).&lt;/p&gt;
@@ -97,20 +69,19 @@ L(w, b) = \prod&lt;em&gt;{i=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\fra
 &lt;li&gt;Outputs follow a Bernoulli distribution.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Probabilistic Interpretation:&lt;/h3&gt;
-&lt;p&gt;For each observation ((x&lt;em&gt;i, y&lt;/em&gt;i)):
-[
+&lt;p&gt;For each observation ((x&lt;em&gt;i, y&lt;/em&gt;i)):&lt;/p&gt;
+&lt;p&gt;[
 P(y&lt;em&gt;i | x&lt;/em&gt;i) = \sigma(wx&lt;em&gt;i + b)^{y&lt;/em&gt;i} (1 - \sigma(wx&lt;em&gt;i + b))^{1-y&lt;/em&gt;i}
 ]&lt;/p&gt;
-&lt;p&gt;For (n) independent observations:
-[
+&lt;p&gt;For (n) independent observations:&lt;/p&gt;
+&lt;p&gt;[
 L(w, b) = \prod&lt;em&gt;{i=1}^{n} \sigma(wx&lt;/em&gt;i + b)^{y&lt;em&gt;i} (1 - \sigma(wx&lt;/em&gt;i + b))^{1-y_i}
 ]&lt;/p&gt;
-&lt;p&gt;Taking the negative logarithm:
-[
+&lt;p&gt;Taking the negative logarithm:&lt;/p&gt;
+&lt;p&gt;[
 -\log(L) = -\sum&lt;em&gt;{i=1}^{n} \left[ y&lt;/em&gt;i \log(\sigma(wx&lt;em&gt;i + b)) + (1-y&lt;/em&gt;i) \log(1 - \sigma(wx_i + b)) \right]
 ]&lt;/p&gt;
-&lt;p&gt;This is the binary cross-entropy loss function.&lt;/p&gt;
-&lt;hr&gt;</content:encoded></item><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is the binary cross-entropy loss function.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services]]></title><description><![CDATA[Introduction In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move…]]></description><link>https://nezarbr.github.io/blog/my-fourth-blog/</link><guid isPermaLink="false">https://nezarbr.github.io/blog/my-fourth-blog/</guid><pubDate>Thu, 11 Apr 2024 12:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In the rapidly evolving world of vehicle transportation, logistics services face increasing pressure to efficiently move vehicles across diverse destinations. These services, crucial to keeping automotive supply chains running smoothly, rely on a unique workforce—independent drivers who, although not full-time employees, are essential to the system’s operation. But what happens when these drivers become scarce or inefficiencies emerge in matching the right driver to the right transport?&lt;/p&gt;
 &lt;p&gt;For many in this field, manually assigning drivers to vehicle transfers has become a daily struggle. The challenge? Finding the perfect driver for each job while minimizing delays, costs, and manual interventions. &lt;/p&gt;
 &lt;hr&gt;

@@ -1,20 +1,11 @@
 module.exports = {
   siteMetadata: {
-    // Site URL for when it goes live
     siteUrl: `https://nezarbr.github.io/`,
-    // Your Name
     name: 'Nezar Boujida',
-    // Main Site Title
     title: `Nezar Boujida | Data Scientist`,
-
-    // Optional: Github account URL
     github: `https://github.com/Nezarbr`,
-    // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
-    // Content of the About Me section
     about: `Hello, I'm Nezar. I'm currently studying Applied Mathematics and Computer Science at Sorbonne University, where I dive into data science, explore datasets, and uncover meaningful patterns to solve real-world problems. I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now I'm working as an Applied Scientist at Launchmetrics. In my free time, I enjoy long-distance running, traveling, and discovering new places, always seeking out new challenges to grow and learn.`,
-
-    // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
       {
         name: 'Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services',
@@ -22,15 +13,15 @@ module.exports = {
           'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.',
       },
       {
-      name: "Traffic Modeling and Forecasting Using Sensor Data in Paris",
+        name: "Traffic Modeling and Forecasting Using Sensor Data in Paris",
         description:
-          ' Analyzed traffic patterns from 3,500 sensors in Paris to identify congestion trends and relationships between vehicle flow and road occupancy, with plans to build forecasting models and account for geographical dependencies.',
+          'Analyzed traffic patterns from 3,500 sensors in Paris to identify congestion trends and relationships between vehicle flow and road occupancy, with plans to build forecasting models and account for geographical dependencies.',
       },
       {
         name: "Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks",
-          description:
-            'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.',
-        },
+        description:
+          'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.',
+      },
       {
         name: 'Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization',
         description:
@@ -42,7 +33,6 @@ module.exports = {
           'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.',
       },
     ],
-    // Optional: List your experience, they must have `name` and `description`. `link` is optional.
     experience: [
       {
         name: 'Launchmetrics',
@@ -60,24 +50,25 @@ module.exports = {
         link: 'https://www.datategy.net/',
       },
     ],
-    // Optional: List your skills, they must have `name` and `description`.
     skills: [
       {
         name: 'Programming Languages',
-        description:
-          'Python, R, C, C++, SQL',
+        description: 'Python, R, C, C++, SQL',
       },
       {
         name: 'Data Science and Machine Learning',
-        description: 'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. ( Scikit-learn, PyTorch)',
+        description:
+          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. ( Scikit-learn, PyTorch)',
       },
       {
         name: 'Data Engineering',
-        description: 'ETL Processes, Data Quality Checks, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, Pytest)',
+        description:
+          'ETL Processes, Data Quality Checks, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, Pytest)',
       },
       {
         name: 'Data Visualization and Dashboards:',
-        description: 'Plotly, Dash, Seaborn, Matplotlib, Folium, Superset, Metabase',
+        description:
+          'Plotly, Dash, Seaborn, Matplotlib, Folium, Superset, Metabase',
       },
       {
         name: 'Soft Skills',
@@ -96,12 +87,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [`gatsby-remark-mathjax`],
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
@@ -112,6 +97,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-mathjax`, // Enables MathJax rendering in Markdown
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -119,38 +105,30 @@ module.exports = {
               wrapperStyle: `margin: 0 0 30px;`,
             },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
-          `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
+          `gatsby-remark-prismjs`, // Syntax highlighting for code
+          `gatsby-remark-smartypants`, // Better typography
         ],
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `ADD YOUR TRACKING ID HERE`, // Optional Google Analytics
+        trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `devfolio`,
-        short_name: `devfolio`,
+        name: `Nezar Portfolio`,
+        short_name: `Portfolio`,
         start_url: `/`,
         background_color: `#663399`,
-        theme_color: `#663399`, // This color appears on mobile
+        theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`,
+        icon: `src/images/icon.png`, // Path to site icon
       },
     },
   ],
