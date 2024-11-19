@@ -18,12 +18,21 @@ const BlogPost = ({ data }) => {
   // MathJax configuration
   useEffect(() => {
     if (window.MathJax) {
-      window.MathJax.typesetPromise();
+      console.log('MathJax is loaded, processing math...');
+      setTimeout(() => {
+        window.MathJax.typesetPromise();
+      }, 100); // Delay to ensure DOM is fully loaded
     } else {
+      console.log('Loading MathJax...');
       const script = document.createElement('script');
       script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
       script.async = true;
-      script.onload = () => window.MathJax && window.MathJax.typesetPromise();
+      script.onload = () => {
+        console.log('MathJax loaded.');
+        setTimeout(() => {
+          window.MathJax && window.MathJax.typesetPromise();
+        }, 100);
+      };
       document.head.appendChild(script);
     }
   }, []);
