@@ -4,6 +4,10 @@ date: '2024-11-19T12:00:00.00Z'
 description: 'Explore the connection between probability theory and optimization in machine learning. Learn how common loss functions like mean squared error and cross-entropy naturally emerge from Maximum Likelihood Estimation (MLE).'
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 ## Maximum Likelihood and Loss Functions: From Probability to Optimization
 
 In machine learning, we often take loss functions for granted. Data scientists routinely use mean squared error for regression tasks and cross-entropy for classification problems, but have you ever wondered why these particular functions are chosen? Far from being arbitrary choices, these loss functions emerge naturally from fundamental principles of probability theory.
@@ -32,45 +36,22 @@ Think of it as "reverse engineering" the parameters: we see the data, we know th
 #### Basic Formula
 
 Given independent observations \(x_1, x_2, \dots, x_n\) from a known distribution type, the likelihood function is:
+
 \[
 L(\theta) = P(x_1, x_2, \dots, x_n | \theta) = P(x_1 | \theta) \times P(x_2 | \theta) \times \dots \times P(x_n | \theta)
 \]
+
 where:
 - \(\theta\) represents the parameters we want to estimate.
 - The distribution type is known (e.g., normal, exponential).
 - \(P(x_i | \theta)\) is the probability of observing \(x_i\) given parameters \(\theta\).
-
-### Understanding MLE Through Visualization
-
-<div style="text-align: center;">
-    <img src="./distrib.png" alt="Distribution Comparison with Typical Observations" style="max-width: 50%;">
-</div>
-
-#### Example Setup
-
-In this example, we have data that follows a normal distribution with unknown parameters to be estimated. While the true parameters are \(\mu=5\) and \(\sigma=1\) (known here for demonstration), in practice these would be unknown. Let's compare three possible parameter choices, \(\mu=5\), \(\mu=4\), and \(\mu=6\), all with the same standard deviation \(\sigma=1\).
-
-The gray histogram displays our observed data, which follows a normal distribution with \(\mu=5\) and \(\sigma=1\). Let's analyze the likelihood calculation for 5 representative points (4.3, 4.8, 5.0, 5.2, and 5.7):
-
-##### Likelihood Values:
-
-- \(L(5) = 0.341 \times 0.391 \times 0.399 \times 0.391 \times 0.317 = 0.00532\) (true parameters)
-- \(L(4) = 0.386 \times 0.311 \times 0.242 \times 0.179 \times 0.066 = 0.00031\)
-- \(L(6) = 0.066 \times 0.179 \times 0.242 \times 0.311 \times 0.386 = 0.00031\)
-
-The maximum likelihood occurs at \(\mu=5\) because:
-1. For a normal distribution, 68.27% of data points fall between \(\mu \pm \sigma\) (4 to 6 in our case).
-2. Our observed points mostly fall in this high-probability region.
-3. The true distribution (\(\mu=5\)) assigns consistently high probabilities to these typical values.
-4. Alternative distributions (\(\mu=4\) or \(\mu=6\)) must assign very low probabilities to some points, leading to much lower likelihood values.
-
-This demonstrates how MLE naturally recovers the true parameters by aligning the distribution's high-probability region with the actual concentration of data points.
 
 ---
 
 ## From MLE to Loss Functions
 
 When we maximize likelihood, we can equivalently minimize its negative logarithm. This transformation turns our probability maximization into a minimization problem:
+
 \[
 \arg\max_\theta L(\theta) = \arg\min_\theta -\log(L(\theta))
 \]
@@ -86,21 +67,25 @@ When we maximize likelihood, we can equivalently minimize its negative logarithm
 
 ### Probabilistic Interpretation:
 For each residual \((y_i - wx_i - b)\):
+
 \[
 P(y_i - wx_i - b) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_i - wx_i - b)^2}{2\sigma^2}\right)
 \]
 
 For \(n\) independent observations:
+
 \[
 L(w, b) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_i - wx_i - b)^2}{2\sigma^2}\right)
 \]
 
 Taking the negative logarithm:
+
 \[
 -\log(L) = \frac{n}{2} \log(2\pi\sigma^2) + \frac{1}{2\sigma^2} \sum (y_i - wx_i - b)^2
 \]
 
 Since constants (\(\frac{n}{2} \log(2\pi\sigma^2)\) and \(\frac{1}{2\sigma^2}\)) do not affect optimization:
+
 \[
 -\log(L) \propto \sum (y_i - wx_i - b)^2
 \]
@@ -118,20 +103,21 @@ This is the mean squared error (MSE).
 
 ### Probabilistic Interpretation:
 For each observation \((x_i, y_i)\):
+
 \[
 P(y_i | x_i) = \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
 \]
 
 For \(n\) independent observations:
+
 \[
 L(w, b) = \prod_{i=1}^{n} \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
 \]
 
 Taking the negative logarithm:
+
 \[
 -\log(L) = -\sum_{i=1}^{n} \left[ y_i \log(\sigma(wx_i + b)) + (1-y_i) \log(1 - \sigma(wx_i + b)) \right]
 \]
 
 This is the binary cross-entropy loss function.
-
----

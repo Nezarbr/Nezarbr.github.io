@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import moment from 'moment';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Header from '../components/header';
 import Layout from '../components/layout';
@@ -14,6 +14,19 @@ const classes = {
 
 const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
+
+  // MathJax configuration
+  useEffect(() => {
+    if (window.MathJax) {
+      window.MathJax.typesetPromise();
+    } else {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.async = true;
+      script.onload = () => window.MathJax && window.MathJax.typesetPromise();
+      document.head.appendChild(script);
+    }
+  }, []);
 
   return (
     <Layout>
