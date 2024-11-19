@@ -22,6 +22,11 @@ module.exports = {
           'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.',
       },
       {
+        name: 'Maximum Likelihood and Loss Functions: From Probability to Optimization',
+        description:
+          'Loss functions in machine learning, such as Mean Squared Error for regression and Cross-Entropy for classification, are often used without questioning their origin. This article reveals how these common loss functions naturally emerge from Maximum Likelihood Estimation (MLE), a fundamental statistical principle.',
+      },
+      {
       name: "Traffic Modeling and Forecasting Using Sensor Data in Paris",
         description:
           ' Analyzed traffic patterns from 3,500 sensors in Paris to identify congestion trends and relationships between vehicle flow and road occupancy, with plans to build forecasting models and account for geographical dependencies.',
@@ -65,7 +70,7 @@ module.exports = {
       {
         name: 'Programming Languages',
         description:
-          'Python, R, C, C++, SQL.',
+          'Python, R, C, C++, SQL',
       },
       {
         name: 'Data Science and Machine Learning',
