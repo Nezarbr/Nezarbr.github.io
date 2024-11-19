@@ -1,9 +1,8 @@
 ---
-title: "Maximum Likelihood and Loss Functions: From Probability to Optimization"
-date: "2024-11-19T12:00:00.00Z"
-description: "Explore the connection between probability theory and optimization in machine learning."
+title: Maximum Likelihood and Loss Functions From Probability to Optimization
+date: '2024-11-19T12:00:00.00Z'
+description: 'Explore the connection between probability theory and optimization in machine learning. Learn how common loss functions like mean squared error and cross-entropy naturally emerge from Maximum Likelihood Estimation (MLE).'
 ---
-
 
 ## Maximum Likelihood and Loss Functions: From Probability to Optimization
 
