@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://nezarbr.github.io/`,
@@ -58,7 +60,7 @@ module.exports = {
       {
         name: 'Data Science and Machine Learning',
         description:
-          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. ( Scikit-learn, PyTorch)',
+          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. (Scikit-learn, PyTorch)',
       },
       {
         name: 'Data Engineering',
@@ -97,7 +99,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-mathjax`, // Enables MathJax rendering in Markdown
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
+              trust: true,
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -105,8 +113,8 @@ module.exports = {
               wrapperStyle: `margin: 0 0 30px;`,
             },
           },
-          `gatsby-remark-prismjs`, // Syntax highlighting for code
-          `gatsby-remark-smartypants`, // Better typography
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
@@ -128,7 +136,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`, // Path to site icon
+        icon: `src/images/icon.png`,
       },
     },
   ],

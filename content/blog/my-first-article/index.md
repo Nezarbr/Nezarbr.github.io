@@ -2,118 +2,119 @@
 title: Maximum Likelihood and Loss Functions From Probability to Optimization
 date: '2024-11-19T12:00:00.00Z'
 description: 'Explore the connection between probability theory and optimization in machine learning. Learn how common loss functions like mean squared error and cross-entropy naturally emerge from Maximum Likelihood Estimation (MLE).'
+math: true
 ---
 
-## Maximum Likelihood and Loss Functions: From Probability to Optimization
+# Maximum Likelihood and Loss Functions: From Probability to Optimization
 
 In machine learning, we often take loss functions for granted. Data scientists routinely use mean squared error for regression tasks and cross-entropy for classification problems, but have you ever wondered why these particular functions are chosen? Far from being arbitrary choices, these loss functions emerge naturally from fundamental principles of probability theory.
 
+## Introduction
+
 At the heart of this connection lies Maximum Likelihood Estimation (MLE), a powerful statistical principle that bridges the gap between probability theory and optimization. When we train a machine learning model by minimizing a loss function, we're often unknowingly performing maximum likelihood estimation under specific probabilistic assumptions about our data.
 
-Understanding this connection is more than just theoretical elegance. It provides practitioners with:
+Understanding this connection provides practitioners with:
 - Insight into when standard loss functions are appropriate and when they might need modification
 - A deeper understanding of model assumptions and limitations
 - Tools for better model interpretation and debugging
 
-In this article, we'll uncover how commonly used loss functions naturally arise from maximum likelihood estimation. We'll walk through the derivation of both linear regression's mean squared error and logistic regression's cross-entropy loss, showing how they emerge from simple probabilistic assumptions about the data generation process.
+## Maximum Likelihood Estimation: The Fundamentals
 
----
+### Core Concept
 
-## Maximum Likelihood Estimation
-
-### Concept
-
-Maximum Likelihood Estimation (MLE) is a fundamental method for finding the parameters of a probability distribution that best explains observed data. The key idea is simple: given a known type of distribution (like normal, exponential, etc.), MLE finds the specific parameters of that distribution that make our observed data most probable.
-
-Think of it as "reverse engineering" the parameters: we see the data, we know the type of distribution that generated it, and we want to find the exact parameters that were most likely used to generate that data.
+Maximum Likelihood Estimation (MLE) is a method for finding the parameters of a probability distribution that best explains observed data. Given a dataset and a statistical model with unknown parameters, MLE finds the parameter values that make the observed data most probable.
 
 ### Mathematical Foundation
 
-#### Basic Formula
+Given independent observations $x_1, x_2, \dots, x_n$ from a known distribution type, the likelihood function is:
 
-Given independent observations \(x_1, x_2, \dots, x_n\) from a known distribution type, the likelihood function is:
-
-\[
-L(\theta) = P(x_1, x_2, \dots, x_n \mid \theta) = P(x_1 \mid \theta) \times P(x_2 \mid \theta) \times \dots \times P(x_n \mid \theta)
-\]
+$$
+L(\theta) = P(x_1, x_2, \dots, x_n | \theta) = \prod_{i=1}^n P(x_i | \theta)
+$$
 
 where:
-- \(\theta\) represents the parameters we want to estimate.
-- The distribution type is known (e.g., normal, exponential).
-- \(P(x_i \mid \theta)\) is the probability of observing \(x_i\) given parameters \(\theta\).
-
----
+- $\theta$ represents the parameters we want to estimate
+- The distribution type is known (e.g., normal, exponential)
+- $P(x_i | \theta)$ is the probability of observing $x_i$ given parameters $\theta$
 
 ## From MLE to Loss Functions
 
-When we maximize likelihood, we can equivalently minimize its negative logarithm. This transformation turns our probability maximization into a minimization problem:
+### The Log-Likelihood Transform
 
-\[
+When we maximize likelihood, we can equivalently minimize its negative logarithm:
+
+$$
 \arg\max_\theta L(\theta) = \arg\min_\theta -\log(L(\theta))
-\]
+$$
 
----
+This transformation is crucial because it:
+- Converts multiplication to addition (easier computation)
+- Improves numerical stability
+- Often simplifies the optimization problem
 
-## Linear Regression: Deriving Mean Squared Error from Maximum Likelihood
+## Linear Regression: Deriving Mean Squared Error
 
-### Model Assumption:
-- \(y = wx + b + \epsilon\), where \(\epsilon\) is the error term.
-- \((y - wx - b)\) follows \(N(0, \sigma^2)\).
-- This means our errors (residuals) follow a normal distribution.
+### Model Assumptions
 
-### Probabilistic Interpretation:
-For each residual \((y_i - wx_i - b)\):
+1. The relationship is linear: $y = wx + b + \epsilon$
+2. The error term $\epsilon$ follows a normal distribution: $\epsilon \sim N(0, \sigma^2)$
+3. Therefore: $(y - wx - b) \sim N(0, \sigma^2)$
 
-\[
-P(y_i - wx_i - b) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_i - wx_i - b)^2}{2\sigma^2}\right)
-\]
+### Probabilistic Interpretation
 
-For \(n\) independent observations:
+For each observation $(x_i, y_i)$:
 
-\[
+$$
+P(y_i | x_i, w, b) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_i - wx_i - b)^2}{2\sigma^2}\right)
+$$
+
+For $n$ independent observations:
+
+$$
 L(w, b) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_i - wx_i - b)^2}{2\sigma^2}\right)
-\]
+$$
 
-Taking the negative logarithm:
+Taking the negative log-likelihood:
 
-\[
--\log(L) = \frac{n}{2} \log(2\pi\sigma^2) + \frac{1}{2\sigma^2} \sum (y_i - wx_i - b)^2
-\]
+$$
+-\log(L) = \frac{n}{2}\log(2\pi\sigma^2) + \frac{1}{2\sigma^2}\sum_{i=1}^n (y_i - wx_i - b)^2
+$$
 
-Since constants \(\frac{n}{2} \log(2\pi\sigma^2)\) and \(\frac{1}{2\sigma^2}\) do not affect optimization:
+Dropping constants and scaling factors:
 
-\[
--\log(L) \propto \sum (y_i - wx_i - b)^2
-\]
+$$
+\arg\min_{w,b} -\log(L) \propto \arg\min_{w,b} \sum_{i=1}^n (y_i - wx_i - b)^2
+$$
 
-This is the mean squared error (MSE).
+This is exactly the Mean Squared Error loss function!
 
----
+## Logistic Regression: Deriving Cross-Entropy Loss
 
-## Logistic Regression: Deriving Cross-Entropy Loss from Maximum Likelihood
+### Model Assumptions
 
-### Model Assumption:
-- Binary classification: \(y_i \in \{0,1\}\).
-- \(P(y=1 \mid x) = \sigma(wx + b)\), where \(\sigma(z) = \frac{1}{1 + e^{-z}}\).
-- Outputs follow a Bernoulli distribution.
+1. Binary classification: $y_i \in \{0,1\}$
+2. Probability of class 1: $P(y=1|x) = \sigma(wx + b)$
+3. Where $\sigma(z) = \frac{1}{1 + e^{-z}}$ is the sigmoid function
 
-### Probabilistic Interpretation:
-For each observation \((x_i, y_i)\):
+### Probabilistic Derivation
 
-\[
-P(y_i \mid x_i) = \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
-\]
+For each observation $(x_i, y_i)$:
 
-For \(n\) independent observations:
+$$
+P(y_i|x_i) = \sigma(wx_i + b)^{y_i}(1-\sigma(wx_i + b))^{1-y_i}
+$$
 
-\[
-L(w, b) = \prod_{i=1}^{n} \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
-\]
+For all observations:
 
-Taking the negative logarithm:
+$$
+L(w,b) = \prod_{i=1}^n \sigma(wx_i + b)^{y_i}(1-\sigma(wx_i + b))^{1-y_i}
+$$
 
-\[
--\log(L) = -\sum_{i=1}^{n} \left[ y_i \log(\sigma(wx_i + b)) + (1-y_i) \log(1 - \sigma(wx_i + b)) \right]
-\]
+Taking the negative log-likelihood:
 
-This is the binary cross-entropy loss function.
+$$
+-\log(L) = -\sum_{i=1}^n [y_i\log(\sigma(wx_i + b)) + (1-y_i)\log(1-\sigma(wx_i + b))]
+$$
+
+This is the binary cross-entropy loss function!
+

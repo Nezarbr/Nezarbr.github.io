@@ -95,6 +95,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      math: Boolean
     }
     
     type Fields {
@@ -102,4 +103,15 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `;
   createTypes(typeDefs);
+};
+
+// Update webpack config for Gatsby v2
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        path: require.resolve('path-browserify')
+      }
+    }
+  });
 };

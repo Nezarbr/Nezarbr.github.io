@@ -38811,16 +38811,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/header */ "./src/components/header/index.jsx");
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/layout */ "./src/components/layout/index.jsx");
-/* harmony import */ var _components_seo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/seo */ "./src/components/seo/index.jsx");
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-helmet */ "react-helmet");
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_katex_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/katex-loader */ "./src/utils/katex-loader.js");
+/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/header */ "./src/components/header/index.jsx");
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/layout */ "./src/components/layout/index.jsx");
+/* harmony import */ var _components_seo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/seo */ "./src/components/seo/index.jsx");
+
+
 
 
 
 
 
 const classes = {
-  wrapper: 'mt-16 blog-content',
+  wrapper: 'mt-16 blog-content prose prose-lg max-w-none',
   title: 'mt-16 text-4xl text-gray-900 font-bold',
   date: 'text-gray-600 font-light'
 };
@@ -38828,37 +38833,50 @@ const BlogPost = ({
   data
 }) => {
   const post = data.markdownRemark;
-
-  // MathJax configuration
+  const contentRef = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(() => {
-    if (window.MathJax) {
-      console.log('MathJax is loaded, processing math...');
-      setTimeout(() => {
-        window.MathJax.typesetPromise();
-      }, 100); // Delay to ensure DOM is fully loaded
-    } else {
-      console.log('Loading MathJax...');
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.async = true;
-      script.onload = () => {
-        console.log('MathJax loaded.');
-        setTimeout(() => {
-          window.MathJax && window.MathJax.typesetPromise();
-        }, 100);
-      };
-      document.head.appendChild(script);
-    }
-  }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    const renderMath = async () => {
+      await Object(_utils_katex_loader__WEBPACK_IMPORTED_MODULE_3__["loadKaTeX"])();
+      if (window.renderMathInElement && contentRef.current) {
+        window.renderMathInElement(contentRef.current, {
+          delimiters: [{
+            left: '$$',
+            right: '$$',
+            display: true
+          }, {
+            left: '$',
+            right: '$',
+            display: false
+          }, {
+            left: '\\(',
+            right: '\\)',
+            display: false
+          }, {
+            left: '\\[',
+            right: '\\]',
+            display: true
+          }],
+          throwOnError: false
+        });
+      }
+    };
+    renderMath();
+  }, [post.html]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_layout__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_helmet__WEBPACK_IMPORTED_MODULE_2__["Helmet"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("link", {
+    rel: "stylesheet",
+    href: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",
+    integrity: "sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV",
+    crossOrigin: "anonymous"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_header__WEBPACK_IMPORTED_MODULE_4__["default"], {
     metadata: data.site.siteMetadata
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_seo__WEBPACK_IMPORTED_MODULE_6__["default"], {
     title: post.frontmatter.title
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
     className: classes.title
   }, post.frontmatter.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
     className: classes.date
   }, "Posted on ", moment__WEBPACK_IMPORTED_MODULE_0___default()(post.frontmatter.date).format('MMMM D, YYYY')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    ref: contentRef,
     className: classes.wrapper,
     dangerouslySetInnerHTML: {
       __html: post.html
@@ -38867,6 +38885,39 @@ const BlogPost = ({
 };
 /* harmony default export */ __webpack_exports__["default"] = (BlogPost);
 const pageQuery = "1430901425";
+
+/***/ }),
+
+/***/ "./src/utils/katex-loader.js":
+/*!***********************************!*\
+  !*** ./src/utils/katex-loader.js ***!
+  \***********************************/
+/*! exports provided: loadKaTeX */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadKaTeX", function() { return loadKaTeX; });
+const loadKaTeX = () => {
+  if (typeof window !== 'undefined') {
+    return new Promise(resolve => {
+      if (window.katex) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js';
+      script.defer = true;
+      document.head.appendChild(script);
+      const autoRenderScript = document.createElement('script');
+      autoRenderScript.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js';
+      autoRenderScript.defer = true;
+      autoRenderScript.onload = () => resolve();
+      document.head.appendChild(autoRenderScript);
+    });
+  }
+  return Promise.resolve();
+};
 
 /***/ }),
 

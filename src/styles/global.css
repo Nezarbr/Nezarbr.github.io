@@ -1,0 +1,27 @@
+/* KaTeX styles */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1em 0;
+    margin: 1em 0;
+  }
+  
+  .katex {
+    font-size: 1.1em;
+    line-height: 1.2;
+  }
+  
+  .blog-content {
+    overflow-x: hidden;
+  }
+  
+  .blog-content .katex-display {
+    max-width: 100%;
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .katex {
+      color: #e5e7eb;
+    }
+  }
