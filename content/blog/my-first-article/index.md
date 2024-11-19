@@ -4,10 +4,6 @@ date: '2024-11-19T12:00:00.00Z'
 description: 'Explore the connection between probability theory and optimization in machine learning. Learn how common loss functions like mean squared error and cross-entropy naturally emerge from Maximum Likelihood Estimation (MLE).'
 ---
 
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
 ## Maximum Likelihood and Loss Functions: From Probability to Optimization
 
 In machine learning, we often take loss functions for granted. Data scientists routinely use mean squared error for regression tasks and cross-entropy for classification problems, but have you ever wondered why these particular functions are chosen? Far from being arbitrary choices, these loss functions emerge naturally from fundamental principles of probability theory.
@@ -38,13 +34,13 @@ Think of it as "reverse engineering" the parameters: we see the data, we know th
 Given independent observations \(x_1, x_2, \dots, x_n\) from a known distribution type, the likelihood function is:
 
 \[
-L(\theta) = P(x_1, x_2, \dots, x_n | \theta) = P(x_1 | \theta) \times P(x_2 | \theta) \times \dots \times P(x_n | \theta)
+L(\theta) = P(x_1, x_2, \dots, x_n \mid \theta) = P(x_1 \mid \theta) \times P(x_2 \mid \theta) \times \dots \times P(x_n \mid \theta)
 \]
 
 where:
 - \(\theta\) represents the parameters we want to estimate.
 - The distribution type is known (e.g., normal, exponential).
-- \(P(x_i | \theta)\) is the probability of observing \(x_i\) given parameters \(\theta\).
+- \(P(x_i \mid \theta)\) is the probability of observing \(x_i\) given parameters \(\theta\).
 
 ---
 
@@ -84,7 +80,7 @@ Taking the negative logarithm:
 -\log(L) = \frac{n}{2} \log(2\pi\sigma^2) + \frac{1}{2\sigma^2} \sum (y_i - wx_i - b)^2
 \]
 
-Since constants (\(\frac{n}{2} \log(2\pi\sigma^2)\) and \(\frac{1}{2\sigma^2}\)) do not affect optimization:
+Since constants \(\frac{n}{2} \log(2\pi\sigma^2)\) and \(\frac{1}{2\sigma^2}\) do not affect optimization:
 
 \[
 -\log(L) \propto \sum (y_i - wx_i - b)^2
@@ -98,14 +94,14 @@ This is the mean squared error (MSE).
 
 ### Model Assumption:
 - Binary classification: \(y_i \in \{0,1\}\).
-- \(P(y=1|x) = \sigma(wx + b)\), where \(\sigma(z) = \frac{1}{1 + e^{-z}}\).
+- \(P(y=1 \mid x) = \sigma(wx + b)\), where \(\sigma(z) = \frac{1}{1 + e^{-z}}\).
 - Outputs follow a Bernoulli distribution.
 
 ### Probabilistic Interpretation:
 For each observation \((x_i, y_i)\):
 
 \[
-P(y_i | x_i) = \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
+P(y_i \mid x_i) = \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
 \]
 
 For \(n\) independent observations:
