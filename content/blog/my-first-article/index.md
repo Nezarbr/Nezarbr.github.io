@@ -1,37 +1,4 @@
 ---
-
-## Logistic Regression: Deriving Cross-Entropy Loss from Maximum Likelihood
-
-### Model Assumption:
-- Binary classification: \(y_i \in \{0,1\}\).
-- \(P(y=1|x) = \sigma(wx + b)\), where \(\sigma(z) = \frac{1}{1 + e^{-z}}\).
-- Outputs follow a Bernoulli distribution.
-
-### Probabilistic Interpretation:
-For each observation \((x_i, y_i)\):
-\[
-P(y_i | x_i) = \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
-\]
-
-For \(n\) independent observations:
-\[
-L(w, b) = \prod_{i=1}^{n} \sigma(wx_i + b)^{y_i} (1 - \sigma(wx_i + b))^{1-y_i}
-\]
-
-Taking the negative logarithm:
-\[
--\log(L) = -\sum_{i=1}^{n} \left[ y_i \log(\sigma(wx_i + b)) + (1-y_i) \log(1 - \sigma(wx_i + b)) \right]
-\]
-
-This is the binary cross-entropy loss function.
-
----
-
-
-
-
-
----
 title: Maximum Likelihood and Loss Functions From Probability to Optimization
 date: '2024-11-19T12:00:00.00Z'
 description: 'Explore the connection between probability theory and optimization in machine learning. Learn how common loss functions like mean squared error and cross-entropy naturally emerge from Maximum Likelihood Estimation (MLE).'
