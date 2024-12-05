@@ -5,6 +5,7 @@ module.exports = {
     siteUrl: `https://nezarbr.github.io/`,
     name: 'Nezar Boujida',
     title: `Nezar Boujida | Data Scientist`,
+    author: 'Nezar Boujida',  // Added this line
     github: `https://github.com/Nezarbr`,
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     about: `Hello, I'm Nezar. I'm currently studying Applied Mathematics and Computer Science at Sorbonne University, where I dive into data science, explore datasets, and uncover meaningful patterns to solve real-world problems. I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now I'm working as an Applied Scientist at Launchmetrics. In my free time, I enjoy long-distance running, traveling, and discovering new places, always seeking out new challenges to grow and learn.`,
@@ -13,69 +14,74 @@ module.exports = {
         name: 'Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services',
         description:
           'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.',
+        link: '#'  // Added a default link
       },
       {
         name: "Traffic Modeling and Forecasting Using Sensor Data in Paris",
         description:
           'Analyzed traffic patterns from 3,500 sensors in Paris to identify congestion trends and relationships between vehicle flow and road occupancy, with plans to build forecasting models and account for geographical dependencies.',
+        link: '#'
       },
       {
         name: "Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks",
         description:
           'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.',
+        link: '#'
       },
       {
         name: 'Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization',
         description:
           'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.',
+        link: '#'
       },
       {
         name: "Ride-Hailing Trends in New York City: Uber, Lyft, and Via Operations Analysis",
         description:
           'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.',
+        link: '#'
       },
     ],
     experience: [
       {
         name: 'Launchmetrics',
         description: 'Applied Scientist Intern, June 2024 - Present',
-        link: 'https://www.launchmetrics.com/fr',
+        link: 'https://www.launchmetrics.com/fr'
       },
       {
         name: 'Hiflow',
         description: 'Data Scientist Intern, September 2023 - March 2024',
-        link: 'https://www.hiflow.com/fr-fr',
+        link: 'https://www.hiflow.com/fr-fr'
       },
       {
         name: 'Datategy',
         description: 'Data Scientist Intern, June 2023 - August 2024',
-        link: 'https://www.datategy.net/',
+        link: 'https://www.datategy.net/'
       },
     ],
     skills: [
       {
         name: 'Programming Languages',
-        description: 'Python, R, C, C++, SQL',
+        description: 'Python, R, C, C++, SQL'
       },
       {
         name: 'Data Science and Machine Learning',
         description:
-          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. (Scikit-learn, PyTorch)',
+          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. (Scikit-learn, PyTorch)'
       },
       {
         name: 'Data Engineering',
         description:
-          'ETL Processes, Data Quality Checks, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, Pytest)',
+          'ETL Processes, Data Quality Checks, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, Pytest)'
       },
       {
         name: 'Data Visualization and Dashboards:',
         description:
-          'Plotly, Dash, Seaborn, Matplotlib, Folium, Superset, Metabase',
+          'Plotly, Dash, Seaborn, Matplotlib, Folium, Superset, Metabase'
       },
       {
         name: 'Soft Skills',
         description:
-          'Problem Solving, Teamwork, Adaptability, Time Management, Communication, Research, Critical Thinking',
+          'Problem Solving, Teamwork, Adaptability, Time Management, Communication, Research, Critical Thinking'
       },
     ],
   },
@@ -99,6 +105,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `static/blog`,
+              ignoreFileExtensions: [],
+            },
+          },
           {
             resolve: `gatsby-remark-katex`,
             options: {
