@@ -44,7 +44,11 @@ $$
   P\bigl(-z_{\alpha/2} < Z < z_{\alpha/2}\bigr) = 1 - \alpha.
   $$
 
-![Critical values for a 95% confidence level in the standard normal distribution](./standard_normal_distribution.png)
+
+<div style="text-align: center;">
+    <img src="./standard_normal_distribution.png" alt="Critical values for a 95% confidence level in the standard normal distribution" style="max-width: 50%;">
+</div>
+
 
 ---
 
