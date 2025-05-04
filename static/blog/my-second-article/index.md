@@ -1,6 +1,6 @@
 ---
 title: "Derivation of Cochran’s Formula for Sample Size Determination"
-date: "2025-05-04T12:00:00.00Z"
+date: '2025-05-04T12:00:00.00Z'
 description: "Step-by-step derivation of Cochran’s formula, showing why it applies only to sample means and how it extends to proportions."
 math: true
 ---
