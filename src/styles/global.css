@@ -1,27 +1,25 @@
-/* KaTeX styles */
+/* src/styles/global.css */
+
+/* KaTeX sizing & layout (optional) */
 .katex-display {
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 1em 0;
-    margin: 1em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1em 0;
+  margin: 1em 0;
+}
+.katex {
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+/* Force KaTeX to full black inside any .prose container */
+.prose :is(.katex, .katex *) {
+  color: #000 !important;
+}
+
+/* In dark mode, switch math to light gray */
+@media (prefers-color-scheme: dark) {
+  .prose :is(.katex, .katex *) {
+    color: #e5e7eb !important;
   }
-  
-  .katex {
-    font-size: 1.1em;
-    line-height: 1.2;
-  }
-  
-  .blog-content {
-    overflow-x: hidden;
-  }
-  
-  .blog-content .katex-display {
-    max-width: 100%;
-  }
-  
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    .katex {
-      color: #e5e7eb;
-    }
-  }
+}

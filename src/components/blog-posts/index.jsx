@@ -15,6 +15,7 @@ const BlogPosts = ({ posts }) => {
             internal
           />
           <p className="text-sm text-gray-500">Click on the title to access the full post.</p>
+          
         </div>
       ))}
     </Section>

@@ -1,0 +1,13 @@
+/* src/styles/katex-overrides.css */
+/* Force every KaTeX element to pure black in light mode */
+.katex, .katex * {
+    color: #000 !important;
+  }
+  /* (Optional) keep your sizing tweaks here, too */
+  .katex-display { overflow-x:auto; padding:1em 0; margin:1em 0; }
+  .katex { font-size:1.1em; line-height:1.2; }
+  /* Dark mode: light gray */
+  @media (prefers-color-scheme: dark) {
+    .katex, .katex * { color: #e5e7eb !important; }
+  }
+  

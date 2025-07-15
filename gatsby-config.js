@@ -5,16 +5,32 @@ module.exports = {
     siteUrl: `https://nezarbr.github.io/`,
     name: 'Nezar Boujida',
     title: `Nezar Boujida | Data Scientist`,
-    author: 'Nezar Boujida',  // Added this line
+    author: 'Nezar Boujida',
     github: `https://github.com/Nezarbr`,
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
-    about: `Hello, I'm Nezar. I'm currently studying Applied Mathematics and Computer Science at Sorbonne University, where I dive into data science, explore datasets, and uncover meaningful patterns to solve real-world problems. I've gained experience as a Data Scientist intern at Datategy and Hiflow, and now I'm working as an Applied Scientist at Launchmetrics. In my free time, I enjoy long-distance running, traveling, and discovering new places, always seeking out new challenges to grow and learn.`,
+    about: `
+        I’m Nezar, a final-year engineering student at Sorbonne studying Applied Mathematicsand Computer Science. I’m passionate about turning data and machine learning ideas into real projects—whether that’s a recommender system, benchmarking an LLM, or building a forecasting model.
+        In my internships, I’ve built end-to-end PySpark pipelines, production-ready ML models, and client-facing dashboards that help teams make smarter decisions.
+        In my free time, I enjoy long-distance running, traveling, and discovering new places—always on the lookout for fresh challenges to learn and grow.
+    `,
     projects: [
+      {
+        name: "XGBoost for Ultra-Imbalanced Fraud Detection",
+        description:
+          "Fraud detection using XGBoost on 587 299 anonymized transactions (0.24 % fraud) with temporal, geographical, and risk-bucket features—catching 88 % of fraudulent transactions while keeping false positives at 7 %.",
+        link: "/blog/my-fifth-blog/"
+      },
+      {
+        name: "Derivation of Cochran's Formula for Sample Size Determination",
+        description:
+          "Derived Cochran’s formula by inverting the margin-of-error equation—leveraging the Central Limit Theorem to compute required sample sizes for means and proportions at a given confidence level.",
+        link: "/blog/my-second-article/"
+      },
       {
         name: 'Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services',
         description:
           'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.',
-        link: '#'  // Added a default link
+        link: '/blog/my-fourth-blog/'
       },
       {
         name: "Traffic Modeling and Forecasting Using Sensor Data in Paris",
@@ -26,30 +42,35 @@ module.exports = {
         name: "Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks",
         description:
           'Conducted a parallelized numerical simulation of heatsink dynamics in AMD EPYC CPUs, leveraging fine mesh grids to improve thermal modeling accuracy while reducing computation time.',
-        link: '#'
+        link: '/blog/my-first-blog/'
       },
       {
         name: 'Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization',
         description:
           'Accelerated FFT processing of white noise by leveraging OpenMP parallelization and AVX2 vectorization, significantly improving execution speed.',
-        link: '#'
+        link: '/blog/my-second-blog/'
       },
       {
         name: "Ride-Hailing Trends in New York City: Uber, Lyft, and Via Operations Analysis",
         description:
           'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.',
-        link: '#'
+        link: '/blog/my-third-blog/'
       },
     ],
     experience: [
       {
         name: 'Launchmetrics',
-        description: 'Applied Scientist Intern, June 2024 - Present',
+        description: 'Data Scientist Intern, February 2025 - Present',
+        link: 'https://www.launchmetrics.com/fr'
+      },
+      {
+        name: 'Launchmetrics',
+        description: 'Data Engineer Intern, June 2024 - January 2025',
         link: 'https://www.launchmetrics.com/fr'
       },
       {
         name: 'Hiflow',
-        description: 'Data Scientist Intern, September 2023 - March 2024',
+        description: 'Machine Learning Engineer Intern, September 2023 - March 2024',
         link: 'https://www.hiflow.com/fr-fr'
       },
       {
@@ -66,15 +87,15 @@ module.exports = {
       {
         name: 'Data Science and Machine Learning',
         description:
-          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural networks, Statistical Analysis. (Scikit-learn, PyTorch)'
+          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural Networks, Statistical Analysis (Scikit-learn, PyTorch)'
       },
       {
         name: 'Data Engineering',
         description:
-          'ETL Processes, Data Quality Checks, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, Pytest)'
+          'ETL Processes, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, pytest)'
       },
       {
-        name: 'Data Visualization and Dashboards:',
+        name: 'Data Visualization and Dashboards',
         description:
           'Plotly, Dash, Seaborn, Matplotlib, Folium, Superset, Metabase'
       },

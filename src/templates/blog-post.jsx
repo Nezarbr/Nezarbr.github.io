@@ -33,7 +33,6 @@ const BlogPost = ({ data }) => {
         });
       }
     };
-
     renderMath();
   }, [post.html]);
 
@@ -46,13 +45,23 @@ const BlogPost = ({ data }) => {
           integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
           crossOrigin="anonymous"
         />
+        {/* force only KaTeX elements to solid black in all modes */}
+        <style>{`
+          .blog-content .katex,
+          .blog-content .katex * {
+            color: #000 !important;
+          }
+        `}</style>
       </Helmet>
+
       <Header metadata={data.site.siteMetadata} />
       <SEO title={post.frontmatter.title} />
+
       <h1 className={classes.title}>{post.frontmatter.title}</h1>
       <p className={classes.date}>
         Posted on {moment(post.frontmatter.date).format('MMMM D, YYYY')}
       </p>
+
       <div
         ref={contentRef}
         className={classes.wrapper}
