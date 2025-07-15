@@ -79,22 +79,26 @@ Neither recall nor precision alone gives the full picture:
 
 Balancing these is critical: we want to catch as much fraud as possible (high recall) while keeping the review queue manageable (high precision).
 
-Average Precision (AP) condenses the entire Precision–Recall curve into a single score. It is computed as the approximate area under the PR curve (e.g.\ via `average_precision_score(y_true, y_score)`). Concretely, if you plot precision \(P\) vs.\ recall \(R\) as you sweep the classification threshold, then
+Average Precision (AP) condenses the entire Precision–Recall curve into a single score. It is computed as the approximate area under the PR curve (e.g.\ via `average_precision_score(y_true, y_score)`). Concretely, if you plot precision \(P\) vs.\ recall \(R\) as you sweep the classification threshold, then:
 
-\[
-\mathrm{AP} \;=\; \sum_{n=1}^{N}
-  \bigl(R_{n} - R_{n-1}\bigr)\,\times\,P_{n},
-\]
+$$
+\mathrm{AP} \;=\; \sum_{n=1}^{N} \bigl(R_{n} - R_{n-1}\bigr)\,\times\,P_{n},
+$$
 
-where each slice \((R_{n}-R_{n-1})\) is the incremental change in recall and \(P_{n}\) is the precision at that point.
 
-- \(\mathrm{AP}\approx1.0\)  
+where each slice $$R_{n} - R_{n-1}$$ is the incremental change in recall and $$P_{n}$$ is the precision at that point.
+
+---
+
+### Interpretation
+
+- **AP ≈ 1.0**  
   Precision stays at 1.0 for every recall level: the model ranks all frauds above all non-frauds, achieving perfect separation (no false positives even at 100 % recall).
 
-- \(\mathrm{AP}\approx0.0\)  
-  Precision collapses to (or near) zero as soon as you start flagging. Either you never catch any true fraud (\(\mathrm{TP}=0\)) or you immediately swamp your predictions with false alarms.
+- **AP ≈ 0.0**  
+  Precision collapses to (or near) zero as soon as you start flagging. Either you never catch any true fraud (TP = 0) or you immediately swamp your predictions with false alarms.
 
-A random-ranking model (no discriminative power) yields an AP equal to the fraud prevalence (≈ 0.4 %). Our model’s AP of **0.672**—far above that baseline—shows it maintains high precision even as recall rises, demonstrating robust ranking performance under extreme class imbalance.  
+A random-ranking model (no discriminative power) yields an AP equal to the fraud prevalence (≈ 0.4 %). Our model’s AP of **0.672**—far above that baseline—shows it maintains high precision even as recall rises, demonstrating robust ranking performance under extreme class imbalance.
 
 
 ---
