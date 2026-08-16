@@ -9,15 +9,15 @@ module.exports = {
     github: `https://github.com/Nezarbr`,
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     about: `
-        I’m Nezar, a final-year engineering student at Sorbonne studying Applied Mathematicsand Computer Science. I’m passionate about turning data and machine learning ideas into real projects—whether that’s a recommender system, benchmarking an LLM, or building a forecasting model.
-        In my internships, I’ve built end-to-end PySpark pipelines, production-ready ML models, and client-facing dashboards that help teams make smarter decisions.
-        In my free time, I enjoy long-distance running, traveling, and discovering new places—always on the lookout for fresh challenges to learn and grow.
+        I’m Nezar, a Data Scientist in Paris working on LLM and NLP systems in production. I hold an engineering degree in Applied Mathematics and Computer Science from Polytech Sorbonne.
+        I scope, build and own production LLM pipelines on Databricks and PySpark, and I evaluate models against hand-annotated benchmarks rather than spot-checks. I care about metrics that hold up when someone recomputes them.
+        In my free time, I enjoy long-distance running, traveling, and discovering new places, always on the lookout for fresh challenges to learn and grow.
     `,
     projects: [
       {
         name: "XGBoost for Ultra-Imbalanced Fraud Detection",
         description:
-          "Fraud detection using XGBoost on 587 299 anonymized transactions (0.24 % fraud) with temporal, geographical, and risk-bucket features—catching 88 % of fraudulent transactions while keeping false positives at 7 %.",
+          "Ranks 587,299 anonymized card transactions by fraud risk for a manual review queue, at 0.24% fraud prevalence. Temporal, geographic and K-means currency risk-bucket features; surfaces fraud 167x better than chance (Average Precision 0.672 against a 0.0040 prevalence baseline) on a chronologically held-out December.",
         link: "/blog/my-fifth-blog/"
       },
       {
@@ -27,9 +27,9 @@ module.exports = {
         link: "/blog/my-second-article/"
       },
       {
-        name: 'Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services',
+        name: 'Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services',
         description:
-          'Developed a system to rank and select drivers efficiently, doubling engagement and reducing operational costs by up to 20%, enabling scalable growth in vehicle transfer operations.',
+          'Built and evaluated a two-tower recommender as an alternative to manual driver selection, shortlisting ~100 candidates per transport request from a 3,400-driver pool. Diagnosed attendance and regional bias as the cause of poor recommendation coverage (20% of drivers held 77% of historical requests), lifting the share of the pool surfaced from 9% to 40%.',
         link: '/blog/my-fourth-blog/'
       },
       {
@@ -60,7 +60,12 @@ module.exports = {
     experience: [
       {
         name: 'Launchmetrics',
-        description: 'Data Scientist Intern, February 2025 - Present',
+        description: 'Data Scientist (CDI), September 2025 - Present',
+        link: 'https://www.launchmetrics.com/fr'
+      },
+      {
+        name: 'Launchmetrics',
+        description: 'Data Scientist Intern, February 2025 - August 2025',
         link: 'https://www.launchmetrics.com/fr'
       },
       {
@@ -70,12 +75,12 @@ module.exports = {
       },
       {
         name: 'Hiflow',
-        description: 'Machine Learning Engineer Intern, September 2023 - March 2024',
+        description: 'Machine Learning Engineer Intern, September 2023 - April 2024',
         link: 'https://www.hiflow.com/fr-fr'
       },
       {
         name: 'Datategy',
-        description: 'Data Scientist Intern, June 2023 - August 2024',
+        description: 'Data Scientist Intern, June 2023 - September 2023',
         link: 'https://www.datategy.net/'
       },
     ],
@@ -85,6 +90,11 @@ module.exports = {
         description: 'Python, R, C, C++, SQL'
       },
       {
+        name: 'LLM and NLP',
+        description:
+          'LLM evaluation and benchmarking, RAG, fine-tuning (LoRA), prompt engineering, embeddings, text classification, topic modeling, NLI, Hugging Face Transformers'
+      },
+      {
         name: 'Data Science and Machine Learning',
         description:
           'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural Networks, Statistical Analysis (Scikit-learn, PyTorch)'
@@ -92,7 +102,7 @@ module.exports = {
       {
         name: 'Data Engineering',
         description:
-          'ETL Processes, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, Poetry, soda, pytest)'
+          'ETL Processes, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, AWS, Poetry, soda, pytest)'
       },
       {
         name: 'Data Visualization and Dashboards',
