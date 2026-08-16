@@ -1,7 +1,7 @@
 ---
 title: Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services
 date: '2024-04-11T12:00:00.00Z'
-description: 'In this post, I discuss a solution to improve vehicle transportation logistics, particularly focusing on optimizing the driver assignment process. Logistics services face challenges such as a narrow driver pool and time-consuming manual matching when no drivers are available. To address these, I developed a two-tower recommender system that efficiently matches drivers to vehicle transfer requests by ranking drivers based on suitability. This approach is expected to increase driver engagement by 40% and reduce operational costs by 19%, streamlining the entire process while reducing manual interventions.'
+description: 'In this post, I discuss a solution to improve vehicle transportation logistics, particularly focusing on optimizing the driver assignment process. Logistics services face challenges such as a narrow driver pool and time-consuming manual matching when no drivers are available. To address these, I built and evaluated a two-tower recommender that shortlists ~100 candidates per transport request from a 3 400-driver pool. Offline, it lifts the share of the pool surfaced from 9% to 40%. Note that the cost figures below are model-based projections, not measured outcomes — nothing was deployed to production.'
 ---
 
 ## Introduction
@@ -34,7 +34,7 @@ To address these problems, we developed a **two-tower recommender system**, desi
 
 **Expected Outcomes**:
 
-- **Increased Engagement**: Based on the model tests, we anticipate a significant boost in driver engagement, with up to 40% of drivers interacting with the system—doubling the engagement rate compared to the previous system's 20%.
+- **Increased Engagement**: Based on offline model tests, we anticipate a significant boost in driver coverage, with up to 40% of the driver pool surfaced by the system, against the 9% surfaced by my first model.
   
 - **Cost Efficiency**: The model also predicts notable cost savings. By expanding the driver pool and fostering competition, operational costs are expected to drop by as much as 19%, a slight improvement over the previously estimated 18% reduction.
 
