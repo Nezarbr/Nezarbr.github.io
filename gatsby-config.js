@@ -10,7 +10,7 @@ module.exports = {
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     about: `
         I’m Nezar, a Data Scientist in Paris working on LLM and NLP systems in production. I hold an engineering degree in Applied Mathematics and Computer Science from Polytech Sorbonne.
-        I scope, build and own production LLM pipelines on Databricks and PySpark, and I evaluate models against hand-annotated benchmarks rather than spot-checks. I care about metrics that hold up when someone recomputes them.
+        I scope, build and own production LLM pipelines on Databricks and PySpark, evaluating models against hand-annotated benchmarks rather than spot-checks. Beyond that my work spans retrieval-augmented QA, fraud detection under extreme class imbalance, recommender systems, and time-series forecasting.
         In my free time, I enjoy long-distance running, traveling, and discovering new places, always on the lookout for fresh challenges to learn and grow.
     `,
     projects: [
