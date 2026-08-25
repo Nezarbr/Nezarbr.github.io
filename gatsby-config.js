@@ -4,16 +4,24 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://nezarbr.github.io/`,
     name: 'Nezar Boujida',
-    title: `Nezar Boujida | Data Scientist`,
+    title: `Nezar Boujida | Freelance AI Engineer`,
+    description: `Freelance AI Engineer · LLM Systems & RAG · Production ML on Databricks`,
     author: 'Nezar Boujida',
     github: `https://github.com/Nezarbr`,
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     about: `
-        I’m Nezar, a Data Scientist in Paris working on LLM and NLP systems in production. I hold an engineering degree in Applied Mathematics and Computer Science from Polytech Sorbonne.
-        I scope, build and own production LLM pipelines on Databricks and PySpark, evaluating models against hand-annotated benchmarks rather than spot-checks. Beyond that my work spans retrieval-augmented QA, fraud detection under extreme class imbalance, recommender systems, and time-series forecasting.
+        I’m Nezar, a freelance AI engineer based in Paris and available remotely. I hold an engineering degree in Applied Mathematics and Computer Science from Polytech Sorbonne.
+        I scope, build and own production LLM systems: evaluation benchmarks, retrieval-augmented generation, and Spark-scale batch inference on Databricks. I am strongest on the unglamorous half of that work: deciding which model to trust, diagnosing why a classifier has stopped improving, and controlling what inference costs at volume.
+        Recent freelance work includes DeepOCT, a clinical decision-support application for diabetic macular edema built for the Faculty of Medicine and Pharmacy in Rabat and validated against expert ophthalmologists. Beyond that my work spans retrieval-augmented QA, fraud detection under extreme class imbalance, recommender systems, and time-series forecasting.
         In my free time, I enjoy long-distance running, traveling, and discovering new places, always on the lookout for fresh challenges to learn and grow.
     `,
     projects: [
+      {
+        name: "DeepOCT: Clinical Decision Support for Diabetic Macular Edema",
+        description:
+          "Built for the Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat. A convolutional neural network detects 8 OCT biomarkers on macular scans; a GPT-4o layer turns those detections into a diagnostic synthesis, treatment plan and anatomo-visual prognosis, behind a Flask web application with patient records and longitudinal follow-up. Validated against two expert ophthalmologists on 100 annotated eyes with 5-fold cross-validation, reaching 87% overall agreement with expert reading. The two biomarkers the model under-identified were deliberately left editable by the clinician rather than auto-applied. A study prototype, not a deployed clinical tool.",
+        link: "#"
+      },
       {
         name: "XGBoost for Ultra-Imbalanced Fraud Detection",
         description:
@@ -60,18 +68,13 @@ module.exports = {
     experience: [
       {
         name: 'Launchmetrics',
-        description: 'Data Scientist (CDI), September 2025 - Present',
+        description: 'AI Engineer, June 2024 - Present',
         link: 'https://www.launchmetrics.com/fr'
       },
       {
-        name: 'Launchmetrics',
-        description: 'Data Scientist Intern, February 2025 - August 2025',
-        link: 'https://www.launchmetrics.com/fr'
-      },
-      {
-        name: 'Launchmetrics',
-        description: 'Data Engineer Intern, June 2024 - January 2025',
-        link: 'https://www.launchmetrics.com/fr'
+        name: 'Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat',
+        description: 'Freelance AI Engineer, June 2024 - March 2025',
+        link: 'https://fmp.um5.ac.ma/'
       },
       {
         name: 'Hiflow',
@@ -90,7 +93,7 @@ module.exports = {
         description: 'Python, R, C, C++, SQL'
       },
       {
-        name: 'LLM and NLP',
+        name: 'LLM and AI Engineering',
         description:
           'LLM evaluation and benchmarking, RAG, fine-tuning (LoRA), prompt engineering, embeddings, text classification, topic modeling, NLI, Hugging Face Transformers'
       },
@@ -100,9 +103,9 @@ module.exports = {
           'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural Networks, Statistical Analysis (Scikit-learn, PyTorch)'
       },
       {
-        name: 'Data Engineering',
+        name: 'Data, Cloud and MLOps',
         description:
-          'ETL Processes, Workflow Automation, Performance Optimization (PySpark, Databricks, Delta Lake, AWS, Poetry, soda, pytest)'
+          'Batch ETL, workflow orchestration, data-quality testing, performance optimization (PySpark, Databricks, Delta Lake, AWS, Docker, Airflow, MLflow, Poetry, soda, pytest)'
       },
       {
         name: 'Data Visualization and Dashboards',
