@@ -5,21 +5,21 @@ module.exports = {
     siteUrl: `https://nezarbr.github.io/`,
     name: 'Nezar Boujida',
     title: `Nezar Boujida | Freelance AI Engineer`,
-    description: `Freelance AI Engineer · LLM Systems & RAG · Production ML on Databricks`,
+    description: `Freelance AI Engineer · LLM Systems, RAG & Evaluation`,
     author: 'Nezar Boujida',
     github: `https://github.com/Nezarbr`,
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     about: `
         I’m Nezar, a freelance AI engineer based in Paris and available remotely. I hold an engineering degree in Applied Mathematics and Computer Science from Polytech Sorbonne.
-        I scope, build and own production LLM systems: evaluation benchmarks, retrieval-augmented generation, and Spark-scale batch inference on Databricks. I am strongest on the unglamorous half of that work: deciding which model to trust, diagnosing why a classifier has stopped improving, and controlling what inference costs at volume.
-        Recent freelance work includes DeepOCT, a clinical decision-support application for diabetic macular edema built for the Faculty of Medicine and Pharmacy in Rabat and validated against expert ophthalmologists. Beyond that my work spans retrieval-augmented QA, fraud detection under extreme class imbalance, recommender systems, and time-series forecasting.
+        I specialise in LLM evaluation and inference cost. I build the measurement first: hand-annotated gold sets, LLM-as-judge, held-out benchmarks. I then use it to lift quality (67.8% to 90.4% F1 on a production classification task) and cut spend (72% less at equal quality) on pipelines processing over a million records a month.
+        Recent freelance work includes DeepOCT, a clinical decision-support application for diabetic macular edema built for the Faculty of Medicine and Pharmacy in Rabat and validated against expert ophthalmologists. Beyond that my work spans retrieval-augmented QA and cross-encoder reranker fine-tuning, fraud detection under extreme class imbalance, recommender systems, and time-series forecasting.
         In my free time, I enjoy long-distance running, traveling, and discovering new places, always on the lookout for fresh challenges to learn and grow.
     `,
     projects: [
       {
         name: "DeepOCT: Clinical Decision Support for Diabetic Macular Edema",
         description:
-          "Built for the Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat. A convolutional neural network detects 8 OCT biomarkers on macular scans; a GPT-4o layer turns those detections into a diagnostic synthesis, treatment plan and anatomo-visual prognosis, behind a Flask web application with patient records and longitudinal follow-up. Validated against two expert ophthalmologists on 100 annotated eyes with 5-fold cross-validation, reaching 87% overall agreement with expert reading. The two biomarkers the model under-identified were deliberately left editable by the clinician rather than auto-applied. A study prototype, not a deployed clinical tool.",
+          "Built for the Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat. OCT macular scans are denoised, then a self-hosted Qwen2-VL-72B extracts 8 biomarkers and a GPT-4o layer turns them into a diagnostic synthesis, treatment plan and anatomo-visual prognosis. Validated against two expert ophthalmologists on 100 annotated eyes, reaching 87% overall agreement with expert reading. The two biomarkers the model under-identified were deliberately left editable by the clinician rather than auto-applied. A study prototype, not a deployed clinical tool.",
         link: "#"
       },
       {
@@ -34,12 +34,14 @@ module.exports = {
           "Derived Cochran’s formula by inverting the margin-of-error equation—leveraging the Central Limit Theorem to compute required sample sizes for means and proportions at a given confidence level.",
         link: "/blog/my-second-article/"
       },
-      {
-        name: 'Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services',
-        description:
-          'Built and evaluated a two-tower recommender as an alternative to manual driver selection, shortlisting ~100 candidates per transport request from a 3,400-driver pool. Diagnosed attendance and regional bias as the cause of poor recommendation coverage (20% of drivers held 77% of historical requests), lifting the share of the pool surfaced from 9% to 40%.',
-        link: '/blog/my-fourth-blog/'
-      },
+      // DEACTIVATED 2026-10-30 at Nezar's request -- hidden from the site, not deleted.
+      // This is the Hiflow two-tower recommender entry. Un-comment to restore.
+      // {
+      //   name: 'Optimizing Automotive Logistics: Enhancing Efficiency in Vehicle Transportation Services',
+      //   description:
+      //     'Built and evaluated a two-tower recommender as an alternative to manual driver selection, shortlisting ~100 candidates per transport request from a 3,400-driver pool. Diagnosed attendance and regional bias as the cause of poor recommendation coverage (20% of drivers held 77% of historical requests), lifting the share of the pool surfaced from 9% to 40%.',
+      //   link: '/blog/my-fourth-blog/'
+      // },
       {
         name: "Traffic Modeling and Forecasting Using Sensor Data in Paris",
         description:
@@ -73,7 +75,7 @@ module.exports = {
       },
       {
         name: 'Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat',
-        description: 'Freelance AI Engineer, June 2024 - March 2025',
+        description: 'Freelance AI Engineer (part-time), June 2024 - March 2025',
         link: 'https://fmp.um5.ac.ma/'
       },
       {
@@ -89,23 +91,24 @@ module.exports = {
     ],
     skills: [
       {
-        name: 'Programming Languages',
-        description: 'Python, R, C, C++, SQL'
+        name: 'LLM and Agents',
+        description:
+          'LLM evaluation and benchmarking, LLM-as-judge, prompt optimisation, RAG, embeddings and vector search, agents and tool use, MCP, fine-tuning (LoRA), structured/JSON output, Hugging Face Transformers, LangChain'
       },
       {
-        name: 'LLM and AI Engineering',
+        name: 'Serving and Infrastructure',
         description:
-          'LLM evaluation and benchmarking, RAG, fine-tuning (LoRA), prompt engineering, embeddings, text classification, topic modeling, NLI, Hugging Face Transformers'
+          'vLLM, Docker, CI/CD with GitHub Actions, MLflow, AWS, RunPod'
       },
       {
-        name: 'Data Science and Machine Learning',
+        name: 'Data at Scale',
         description:
-          'Time Series Analysis, Predictive Modeling, Feature Engineering, Neural Networks, Statistical Analysis (Scikit-learn, PyTorch)'
+          'Python, SQL, PySpark, Databricks, Delta Lake, batch ETL'
       },
       {
-        name: 'Data, Cloud and MLOps',
+        name: 'Machine Learning',
         description:
-          'Batch ETL, workflow orchestration, data-quality testing, performance optimization (PySpark, Databricks, Delta Lake, AWS, Docker, Airflow, MLflow, Poetry, soda, pytest)'
+          'Classification, ranking and recommenders, time-series forecasting, model evaluation, A/B testing, PyTorch, scikit-learn'
       },
       {
         name: 'Data Visualization and Dashboards',
