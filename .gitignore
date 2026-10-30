@@ -1,2 +1,6 @@
 node_modules/
 .cache/
+
+# Sourcemaps embed the original JSX via `sourcesContent`, so publishing them serves the
+# whole of src/ to every visitor. gatsby-node.js stops them being generated.
+*.map

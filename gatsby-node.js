@@ -2,6 +2,16 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const fs = require('fs-extra');
 
+// No sourcemaps in the production bundle. Gatsby emits .js.map files by default, and they
+// embed `sourcesContent` - the complete original JSX - so the published site hands the
+// whole of src/ to anyone who opens one. Disabling devtool for the build stage stops them
+// being generated at all.
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({ devtool: false });
+  }
+};
+
 // Add static file handling
 exports.onPostBuild = async () => {
   try {
