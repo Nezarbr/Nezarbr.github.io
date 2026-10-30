@@ -17,6 +17,12 @@ module.exports = {
     `,
     projects: [
       {
+        name: "RAG Question-Answering on Natural Questions",
+        description:
+          "Open-domain QA over a self-built 19k-page / 469k-chunk Wikipedia corpus, cleaned by a 9-rule extraction pipeline that strips 51% of the raw text as boilerplate without ever cutting an answer span. Fine-tuned a 22M-parameter cross-encoder reranker on hard negatives mined by the retriever, lifting passage recall@5 from 69.1% to 81.1% and recall@10 from 79.8% to 88.6% on a held-out 1,626-question split, stratified by question type and grouped by page. Answers located inside tables are excluded, so the figures are not comparable to published NQ-Open numbers.",
+        link: "https://github.com/Nezarbr/natural-questions-rag"
+      },
+      {
         name: "DeepOCT: Clinical Decision Support for Diabetic Macular Edema",
         description:
           "Built for the Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat. OCT macular scans are denoised, then a self-hosted Qwen2-VL-72B extracts 8 biomarkers and a GPT-4o layer turns them into a diagnostic synthesis, treatment plan and anatomo-visual prognosis. Validated against two expert ophthalmologists on 100 annotated eyes, reaching 87% overall agreement with expert reading. The two biomarkers the model under-identified were deliberately left editable by the clinician rather than auto-applied. A study prototype, not a deployed clinical tool.",

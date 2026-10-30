@@ -12,18 +12,38 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
   }
 };
 
+// Posts whose frontmatter says `draft: true` are filtered out of every query, so no page
+// is built for them. Their ASSETS must be excluded here too: a blanket copy would leave
+// paper.pdf and the raw markdown publicly fetchable under /static/blog/<slug>/ while the
+// page itself is gone - hidden in the navigation, still downloadable by URL.
+const isDraft = (slug) => {
+  const md = path.join('./content/blog', slug, 'index.md');
+  if (!fs.existsSync(md)) return false;
+  const fm = fs.readFileSync(md, 'utf8').split('---')[1] || '';
+  return /^\s*draft:\s*true\s*$/m.test(fm);
+};
+
 // Add static file handling
 exports.onPostBuild = async () => {
   try {
     // Ensure static directory exists
     await fs.ensureDir('./public/static/blog');
-    
-    // Copy entire blog content
+
+    const drafts = fs.readdirSync('./content/blog').filter(isDraft);
+    if (drafts.length) {
+      console.log(`Skipping assets for draft posts: ${drafts.join(', ')}`);
+    }
+
+    // Copy blog content, minus the drafts
     await fs.copy(
       './content/blog',
-      './public/static/blog'
+      './public/static/blog',
+      {
+        filter: (src) =>
+          !drafts.some((slug) => src.includes(path.join('content', 'blog', slug))),
+      }
     );
-    
+
     console.log('Successfully copied static files');
   } catch (err) {
     console.error('Error copying static files:', err);
@@ -74,6 +94,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      draft: Boolean
     }
 
     type Fields {
@@ -91,6 +112,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
+          filter: { frontmatter: { draft: { ne: true } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {

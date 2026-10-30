@@ -1,6 +1,7 @@
 ---
 title: Optimizing Automotive Logistics Enhancing Efficiency in Vehicle Transportation Services
 date: '2024-04-11T12:00:00.00Z'
+draft: true
 description: 'In this post, I discuss a solution to improve vehicle transportation logistics, particularly focusing on optimizing the driver assignment process. Logistics services face challenges such as a narrow driver pool and time-consuming manual matching when no drivers are available. To address these, I built and evaluated a two-tower recommender that shortlists ~100 candidates per transport request from a 3 400-driver pool. Offline, it lifts the share of the pool surfaced from 9% to 40%. Note that the cost figures below are model-based projections, not measured outcomes — nothing was deployed to production.'
 ---
 
