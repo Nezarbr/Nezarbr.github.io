@@ -5,14 +5,14 @@ module.exports = {
     siteUrl: `https://nezarbr.github.io/`,
     name: 'Nezar Boujida',
     title: `Nezar Boujida | Freelance AI Engineer`,
-    description: `Freelance AI Engineer · LLM Systems, RAG & Evaluation`,
+    description: `AI Engineer · LLM Systems, RAG & Evaluation`,
     author: 'Nezar Boujida',
     github: `https://github.com/Nezarbr`,
     linkedin: `https://www.linkedin.com/in/nezar-boujida/`,
     about: `
-        I’m Nezar, a freelance AI engineer based in Paris and available remotely. I hold an engineering degree in Applied Mathematics and Computer Science from Polytech Sorbonne.
-        I specialise in LLM evaluation and inference cost. I build the measurement first: hand-annotated gold sets, LLM-as-judge, held-out benchmarks. I then use it to lift quality (67.8% to 90.4% F1 on a production classification task) and cut spend (72% less at equal quality) on pipelines processing over a million records a month.
-        Recent freelance work includes DeepOCT, a clinical decision-support application for diabetic macular edema built for the Faculty of Medicine and Pharmacy in Rabat and validated against expert ophthalmologists. Beyond that my work spans retrieval-augmented QA and cross-encoder reranker fine-tuning, fraud detection under extreme class imbalance, recommender systems, and time-series forecasting.
+        I’m Nezar, an AI engineer based in Paris and available remotely. I hold an engineering degree in Applied Mathematics and Computer Science from Polytech Sorbonne.
+        I’m interested in LLMs, especially in how to measure whether they work and how to run them at a sensible cost. My work centres on LLM evaluation, prompt optimisation and retrieval.
+        I have also worked on DeepOCT, a clinical decision-support application for diabetic macular edema, as well as reranker fine-tuning, fraud detection, recommender systems and time-series forecasting.
         In my free time, I enjoy long-distance running, traveling, and discovering new places, always on the lookout for fresh challenges to learn and grow.
     `,
     projects: [
