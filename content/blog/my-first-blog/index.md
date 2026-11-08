@@ -1,6 +1,7 @@
 ---
 title: Parallelization Strategies for Numerical Simulation of Heat Transfer in CPU Heatsinks
 date: '2023-11-23T12:00:00.00Z'
+draft: true
 description: 'In this post, I share insights from my research on parallelizing simulations for CPU heatsink heat transfer. I explored two parallelization techniques—1D slicing along the Z-axis and 2D slicing along the Z and Y axes—to efficiently model heat dissipation in a 3D grid structure. By leveraging MPI for communication between processors and implementing non-blocking communication, I significantly improved performance, achieving up to 5.63x speedup with 32 processors. This study highlights the effectiveness of optimized computational strategies in reducing simulation time while maintaining accuracy.'
 ---
 

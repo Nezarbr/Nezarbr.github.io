@@ -1,6 +1,7 @@
 ---
 title: Enhancing Execution Speed of White Noise Generation through Parallelization and Vectorization
 date: '2024-01-11T12:00:00.00Z'
+draft: true
 description: 'In this post, I discuss the optimization of white noise generation and FFT processing using parallelization with OpenMP and vectorization with AVX2 instructions. White noise generation and FFT operations are computationally intensive, especially when processing large datasets. The initial sequential code took 70 seconds to execute. By applying parallelization and vectorization techniques, I reduced the execution time to 10 seconds, achieving a 7x speedup. This study demonstrates how combining multi-core and SIMD optimizations can significantly improve computational efficiency in FFT-based tasks.'
 ---
 
