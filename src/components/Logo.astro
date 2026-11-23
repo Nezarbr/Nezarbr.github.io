@@ -1,0 +1,15 @@
+---
+import { SITE } from 'astrowind:config';
+---
+
+<span class="self-center inline-flex items-center gap-2 whitespace-nowrap">
+  <svg viewBox="0 0 100 100" class="w-7 h-7 md:w-6 md:h-6 flex-shrink-0" role="img" aria-label={SITE?.name}>
+    <rect x="2" y="2" width="96" height="96" rx="23" fill="#ffffff" stroke="#e2e2ec" stroke-width="2"></rect>
+    <polygon points="30,28 43,28 70,72 57,72" fill="#9ba6cb"></polygon>
+    <rect x="30" y="28" width="13" height="44" fill="#4f5d92"></rect>
+    <rect x="57" y="28" width="13" height="44" fill="#4f5d92"></rect>
+  </svg>
+  <span class="text-2xl md:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+    {SITE?.name}
+  </span>
+</span>

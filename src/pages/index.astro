@@ -1,0 +1,171 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Nezar Boujida | Data Scientist',
+  ignoreTitleTemplate: true,
+};
+
+const github = 'https://github.com/Nezarbr';
+const linkedin = 'https://www.linkedin.com/in/nezar-boujida/';
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    id="about"
+    tagline="Data Scientist · Machine Learning, Statistics & NLP"
+    actions={[
+      { variant: 'primary', text: 'Projects', href: '#projects' },
+      { text: 'GitHub', href: github, target: '_blank', icon: 'tabler:brand-github' },
+      { text: 'LinkedIn', href: linkedin, target: '_blank', icon: 'tabler:brand-linkedin' },
+    ]}
+  >
+    <Fragment slot="title">Nezar Boujida</Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="block mb-4">
+        I’m Nezar, a data scientist based in Paris and available remotely, with an engineering degree in Applied
+        Mathematics and Computer Science from Polytech Sorbonne.
+      </span>
+      <span class="block mb-4">
+        I work across luxury &amp; fashion analytics, healthcare and logistics, building classification, forecasting,
+        recommendation and fraud-detection models, as well as NLP and LLM systems, from exploration to production. What
+        interests me most is evaluation: knowing how well a model really performs before anyone relies on it, and having
+        the statistics to back it up.
+      </span>
+      <span class="block">
+        In my free time, I enjoy long-distance running, traveling, and discovering new places, always on the lookout for
+        fresh challenges to learn and grow.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <Features
+    id="projects"
+    tagline="Projects"
+    title="Selected work"
+    columns={2}
+    defaultIcon="tabler:point"
+    items={[
+      {
+        title: 'XGBoost for Ultra-Imbalanced Fraud Detection',
+        description:
+          'Ranks 587,299 anonymized card transactions by fraud risk for a manual review queue, at 0.24% fraud prevalence. Temporal, geographic and K-means currency risk-bucket features; surfaces fraud 167x better than chance (Average Precision 0.672 against a 0.0040 prevalence baseline) on a chronologically held-out December.',
+        icon: 'tabler:shield-search',
+        callToAction: { text: 'Read the post', href: '/blog/fraud-detection-xgboost-imbalanced-data' },
+      },
+      {
+        title: 'NQ Answer Retrieval',
+        description:
+          "A retrieve-then-rerank system for open-domain questions from Google's Natural Questions. On 5,712 held-out questions it puts a correct answer in the top 10 passages 91% of the time, up from 77%.",
+        icon: 'tabler:file-search',
+        callToAction: { text: 'Project page', href: '/projects/nq-open-rag' },
+      },
+      {
+        title: 'DeepOCT: Clinical Decision Support for Diabetic Macular Edema',
+        description:
+          'Built for the Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat. OCT macular scans are denoised, then a self-hosted Qwen2-VL-72B extracts 8 biomarkers and a GPT-4o layer turns them into a diagnostic synthesis, treatment plan and anatomo-visual prognosis. Validated against two expert ophthalmologists on 100 annotated eyes, reaching 91.7% weighted F1 on biomarker detection and 87% overall agreement with expert reading. The two biomarkers the model under-identified were deliberately left editable by the clinician rather than auto-applied. A study prototype, not a deployed clinical tool.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: "Derivation of Cochran's Formula for Sample Size Determination",
+        description:
+          'Derived Cochran’s formula by inverting the margin-of-error equation—leveraging the Central Limit Theorem to compute required sample sizes for means and proportions at a given confidence level.',
+        icon: 'tabler:math-function',
+        callToAction: { text: 'Read the post', href: '/blog/cochran-sample-size-formula' },
+      },
+      {
+        title: 'Ride-Hailing Trends in New York City: Uber, Lyft, and Via Operations Analysis',
+        description:
+          'Analyzed fare pricing, demand patterns, and borough-specific dynamics of Uber, Lyft, and Via in NYC using trip data from January to May 2021, uncovering insights into the competitive landscape and operational challenges.',
+        icon: 'tabler:car',
+        callToAction: { text: 'Read the post', href: '/blog/nyc-ride-hailing-analysis' },
+      },
+      {
+        title: 'Traffic Modeling and Forecasting Using Sensor Data in Paris',
+        description:
+          'Analyzed traffic patterns from 3,500 sensors in Paris to identify congestion trends and relationships between vehicle flow and road occupancy, with plans to build forecasting models and account for geographical dependencies.',
+        icon: 'tabler:traffic-lights',
+      },
+    ]}
+  />
+
+  <Steps
+    id="experience"
+    title="Experience"
+    items={[
+      {
+        title: `<a href="https://www.launchmetrics.com/fr" target="_blank" rel="noopener" class="hover:underline">Launchmetrics</a> <br /> <span class="font-normal">Data Scientist, June 2024 - Present</span>`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: `<a href="https://fmp.um5.ac.ma/" target="_blank" rel="noopener" class="hover:underline">Faculty of Medicine and Pharmacy (CHU Ibn Sina), Rabat</a> <br /> <span class="font-normal">Freelance Data Scientist (part-time), June 2024 - March 2025</span>`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: `<a href="https://www.hiflow.com/fr-fr" target="_blank" rel="noopener" class="hover:underline">Hiflow</a> <br /> <span class="font-normal">Machine Learning Engineer Intern, September 2023 - April 2024</span>`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: `<a href="https://www.datategy.net/" target="_blank" rel="noopener" class="hover:underline">Datategy</a> <br /> <span class="font-normal">Data Scientist Intern, June 2023 - September 2023</span>`,
+        icon: 'tabler:briefcase',
+      },
+    ]}
+  />
+
+  <Features
+    id="skills"
+    tagline="Skills"
+    title="What I work with"
+    columns={3}
+    defaultIcon="tabler:point"
+    items={[
+      {
+        title: 'Machine Learning',
+        description:
+          'Classification, regression, clustering (k-means), time-series forecasting, recommender systems, fraud detection and risk scoring, imbalanced learning, deep learning, computer vision, scikit-learn, XGBoost, PyTorch',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Statistics and Evaluation',
+        description:
+          'Statistical inference, confidence intervals, sample-size analysis, hypothesis testing, A/B testing, model evaluation, inter-annotator agreement',
+        icon: 'tabler:chart-histogram',
+      },
+      {
+        title: 'Data and SQL',
+        description: 'Python, SQL, pandas, PySpark, Databricks, Delta Lake, BigQuery, batch ETL',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'NLP and LLMs',
+        description:
+          'Text classification, LLM evaluation, LLM-as-judge, prompt optimisation, LLM agents, RAG, embeddings and vector search, Hugging Face Transformers, LangChain',
+        icon: 'tabler:message-chatbot',
+      },
+      {
+        title: 'Data Visualization and BI',
+        description: 'Tableau, Apache Superset, Metabase, Plotly, Dash, Seaborn, Matplotlib, Folium',
+        icon: 'tabler:chart-dots',
+      },
+      {
+        title: 'MLOps and Tools',
+        description: 'MLflow, Git, Docker, CI/CD with GitHub Actions, AWS',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Soft Skills',
+        description:
+          'Problem Solving, Teamwork, Adaptability, Time Management, Communication, Research, Critical Thinking',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+  <BlogLatestPosts id="blog" title="Writing" linkText="All posts" count={4} />
+</Layout>

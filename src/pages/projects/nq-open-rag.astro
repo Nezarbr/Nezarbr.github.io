@@ -1,0 +1,367 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'NQ Answer Retrieval',
+  description:
+    'Retrieve-then-rerank over 2M Wikipedia passages: 91.0% answer-hit@10 on held-out Natural Questions, without training the retriever on NQ.',
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="nq">
+    <p class="sans note" style="margin:0 0 8px">Project · Information retrieval · November 2026</p>
+    <h1>Finding the answer in 2 million passages, without training the retriever on the test domain</h1>
+    <p class="lede">
+      A retrieve-then-rerank system for open-domain questions from Google's Natural Questions. On 5,712 held-out
+      questions it puts a correct answer in the top 10 passages 91% of the time, up from 77%.
+    </p>
+
+    <div class="kpis">
+      <div class="kpi"><b>91.0%</b><span>answer in top 10 (test; 95% CI 90.2–91.7)</span></div>
+      <div class="kpi"><b>95.4%</b><span>answer in top 100 after the first stage</span></div>
+      <div class="kpi"><b>+7.0 pts</b><span>gained by removing duplicate passages alone</span></div>
+      <div class="kpi"><b>6 min</b><span>of GPU fine-tuning for the 22M-parameter reranker</span></div>
+    </div>
+
+    <div class="links">
+      <a href="/projects/nq-open-rag/paper.pdf">Paper (PDF)</a>
+      <a target="_blank" rel="noopener" href="https://huggingface.co/NezarIn/nq-open-minilm-reranker"
+        >Model on Hugging Face</a
+      >
+      <a target="_blank" rel="noopener" href="https://github.com/Nezarbr/nq-open-demo">Serving code</a>
+      <span>Live demo: on request</span>
+    </div>
+
+    <h2>The problem</h2>
+    <p>
+      A question-answering system first has to <em>find</em> the passage that contains the answer. If retrieval misses, nothing
+      downstream can recover. The usual Natural Questions benchmarks use retrievers trained on Natural Questions itself. I
+      set a stricter rule: the first stage may only use models with no documented Natural Questions training data. That is
+      closer to what happens when you point retrieval at a new company's documents.
+    </p>
+    <p>
+      The corpus is the 93,461 Wikipedia page snapshots behind 100,000 NQ questions, cut into 3.2 million chunks.
+      Questions are split by row into development (used for every decision) and test (only evaluated, never tuned on).
+      The official validation set is a second check.
+    </p>
+
+    <h2>How a question is answered</h2>
+    <div class="pipe" aria-label="pipeline">
+      <div>Question</div><i>→</i>
+      <div>Dense search<small>contriever-msmarco, top 500</small></div><i>+</i>
+      <div>Keyword search<small>BM25, top 500</small></div><i>→</i>
+      <div>Rank fusion<small>RRF, k=60, BM25 weight 0.5</small></div><i>→</i>
+      <div>Drop duplicates<small>keep top 50</small></div><i>→</i>
+      <div>Rerank<small>fine-tuned MiniLM</small></div><i>→</i>
+      <div>Top 10</div>
+    </div>
+
+    <h2>Results, stage by stage</h2>
+    <p class="note">
+      Answer-hit@10: share of test questions (n = 5,712) where a gold short answer appears in at least one of the top 10
+      passages. Intervals are 95% Wilson intervals.
+    </p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Stage</th><th class="barcell"></th><th>hit@10</th><th>95% CI</th></tr></thead>
+        <tbody>
+          <tr
+            ><td>Hybrid retrieval (dense + BM25)</td><td class="barcell"><div class="bar" style="width:77.2%"></div></td
+            ><td class="n">77.2</td><td class="n">76.1–78.3</td></tr
+          >
+          <tr
+            ><td>+ duplicate removal</td><td class="barcell"><div class="bar" style="width:84.2%"></div></td><td
+              class="n">84.2</td
+            ><td class="n">83.2–85.1</td></tr
+          >
+          <tr
+            ><td>+ ColBERTv2, off the shelf</td><td class="barcell"><div class="bar" style="width:88.4%"></div></td><td
+              class="n">88.4</td
+            ><td class="n">87.5–89.2</td></tr
+          >
+          <tr
+            ><td>+ MiniLM cross-encoder, off the shelf</td><td class="barcell"
+              ><div class="bar" style="width:88.4%"></div></td
+            ><td class="n">88.4</td><td class="n">87.6–89.2</td></tr
+          >
+          <tr class="best"
+            ><td>+ MiniLM, fine-tuned</td><td class="barcell"><div class="bar" style="width:91%"></div></td><td
+              class="n">91.0</td
+            ><td class="n">90.2–91.7</td></tr
+          >
+        </tbody>
+      </table>
+    </div>
+    <p class="note">On the official validation split (n = 3,608), the final system scores 91.7 (90.7–92.5).</p>
+
+    <h2>What I learned</h2>
+    <ol>
+      <li>
+        <strong>Duplicates were the cheapest win.</strong> 37.8% of the chunks were exact copies, mostly repeated revisions
+        of the same article. Removing them freed 43% of the candidate slots and added 7 points without touching a model.
+      </li>
+      <li>
+        <strong>Recall at 100 was already high; ordering was the bottleneck.</strong> The answer was in the top 100 for 95.4%
+        of questions but in the top 10 for only 77%, so the effort went into reranking.
+      </li>
+      <li>
+        <strong>Deeper candidate pools did not help.</strong> Reranking 50, 100, 200 or 500 candidates gave the same top-10
+        accuracy on development questions, so the system reranks 50.
+      </li>
+      <li>
+        <strong>Two very different off-the-shelf rerankers tied at 88.4.</strong> A few minutes of fine-tuning on training
+        questions broke the tie. The biggest gain came at rank 1 (+9.6 points), and table answers improved most.
+      </li>
+      <li>
+        <strong>Approximate search is nearly free on accuracy.</strong> An HNSW index answers in about 1 ms instead of 261
+        ms for a 0.7-point loss at hit@100. In the deployed app the reranker dominates latency, so exact search stays.
+      </li>
+    </ol>
+
+    <h2>Deployment</h2>
+    <ul>
+      <li>
+        <strong>Docker image built by GitHub Actions</strong> on every push, after a secret scan and an end-to-end test with
+        the real models.
+      </li>
+      <li>
+        <strong>Data on a network volume</strong> (1.99M passages, vectors and keyword index), mounted read-only. <strong
+          >Compute on demand:</strong
+        > a CPU instance that exists only while a demo runs and shuts itself down after three hours.
+      </li>
+      <li>
+        <strong>Deployed equals evaluated.</strong> On 500 test questions, the live code scored 92.2 against 92.4 for the
+        evaluated system, with 98.6% per-question agreement.
+      </li>
+      <li>Latency on 8 CPU cores: 1.7 s median, 2.7 s at the 95th percentile, most of it in the reranker.</li>
+      <li>Access is password-protected; the demo is switched on only by me, on request.</li>
+    </ul>
+
+    <h2>Limits</h2>
+    <ul>
+      <li>The metric is string matching: a passage that mentions the answer by coincidence counts as a hit.</li>
+      <li>
+        The corpus is the pages behind 100k NQ questions, not all of Wikipedia, so the numbers are not comparable with
+        the standard 21M-passage benchmark.
+      </li>
+      <li>The reranker is fine-tuned on NQ training questions; only the first stage is NQ-free.</li>
+    </ul>
+
+    <footer>
+      Every number on this page comes from the locked run outputs described in the paper's appendix. Nezar Boujida,
+      2026.
+    </footer>
+  </div>
+</Layout>
+
+<style>
+  .nq {
+    --bg: #fbfaf7;
+    --fg: #1d1d1f;
+    --muted: #5f6368;
+    --line: #e3e1dc;
+    --card: #ffffff;
+    --accent: #2f5d8a;
+    --accent-soft: #e6eef6;
+    --bar: #9aa9b8;
+  }
+  .nq {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 16px 80px;
+    font:
+      17px/1.6 Georgia,
+      'Iowan Old Style',
+      serif;
+  }
+  h1,
+  h2,
+  h3,
+  .sans {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 0 0 12px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 48px 0 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+  .lede {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin: 0 0 28px;
+  }
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+  @media (min-width: 720px) {
+    .kpis {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .links span {
+    font:
+      600 14px -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    padding: 7px 14px;
+    border-radius: 999px;
+  }
+  .kpi {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .kpi b {
+    display: block;
+    font:
+      600 1.7rem/1.1 -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    color: var(--accent);
+  }
+  .kpi span {
+    font:
+      13px/1.35 -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    color: var(--muted);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 8px 0 0;
+  }
+  .links a {
+    font:
+      600 14px -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    text-decoration: none;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+  .pipe {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font:
+      14px/1.3 -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    margin: 16px 0;
+  }
+  .pipe div {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .pipe div small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .pipe i {
+    color: var(--muted);
+    font-style: normal;
+  }
+  .tbl {
+    overflow-x: auto;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font:
+      15px/1.4 -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 9px 8px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  td.n {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .barcell {
+    width: 34%;
+  }
+  .bar {
+    height: 10px;
+    border-radius: 5px;
+    background: var(--bar);
+  }
+  tr.best td {
+    font-weight: 600;
+  }
+  tr.best .bar {
+    background: var(--accent);
+  }
+  ol li,
+  ul li {
+    margin: 6px 0;
+  }
+  .note {
+    color: var(--muted);
+    font-size: 15px;
+  }
+  footer {
+    margin-top: 56px;
+    color: var(--muted);
+    font:
+      13px -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+  }
+  .nq h1 {
+    font-weight: 700;
+  }
+  .nq h2 {
+    font-weight: 700;
+  }
+  .nq ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+  }
+  .nq ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  .nq p {
+    margin: 0 0 1rem;
+  }
+</style>
